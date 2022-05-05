@@ -1,0 +1,4482 @@
+[
+  {
+    "year": 2013,
+    "country": "Algeria",
+    "pop": 38140135,
+    "pct_pop_elec_HREA": 91.19,
+    "pct_pop_elec_HREA_low": 89.95,
+    "pct_pop_elec_HREA_high": 92.12
+  },
+  {
+    "year": 2014,
+    "country": "Algeria",
+    "pop": 38923688,
+    "pct_pop_elec_HREA": 91.07,
+    "pct_pop_elec_HREA_low": 89.79,
+    "pct_pop_elec_HREA_high": 92
+  },
+  {
+    "year": 2015,
+    "country": "Algeria",
+    "pop": 39728020,
+    "pct_pop_elec_HREA": 91.58,
+    "pct_pop_elec_HREA_low": 90.46,
+    "pct_pop_elec_HREA_high": 92.45
+  },
+  {
+    "year": 2016,
+    "country": "Algeria",
+    "pop": 40551398,
+    "pct_pop_elec_HREA": 91.95,
+    "pct_pop_elec_HREA_low": 90.81,
+    "pct_pop_elec_HREA_high": 92.8
+  },
+  {
+    "year": 2017,
+    "country": "Algeria",
+    "pop": 41389174,
+    "pct_pop_elec_HREA": 91.45,
+    "pct_pop_elec_HREA_low": 90.25,
+    "pct_pop_elec_HREA_high": 92.31
+  },
+  {
+    "year": 2018,
+    "country": "Algeria",
+    "pop": 42228415,
+    "pct_pop_elec_HREA": 91.32,
+    "pct_pop_elec_HREA_low": 90.14,
+    "pct_pop_elec_HREA_high": 92.22
+  },
+  {
+    "year": 2019,
+    "country": "Algeria",
+    "pop": 43053054,
+    "pct_pop_elec_HREA": 91.37,
+    "pct_pop_elec_HREA_low": 90.22,
+    "pct_pop_elec_HREA_high": 92.26
+  },
+  {
+    "year": 2020,
+    "country": "Algeria",
+    "pop": 43851043,
+    "pct_pop_elec_HREA": 91.31,
+    "pct_pop_elec_HREA_low": 90.12,
+    "pct_pop_elec_HREA_high": 92.2
+  },
+  {
+    "year": 2013,
+    "country": "Angola",
+    "pop": 26015786,
+    "pct_pop_elec_HREA": 63.18,
+    "pct_pop_elec_HREA_low": 61.66,
+    "pct_pop_elec_HREA_high": 64.51
+  },
+  {
+    "year": 2014,
+    "country": "Angola",
+    "pop": 26941773,
+    "pct_pop_elec_HREA": 63.58,
+    "pct_pop_elec_HREA_low": 62.24,
+    "pct_pop_elec_HREA_high": 64.87
+  },
+  {
+    "year": 2015,
+    "country": "Angola",
+    "pop": 27884380,
+    "pct_pop_elec_HREA": 62.97,
+    "pct_pop_elec_HREA_low": 61.61,
+    "pct_pop_elec_HREA_high": 64.24
+  },
+  {
+    "year": 2016,
+    "country": "Angola",
+    "pop": 28842482,
+    "pct_pop_elec_HREA": 62.12,
+    "pct_pop_elec_HREA_low": 60.78,
+    "pct_pop_elec_HREA_high": 63.26
+  },
+  {
+    "year": 2017,
+    "country": "Angola",
+    "pop": 29816769,
+    "pct_pop_elec_HREA": 62.77,
+    "pct_pop_elec_HREA_low": 61.54,
+    "pct_pop_elec_HREA_high": 63.83
+  },
+  {
+    "year": 2018,
+    "country": "Angola",
+    "pop": 30809787,
+    "pct_pop_elec_HREA": 62.21,
+    "pct_pop_elec_HREA_low": 61.17,
+    "pct_pop_elec_HREA_high": 63.22
+  },
+  {
+    "year": 2019,
+    "country": "Angola",
+    "pop": 31825299,
+    "pct_pop_elec_HREA": 63,
+    "pct_pop_elec_HREA_low": 61.89,
+    "pct_pop_elec_HREA_high": 63.94
+  },
+  {
+    "year": 2020,
+    "country": "Angola",
+    "pop": 32866268,
+    "pct_pop_elec_HREA": 63.82,
+    "pct_pop_elec_HREA_low": 62.84,
+    "pct_pop_elec_HREA_high": 64.69
+  },
+  {
+    "year": 2013,
+    "country": "Bangladesh",
+    "pop": 152761413,
+    "pct_pop_elec_HREA": 66.32,
+    "pct_pop_elec_HREA_low": 60.69,
+    "pct_pop_elec_HREA_high": 70.53
+  },
+  {
+    "year": 2014,
+    "country": "Bangladesh",
+    "pop": 154517385,
+    "pct_pop_elec_HREA": 64.81,
+    "pct_pop_elec_HREA_low": 58.82,
+    "pct_pop_elec_HREA_high": 69.47
+  },
+  {
+    "year": 2015,
+    "country": "Bangladesh",
+    "pop": 156256287,
+    "pct_pop_elec_HREA": 66.14,
+    "pct_pop_elec_HREA_low": 60.07,
+    "pct_pop_elec_HREA_high": 70.82
+  },
+  {
+    "year": 2016,
+    "country": "Bangladesh",
+    "pop": 157977151,
+    "pct_pop_elec_HREA": 66.74,
+    "pct_pop_elec_HREA_low": 60.45,
+    "pct_pop_elec_HREA_high": 71.62
+  },
+  {
+    "year": 2017,
+    "country": "Bangladesh",
+    "pop": 159685421,
+    "pct_pop_elec_HREA": 68.16,
+    "pct_pop_elec_HREA_low": 61.59,
+    "pct_pop_elec_HREA_high": 73.22
+  },
+  {
+    "year": 2018,
+    "country": "Bangladesh",
+    "pop": 161376713,
+    "pct_pop_elec_HREA": 70.09,
+    "pct_pop_elec_HREA_low": 63.24,
+    "pct_pop_elec_HREA_high": 75.2
+  },
+  {
+    "year": 2019,
+    "country": "Bangladesh",
+    "pop": 163046173,
+    "pct_pop_elec_HREA": 72.99,
+    "pct_pop_elec_HREA_low": 65.9,
+    "pct_pop_elec_HREA_high": 78.13
+  },
+  {
+    "year": 2020,
+    "country": "Bangladesh",
+    "pop": 164689383,
+    "pct_pop_elec_HREA": 70.18,
+    "pct_pop_elec_HREA_low": 62.44,
+    "pct_pop_elec_HREA_high": 75.99
+  },
+  {
+    "year": 2013,
+    "country": "Benin",
+    "pop": 10004594,
+    "pct_pop_elec_HREA": 45.77,
+    "pct_pop_elec_HREA_low": 43.36,
+    "pct_pop_elec_HREA_high": 47.86
+  },
+  {
+    "year": 2014,
+    "country": "Benin",
+    "pop": 10286839,
+    "pct_pop_elec_HREA": 47.1,
+    "pct_pop_elec_HREA_low": 44.21,
+    "pct_pop_elec_HREA_high": 49.24
+  },
+  {
+    "year": 2015,
+    "country": "Benin",
+    "pop": 10575962,
+    "pct_pop_elec_HREA": 47.84,
+    "pct_pop_elec_HREA_low": 45.2,
+    "pct_pop_elec_HREA_high": 50.09
+  },
+  {
+    "year": 2016,
+    "country": "Benin",
+    "pop": 10872072,
+    "pct_pop_elec_HREA": 48.34,
+    "pct_pop_elec_HREA_low": 45.46,
+    "pct_pop_elec_HREA_high": 50.42
+  },
+  {
+    "year": 2017,
+    "country": "Benin",
+    "pop": 11175192,
+    "pct_pop_elec_HREA": 47.94,
+    "pct_pop_elec_HREA_low": 44.96,
+    "pct_pop_elec_HREA_high": 50.3
+  },
+  {
+    "year": 2018,
+    "country": "Benin",
+    "pop": 11485035,
+    "pct_pop_elec_HREA": 48.82,
+    "pct_pop_elec_HREA_low": 46.02,
+    "pct_pop_elec_HREA_high": 50.98
+  },
+  {
+    "year": 2019,
+    "country": "Benin",
+    "pop": 11801151,
+    "pct_pop_elec_HREA": 49.84,
+    "pct_pop_elec_HREA_low": 47.11,
+    "pct_pop_elec_HREA_high": 52.15
+  },
+  {
+    "year": 2020,
+    "country": "Benin",
+    "pop": 12123198,
+    "pct_pop_elec_HREA": 51.22,
+    "pct_pop_elec_HREA_low": 48.33,
+    "pct_pop_elec_HREA_high": 53.73
+  },
+  {
+    "year": 2013,
+    "country": "Bhutan",
+    "pop": 710235,
+    "pct_pop_elec_HREA": 51.33,
+    "pct_pop_elec_HREA_low": 47.75,
+    "pct_pop_elec_HREA_high": 55.08
+  },
+  {
+    "year": 2014,
+    "country": "Bhutan",
+    "pop": 719053,
+    "pct_pop_elec_HREA": 53.86,
+    "pct_pop_elec_HREA_low": 48.95,
+    "pct_pop_elec_HREA_high": 57.85
+  },
+  {
+    "year": 2015,
+    "country": "Bhutan",
+    "pop": 727885,
+    "pct_pop_elec_HREA": 53.75,
+    "pct_pop_elec_HREA_low": 48.6,
+    "pct_pop_elec_HREA_high": 58.25
+  },
+  {
+    "year": 2016,
+    "country": "Bhutan",
+    "pop": 736706,
+    "pct_pop_elec_HREA": 54.94,
+    "pct_pop_elec_HREA_low": 49.72,
+    "pct_pop_elec_HREA_high": 59.6
+  },
+  {
+    "year": 2017,
+    "country": "Bhutan",
+    "pop": 745563,
+    "pct_pop_elec_HREA": 53.9,
+    "pct_pop_elec_HREA_low": 48.7,
+    "pct_pop_elec_HREA_high": 58.45
+  },
+  {
+    "year": 2018,
+    "country": "Bhutan",
+    "pop": 754396,
+    "pct_pop_elec_HREA": 53.31,
+    "pct_pop_elec_HREA_low": 48.68,
+    "pct_pop_elec_HREA_high": 57.4
+  },
+  {
+    "year": 2019,
+    "country": "Bhutan",
+    "pop": 763094,
+    "pct_pop_elec_HREA": 54.88,
+    "pct_pop_elec_HREA_low": 50.11,
+    "pct_pop_elec_HREA_high": 58.76
+  },
+  {
+    "year": 2020,
+    "country": "Bhutan",
+    "pop": 771612,
+    "pct_pop_elec_HREA": 53.5,
+    "pct_pop_elec_HREA_low": 48.93,
+    "pct_pop_elec_HREA_high": 57.79
+  },
+  {
+    "year": 2013,
+    "country": "Botswana",
+    "pop": 2062551,
+    "pct_pop_elec_HREA": 60.98,
+    "pct_pop_elec_HREA_low": 58.45,
+    "pct_pop_elec_HREA_high": 62.98
+  },
+  {
+    "year": 2014,
+    "country": "Botswana",
+    "pop": 2088619,
+    "pct_pop_elec_HREA": 61.19,
+    "pct_pop_elec_HREA_low": 58.64,
+    "pct_pop_elec_HREA_high": 63.16
+  },
+  {
+    "year": 2015,
+    "country": "Botswana",
+    "pop": 2120716,
+    "pct_pop_elec_HREA": 62.67,
+    "pct_pop_elec_HREA_low": 59.89,
+    "pct_pop_elec_HREA_high": 64.62
+  },
+  {
+    "year": 2016,
+    "country": "Botswana",
+    "pop": 2159925,
+    "pct_pop_elec_HREA": 63.8,
+    "pct_pop_elec_HREA_low": 61.15,
+    "pct_pop_elec_HREA_high": 65.65
+  },
+  {
+    "year": 2017,
+    "country": "Botswana",
+    "pop": 2205076,
+    "pct_pop_elec_HREA": 63.98,
+    "pct_pop_elec_HREA_low": 61.4,
+    "pct_pop_elec_HREA_high": 65.82
+  },
+  {
+    "year": 2018,
+    "country": "Botswana",
+    "pop": 2254067,
+    "pct_pop_elec_HREA": 64.98,
+    "pct_pop_elec_HREA_low": 62.68,
+    "pct_pop_elec_HREA_high": 66.97
+  },
+  {
+    "year": 2019,
+    "country": "Botswana",
+    "pop": 2303703,
+    "pct_pop_elec_HREA": 66.9,
+    "pct_pop_elec_HREA_low": 64.6,
+    "pct_pop_elec_HREA_high": 68.75
+  },
+  {
+    "year": 2020,
+    "country": "Botswana",
+    "pop": 2351625,
+    "pct_pop_elec_HREA": 66.66,
+    "pct_pop_elec_HREA_low": 64.52,
+    "pct_pop_elec_HREA_high": 68.5
+  },
+  {
+    "year": 2013,
+    "country": "Burkina Faso",
+    "pop": 17072791,
+    "pct_pop_elec_HREA": 30.61,
+    "pct_pop_elec_HREA_low": 29.41,
+    "pct_pop_elec_HREA_high": 31.56
+  },
+  {
+    "year": 2014,
+    "country": "Burkina Faso",
+    "pop": 17586029,
+    "pct_pop_elec_HREA": 30.59,
+    "pct_pop_elec_HREA_low": 29.51,
+    "pct_pop_elec_HREA_high": 31.5
+  },
+  {
+    "year": 2015,
+    "country": "Burkina Faso",
+    "pop": 18110616,
+    "pct_pop_elec_HREA": 30.89,
+    "pct_pop_elec_HREA_low": 29.75,
+    "pct_pop_elec_HREA_high": 31.81
+  },
+  {
+    "year": 2016,
+    "country": "Burkina Faso",
+    "pop": 18646350,
+    "pct_pop_elec_HREA": 32.18,
+    "pct_pop_elec_HREA_low": 30.98,
+    "pct_pop_elec_HREA_high": 33.18
+  },
+  {
+    "year": 2017,
+    "country": "Burkina Faso",
+    "pop": 19193236,
+    "pct_pop_elec_HREA": 32.54,
+    "pct_pop_elec_HREA_low": 31.15,
+    "pct_pop_elec_HREA_high": 33.73
+  },
+  {
+    "year": 2018,
+    "country": "Burkina Faso",
+    "pop": 19751466,
+    "pct_pop_elec_HREA": 32.79,
+    "pct_pop_elec_HREA_low": 31.44,
+    "pct_pop_elec_HREA_high": 34.01
+  },
+  {
+    "year": 2019,
+    "country": "Burkina Faso",
+    "pop": 20321383,
+    "pct_pop_elec_HREA": 33.28,
+    "pct_pop_elec_HREA_low": 31.91,
+    "pct_pop_elec_HREA_high": 34.61
+  },
+  {
+    "year": 2020,
+    "country": "Burkina Faso",
+    "pop": 20903278,
+    "pct_pop_elec_HREA": 33.56,
+    "pct_pop_elec_HREA_low": 31.97,
+    "pct_pop_elec_HREA_high": 34.88
+  },
+  {
+    "year": 2013,
+    "country": "Burundi",
+    "pop": 9540302,
+    "pct_pop_elec_HREA": 12.54,
+    "pct_pop_elec_HREA_low": 11.3,
+    "pct_pop_elec_HREA_high": 13.74
+  },
+  {
+    "year": 2014,
+    "country": "Burundi",
+    "pop": 9844301,
+    "pct_pop_elec_HREA": 11.62,
+    "pct_pop_elec_HREA_low": 10.29,
+    "pct_pop_elec_HREA_high": 12.58
+  },
+  {
+    "year": 2015,
+    "country": "Burundi",
+    "pop": 10160034,
+    "pct_pop_elec_HREA": 13.2,
+    "pct_pop_elec_HREA_low": 11.77,
+    "pct_pop_elec_HREA_high": 14.49
+  },
+  {
+    "year": 2016,
+    "country": "Burundi",
+    "pop": 10488002,
+    "pct_pop_elec_HREA": 12.25,
+    "pct_pop_elec_HREA_low": 11.04,
+    "pct_pop_elec_HREA_high": 13.33
+  },
+  {
+    "year": 2017,
+    "country": "Burundi",
+    "pop": 10827010,
+    "pct_pop_elec_HREA": 10.01,
+    "pct_pop_elec_HREA_low": 8.98,
+    "pct_pop_elec_HREA_high": 10.82
+  },
+  {
+    "year": 2018,
+    "country": "Burundi",
+    "pop": 11175379,
+    "pct_pop_elec_HREA": 14.22,
+    "pct_pop_elec_HREA_low": 12.89,
+    "pct_pop_elec_HREA_high": 15.56
+  },
+  {
+    "year": 2019,
+    "country": "Burundi",
+    "pop": 11530577,
+    "pct_pop_elec_HREA": 14.13,
+    "pct_pop_elec_HREA_low": 12.8,
+    "pct_pop_elec_HREA_high": 15.53
+  },
+  {
+    "year": 2020,
+    "country": "Burundi",
+    "pop": 11890781,
+    "pct_pop_elec_HREA": 15.69,
+    "pct_pop_elec_HREA_low": 13.89,
+    "pct_pop_elec_HREA_high": 17.22
+  },
+  {
+    "year": 2013,
+    "country": "Cambodia",
+    "pop": 15026330,
+    "pct_pop_elec_HREA": 28.45,
+    "pct_pop_elec_HREA_low": 26.28,
+    "pct_pop_elec_HREA_high": 30.52
+  },
+  {
+    "year": 2014,
+    "country": "Cambodia",
+    "pop": 15274506,
+    "pct_pop_elec_HREA": 30.69,
+    "pct_pop_elec_HREA_low": 28.16,
+    "pct_pop_elec_HREA_high": 33.16
+  },
+  {
+    "year": 2015,
+    "country": "Cambodia",
+    "pop": 15521435,
+    "pct_pop_elec_HREA": 32.32,
+    "pct_pop_elec_HREA_low": 29.59,
+    "pct_pop_elec_HREA_high": 34.88
+  },
+  {
+    "year": 2016,
+    "country": "Cambodia",
+    "pop": 15766290,
+    "pct_pop_elec_HREA": 34.22,
+    "pct_pop_elec_HREA_low": 31.29,
+    "pct_pop_elec_HREA_high": 36.92
+  },
+  {
+    "year": 2017,
+    "country": "Cambodia",
+    "pop": 16009413,
+    "pct_pop_elec_HREA": 35.51,
+    "pct_pop_elec_HREA_low": 32.54,
+    "pct_pop_elec_HREA_high": 38.34
+  },
+  {
+    "year": 2018,
+    "country": "Cambodia",
+    "pop": 16249795,
+    "pct_pop_elec_HREA": 37.92,
+    "pct_pop_elec_HREA_low": 34.56,
+    "pct_pop_elec_HREA_high": 41.27
+  },
+  {
+    "year": 2019,
+    "country": "Cambodia",
+    "pop": 16486542,
+    "pct_pop_elec_HREA": 42.81,
+    "pct_pop_elec_HREA_low": 38.87,
+    "pct_pop_elec_HREA_high": 46.48
+  },
+  {
+    "year": 2020,
+    "country": "Cambodia",
+    "pop": 16718971,
+    "pct_pop_elec_HREA": 46.56,
+    "pct_pop_elec_HREA_low": 42,
+    "pct_pop_elec_HREA_high": 50.75
+  },
+  {
+    "year": 2013,
+    "country": "Cameroon",
+    "pop": 22077300,
+    "pct_pop_elec_HREA": 50.48,
+    "pct_pop_elec_HREA_low": 48.36,
+    "pct_pop_elec_HREA_high": 52.55
+  },
+  {
+    "year": 2014,
+    "country": "Cameroon",
+    "pop": 22681853,
+    "pct_pop_elec_HREA": 50.48,
+    "pct_pop_elec_HREA_low": 48.51,
+    "pct_pop_elec_HREA_high": 52.37
+  },
+  {
+    "year": 2015,
+    "country": "Cameroon",
+    "pop": 23298376,
+    "pct_pop_elec_HREA": 51.18,
+    "pct_pop_elec_HREA_low": 48.97,
+    "pct_pop_elec_HREA_high": 53.24
+  },
+  {
+    "year": 2016,
+    "country": "Cameroon",
+    "pop": 23926549,
+    "pct_pop_elec_HREA": 50.6,
+    "pct_pop_elec_HREA_low": 48.41,
+    "pct_pop_elec_HREA_high": 52.66
+  },
+  {
+    "year": 2017,
+    "country": "Cameroon",
+    "pop": 24566070,
+    "pct_pop_elec_HREA": 50.93,
+    "pct_pop_elec_HREA_low": 48.76,
+    "pct_pop_elec_HREA_high": 53.12
+  },
+  {
+    "year": 2018,
+    "country": "Cameroon",
+    "pop": 25216261,
+    "pct_pop_elec_HREA": 49.91,
+    "pct_pop_elec_HREA_low": 47.85,
+    "pct_pop_elec_HREA_high": 51.77
+  },
+  {
+    "year": 2019,
+    "country": "Cameroon",
+    "pop": 25876387,
+    "pct_pop_elec_HREA": 51.05,
+    "pct_pop_elec_HREA_low": 48.92,
+    "pct_pop_elec_HREA_high": 52.89
+  },
+  {
+    "year": 2020,
+    "country": "Cameroon",
+    "pop": 26545864,
+    "pct_pop_elec_HREA": 50.79,
+    "pct_pop_elec_HREA_low": 48.71,
+    "pct_pop_elec_HREA_high": 52.81
+  },
+  {
+    "year": 2013,
+    "country": "Cabo Verde",
+    "pop": 511740,
+    "pct_pop_elec_HREA": 73.91,
+    "pct_pop_elec_HREA_low": 66.92,
+    "pct_pop_elec_HREA_high": 76.94
+  },
+  {
+    "year": 2014,
+    "country": "Cabo Verde",
+    "pop": 518276,
+    "pct_pop_elec_HREA": 73.4,
+    "pct_pop_elec_HREA_low": 67.99,
+    "pct_pop_elec_HREA_high": 77.74
+  },
+  {
+    "year": 2015,
+    "country": "Cabo Verde",
+    "pop": 524740,
+    "pct_pop_elec_HREA": 73.61,
+    "pct_pop_elec_HREA_low": 69.12,
+    "pct_pop_elec_HREA_high": 77.92
+  },
+  {
+    "year": 2016,
+    "country": "Cabo Verde",
+    "pop": 531140,
+    "pct_pop_elec_HREA": 80.09,
+    "pct_pop_elec_HREA_low": 74.95,
+    "pct_pop_elec_HREA_high": 83.94
+  },
+  {
+    "year": 2017,
+    "country": "Cabo Verde",
+    "pop": 537499,
+    "pct_pop_elec_HREA": 84.14,
+    "pct_pop_elec_HREA_low": 79.28,
+    "pct_pop_elec_HREA_high": 87.43
+  },
+  {
+    "year": 2018,
+    "country": "Cabo Verde",
+    "pop": 543764,
+    "pct_pop_elec_HREA": 84.94,
+    "pct_pop_elec_HREA_low": 79.61,
+    "pct_pop_elec_HREA_high": 88.59
+  },
+  {
+    "year": 2019,
+    "country": "Cabo Verde",
+    "pop": 549936,
+    "pct_pop_elec_HREA": 87.98,
+    "pct_pop_elec_HREA_low": 84.51,
+    "pct_pop_elec_HREA_high": 90.62
+  },
+  {
+    "year": 2020,
+    "country": "Cabo Verde",
+    "pop": 555988,
+    "pct_pop_elec_HREA": 86.38,
+    "pct_pop_elec_HREA_low": 79.15,
+    "pct_pop_elec_HREA_high": 89.52
+  },
+  {
+    "year": 2013,
+    "country": "Central African Republic",
+    "pop": 4447945,
+    "pct_pop_elec_HREA": 21.6,
+    "pct_pop_elec_HREA_low": 20.92,
+    "pct_pop_elec_HREA_high": 22.22
+  },
+  {
+    "year": 2014,
+    "country": "Central African Republic",
+    "pop": 4464171,
+    "pct_pop_elec_HREA": 21.43,
+    "pct_pop_elec_HREA_low": 20.82,
+    "pct_pop_elec_HREA_high": 22.09
+  },
+  {
+    "year": 2015,
+    "country": "Central African Republic",
+    "pop": 4493171,
+    "pct_pop_elec_HREA": 21.96,
+    "pct_pop_elec_HREA_low": 21.35,
+    "pct_pop_elec_HREA_high": 22.74
+  },
+  {
+    "year": 2016,
+    "country": "Central African Republic",
+    "pop": 4537683,
+    "pct_pop_elec_HREA": 23.82,
+    "pct_pop_elec_HREA_low": 22.55,
+    "pct_pop_elec_HREA_high": 25.07
+  },
+  {
+    "year": 2017,
+    "country": "Central African Republic",
+    "pop": 4596023,
+    "pct_pop_elec_HREA": 24.09,
+    "pct_pop_elec_HREA_low": 22.83,
+    "pct_pop_elec_HREA_high": 25.03
+  },
+  {
+    "year": 2018,
+    "country": "Central African Republic",
+    "pop": 4666375,
+    "pct_pop_elec_HREA": 24.01,
+    "pct_pop_elec_HREA_low": 23.12,
+    "pct_pop_elec_HREA_high": 24.9
+  },
+  {
+    "year": 2019,
+    "country": "Central African Republic",
+    "pop": 4745179,
+    "pct_pop_elec_HREA": 24.31,
+    "pct_pop_elec_HREA_low": 23.07,
+    "pct_pop_elec_HREA_high": 25.19
+  },
+  {
+    "year": 2020,
+    "country": "Central African Republic",
+    "pop": 4829764,
+    "pct_pop_elec_HREA": 24.3,
+    "pct_pop_elec_HREA_low": 23.36,
+    "pct_pop_elec_HREA_high": 24.98
+  },
+  {
+    "year": 2013,
+    "country": "Chad",
+    "pop": 13220433,
+    "pct_pop_elec_HREA": 15.14,
+    "pct_pop_elec_HREA_low": 14.05,
+    "pct_pop_elec_HREA_high": 16.14
+  },
+  {
+    "year": 2014,
+    "country": "Chad",
+    "pop": 13663562,
+    "pct_pop_elec_HREA": 15.16,
+    "pct_pop_elec_HREA_low": 13.91,
+    "pct_pop_elec_HREA_high": 16.32
+  },
+  {
+    "year": 2015,
+    "country": "Chad",
+    "pop": 14110971,
+    "pct_pop_elec_HREA": 15.28,
+    "pct_pop_elec_HREA_low": 14.21,
+    "pct_pop_elec_HREA_high": 16.24
+  },
+  {
+    "year": 2016,
+    "country": "Chad",
+    "pop": 14561658,
+    "pct_pop_elec_HREA": 16.31,
+    "pct_pop_elec_HREA_low": 15.09,
+    "pct_pop_elec_HREA_high": 17.51
+  },
+  {
+    "year": 2017,
+    "country": "Chad",
+    "pop": 15016761,
+    "pct_pop_elec_HREA": 15.96,
+    "pct_pop_elec_HREA_low": 14.75,
+    "pct_pop_elec_HREA_high": 17.07
+  },
+  {
+    "year": 2018,
+    "country": "Chad",
+    "pop": 15477727,
+    "pct_pop_elec_HREA": 15.03,
+    "pct_pop_elec_HREA_low": 13.89,
+    "pct_pop_elec_HREA_high": 16.08
+  },
+  {
+    "year": 2019,
+    "country": "Chad",
+    "pop": 15946882,
+    "pct_pop_elec_HREA": 15,
+    "pct_pop_elec_HREA_low": 14.08,
+    "pct_pop_elec_HREA_high": 15.95
+  },
+  {
+    "year": 2020,
+    "country": "Chad",
+    "pop": 16425859,
+    "pct_pop_elec_HREA": 15.74,
+    "pct_pop_elec_HREA_low": 14.67,
+    "pct_pop_elec_HREA_high": 16.82
+  },
+  {
+    "year": 2013,
+    "country": "Comoros",
+    "pop": 741511,
+    "pct_pop_elec_HREA": 46.76,
+    "pct_pop_elec_HREA_low": 43.09,
+    "pct_pop_elec_HREA_high": 50.48
+  },
+  {
+    "year": 2014,
+    "country": "Comoros",
+    "pop": 759390,
+    "pct_pop_elec_HREA": 37.4,
+    "pct_pop_elec_HREA_low": 35.21,
+    "pct_pop_elec_HREA_high": 40.79
+  },
+  {
+    "year": 2015,
+    "country": "Comoros",
+    "pop": 777435,
+    "pct_pop_elec_HREA": 33.59,
+    "pct_pop_elec_HREA_low": 31.53,
+    "pct_pop_elec_HREA_high": 37.33
+  },
+  {
+    "year": 2016,
+    "country": "Comoros",
+    "pop": 795597,
+    "pct_pop_elec_HREA": 38.07,
+    "pct_pop_elec_HREA_low": 34.46,
+    "pct_pop_elec_HREA_high": 40.85
+  },
+  {
+    "year": 2017,
+    "country": "Comoros",
+    "pop": 813890,
+    "pct_pop_elec_HREA": 48.86,
+    "pct_pop_elec_HREA_low": 43.74,
+    "pct_pop_elec_HREA_high": 56.43
+  },
+  {
+    "year": 2018,
+    "country": "Comoros",
+    "pop": 832322,
+    "pct_pop_elec_HREA": 49.95,
+    "pct_pop_elec_HREA_low": 44.23,
+    "pct_pop_elec_HREA_high": 56.43
+  },
+  {
+    "year": 2019,
+    "country": "Comoros",
+    "pop": 850891,
+    "pct_pop_elec_HREA": 46.05,
+    "pct_pop_elec_HREA_low": 43.25,
+    "pct_pop_elec_HREA_high": 51.71
+  },
+  {
+    "year": 2020,
+    "country": "Comoros",
+    "pop": 869595,
+    "pct_pop_elec_HREA": 44.5,
+    "pct_pop_elec_HREA_low": 40.85,
+    "pct_pop_elec_HREA_high": 47.56
+  },
+  {
+    "year": 2013,
+    "country": "Congo",
+    "pop": 4622757,
+    "pct_pop_elec_HREA": 68.57,
+    "pct_pop_elec_HREA_low": 66.91,
+    "pct_pop_elec_HREA_high": 69.65
+  },
+  {
+    "year": 2014,
+    "country": "Congo",
+    "pop": 4736965,
+    "pct_pop_elec_HREA": 70.02,
+    "pct_pop_elec_HREA_low": 68.56,
+    "pct_pop_elec_HREA_high": 70.78
+  },
+  {
+    "year": 2015,
+    "country": "Congo",
+    "pop": 4856093,
+    "pct_pop_elec_HREA": 70,
+    "pct_pop_elec_HREA_low": 68.95,
+    "pct_pop_elec_HREA_high": 70.95
+  },
+  {
+    "year": 2016,
+    "country": "Congo",
+    "pop": 4980996,
+    "pct_pop_elec_HREA": 67.91,
+    "pct_pop_elec_HREA_low": 66.97,
+    "pct_pop_elec_HREA_high": 69.29
+  },
+  {
+    "year": 2017,
+    "country": "Congo",
+    "pop": 5110701,
+    "pct_pop_elec_HREA": 68.41,
+    "pct_pop_elec_HREA_low": 67.31,
+    "pct_pop_elec_HREA_high": 69.53
+  },
+  {
+    "year": 2018,
+    "country": "Congo",
+    "pop": 5244363,
+    "pct_pop_elec_HREA": 67.73,
+    "pct_pop_elec_HREA_low": 66.95,
+    "pct_pop_elec_HREA_high": 68.7
+  },
+  {
+    "year": 2020,
+    "country": "Congo",
+    "pop": 5518092,
+    "pct_pop_elec_HREA": 67.87,
+    "pct_pop_elec_HREA_low": 67.15,
+    "pct_pop_elec_HREA_high": 68.45
+  },
+  {
+    "year": 2013,
+    "country": "Democratic Republic of the Congo",
+    "pop": 71358804,
+    "pct_pop_elec_HREA": 26.75,
+    "pct_pop_elec_HREA_low": 25.04,
+    "pct_pop_elec_HREA_high": 28.24
+  },
+  {
+    "year": 2014,
+    "country": "Democratic Republic of the Congo",
+    "pop": 73767445,
+    "pct_pop_elec_HREA": 26.01,
+    "pct_pop_elec_HREA_low": 24.35,
+    "pct_pop_elec_HREA_high": 27.49
+  },
+  {
+    "year": 2015,
+    "country": "Democratic Republic of the Congo",
+    "pop": 76244532,
+    "pct_pop_elec_HREA": 25.89,
+    "pct_pop_elec_HREA_low": 24.27,
+    "pct_pop_elec_HREA_high": 27.42
+  },
+  {
+    "year": 2016,
+    "country": "Democratic Republic of the Congo",
+    "pop": 78789130,
+    "pct_pop_elec_HREA": 27.09,
+    "pct_pop_elec_HREA_low": 25.38,
+    "pct_pop_elec_HREA_high": 28.64
+  },
+  {
+    "year": 2017,
+    "country": "Democratic Republic of the Congo",
+    "pop": 81398765,
+    "pct_pop_elec_HREA": 26.94,
+    "pct_pop_elec_HREA_low": 25.32,
+    "pct_pop_elec_HREA_high": 28.47
+  },
+  {
+    "year": 2018,
+    "country": "Democratic Republic of the Congo",
+    "pop": 84068092,
+    "pct_pop_elec_HREA": 26.21,
+    "pct_pop_elec_HREA_low": 24.7,
+    "pct_pop_elec_HREA_high": 27.51
+  },
+  {
+    "year": 2019,
+    "country": "Democratic Republic of the Congo",
+    "pop": 86790568,
+    "pct_pop_elec_HREA": 25.98,
+    "pct_pop_elec_HREA_low": 24.53,
+    "pct_pop_elec_HREA_high": 27.26
+  },
+  {
+    "year": 2020,
+    "country": "Democratic Republic of the Congo",
+    "pop": 89561404,
+    "pct_pop_elec_HREA": 26.85,
+    "pct_pop_elec_HREA_low": 25.47,
+    "pct_pop_elec_HREA_high": 28.2
+  },
+  {
+    "year": 2013,
+    "country": "Djibouti",
+    "pop": 883296,
+    "pct_pop_elec_HREA": 74.79,
+    "pct_pop_elec_HREA_low": 74.01,
+    "pct_pop_elec_HREA_high": 75.27
+  },
+  {
+    "year": 2014,
+    "country": "Djibouti",
+    "pop": 898707,
+    "pct_pop_elec_HREA": 75.59,
+    "pct_pop_elec_HREA_low": 75.23,
+    "pct_pop_elec_HREA_high": 76.48
+  },
+  {
+    "year": 2015,
+    "country": "Djibouti",
+    "pop": 913998,
+    "pct_pop_elec_HREA": 76.35,
+    "pct_pop_elec_HREA_low": 75.92,
+    "pct_pop_elec_HREA_high": 76.99
+  },
+  {
+    "year": 2016,
+    "country": "Djibouti",
+    "pop": 929117,
+    "pct_pop_elec_HREA": 77.67,
+    "pct_pop_elec_HREA_low": 76.94,
+    "pct_pop_elec_HREA_high": 78.15
+  },
+  {
+    "year": 2017,
+    "country": "Djibouti",
+    "pop": 944100,
+    "pct_pop_elec_HREA": 78.5,
+    "pct_pop_elec_HREA_low": 77.75,
+    "pct_pop_elec_HREA_high": 78.87
+  },
+  {
+    "year": 2018,
+    "country": "Djibouti",
+    "pop": 958923,
+    "pct_pop_elec_HREA": 80.03,
+    "pct_pop_elec_HREA_low": 79.56,
+    "pct_pop_elec_HREA_high": 80.69
+  },
+  {
+    "year": 2019,
+    "country": "Djibouti",
+    "pop": 973557,
+    "pct_pop_elec_HREA": 81.84,
+    "pct_pop_elec_HREA_low": 80.53,
+    "pct_pop_elec_HREA_high": 83.1
+  },
+  {
+    "year": 2020,
+    "country": "Djibouti",
+    "pop": 988002,
+    "pct_pop_elec_HREA": 82.59,
+    "pct_pop_elec_HREA_low": 81.3,
+    "pct_pop_elec_HREA_high": 83.9
+  },
+  {
+    "year": 2013,
+    "country": "Ecuador",
+    "pop": 15707473,
+    "pct_pop_elec_HREA": 91.06,
+    "pct_pop_elec_HREA_low": 89.2,
+    "pct_pop_elec_HREA_high": 92.49
+  },
+  {
+    "year": 2014,
+    "country": "Ecuador",
+    "pop": 15951832,
+    "pct_pop_elec_HREA": 91.58,
+    "pct_pop_elec_HREA_low": 89.85,
+    "pct_pop_elec_HREA_high": 92.87
+  },
+  {
+    "year": 2015,
+    "country": "Ecuador",
+    "pop": 16212022,
+    "pct_pop_elec_HREA": 91.11,
+    "pct_pop_elec_HREA_low": 89.42,
+    "pct_pop_elec_HREA_high": 92.38
+  },
+  {
+    "year": 2016,
+    "country": "Ecuador",
+    "pop": 16491116,
+    "pct_pop_elec_HREA": 91.47,
+    "pct_pop_elec_HREA_low": 89.89,
+    "pct_pop_elec_HREA_high": 92.67
+  },
+  {
+    "year": 2017,
+    "country": "Ecuador",
+    "pop": 16785356,
+    "pct_pop_elec_HREA": 91.67,
+    "pct_pop_elec_HREA_low": 90.04,
+    "pct_pop_elec_HREA_high": 92.87
+  },
+  {
+    "year": 2018,
+    "country": "Ecuador",
+    "pop": 17084359,
+    "pct_pop_elec_HREA": 90.13,
+    "pct_pop_elec_HREA_low": 88.46,
+    "pct_pop_elec_HREA_high": 91.38
+  },
+  {
+    "year": 2019,
+    "country": "Ecuador",
+    "pop": 17373657,
+    "pct_pop_elec_HREA": 93.17,
+    "pct_pop_elec_HREA_low": 91.83,
+    "pct_pop_elec_HREA_high": 94.14
+  },
+  {
+    "year": 2020,
+    "country": "Ecuador",
+    "pop": 17643060,
+    "pct_pop_elec_HREA": 93.02,
+    "pct_pop_elec_HREA_low": 91.67,
+    "pct_pop_elec_HREA_high": 93.99
+  },
+  {
+    "year": 2013,
+    "country": "Egypt",
+    "pop": 88404652,
+    "pct_pop_elec_HREA": 99.07,
+    "pct_pop_elec_HREA_low": 98.84,
+    "pct_pop_elec_HREA_high": 99.21
+  },
+  {
+    "year": 2014,
+    "country": "Egypt",
+    "pop": 90424668,
+    "pct_pop_elec_HREA": 99.02,
+    "pct_pop_elec_HREA_low": 98.76,
+    "pct_pop_elec_HREA_high": 99.19
+  },
+  {
+    "year": 2015,
+    "country": "Egypt",
+    "pop": 92442549,
+    "pct_pop_elec_HREA": 99,
+    "pct_pop_elec_HREA_low": 98.73,
+    "pct_pop_elec_HREA_high": 99.17
+  },
+  {
+    "year": 2016,
+    "country": "Egypt",
+    "pop": 94447071,
+    "pct_pop_elec_HREA": 99.02,
+    "pct_pop_elec_HREA_low": 98.77,
+    "pct_pop_elec_HREA_high": 99.19
+  },
+  {
+    "year": 2017,
+    "country": "Egypt",
+    "pop": 96442590,
+    "pct_pop_elec_HREA": 98.96,
+    "pct_pop_elec_HREA_low": 98.7,
+    "pct_pop_elec_HREA_high": 99.12
+  },
+  {
+    "year": 2018,
+    "country": "Egypt",
+    "pop": 98423602,
+    "pct_pop_elec_HREA": 98.91,
+    "pct_pop_elec_HREA_low": 98.61,
+    "pct_pop_elec_HREA_high": 99.1
+  },
+  {
+    "year": 2019,
+    "country": "Egypt",
+    "pop": 100388076,
+    "pct_pop_elec_HREA": 98.8,
+    "pct_pop_elec_HREA_low": 98.49,
+    "pct_pop_elec_HREA_high": 99
+  },
+  {
+    "year": 2020,
+    "country": "Egypt",
+    "pop": 102334403,
+    "pct_pop_elec_HREA": 98.81,
+    "pct_pop_elec_HREA_low": 98.49,
+    "pct_pop_elec_HREA_high": 99.02
+  },
+  {
+    "year": 2013,
+    "country": "Equatorial Guinea",
+    "pop": 1076412,
+    "pct_pop_elec_HREA": 66.55,
+    "pct_pop_elec_HREA_low": 65.32,
+    "pct_pop_elec_HREA_high": 67.58
+  },
+  {
+    "year": 2014,
+    "country": "Equatorial Guinea",
+    "pop": 1122273,
+    "pct_pop_elec_HREA": 67.79,
+    "pct_pop_elec_HREA_low": 66.53,
+    "pct_pop_elec_HREA_high": 68.84
+  },
+  {
+    "year": 2015,
+    "country": "Equatorial Guinea",
+    "pop": 1168575,
+    "pct_pop_elec_HREA": 67.96,
+    "pct_pop_elec_HREA_low": 66.89,
+    "pct_pop_elec_HREA_high": 68.84
+  },
+  {
+    "year": 2016,
+    "country": "Equatorial Guinea",
+    "pop": 1215181,
+    "pct_pop_elec_HREA": 67.08,
+    "pct_pop_elec_HREA_low": 65.94,
+    "pct_pop_elec_HREA_high": 67.8
+  },
+  {
+    "year": 2017,
+    "country": "Equatorial Guinea",
+    "pop": 1262008,
+    "pct_pop_elec_HREA": 67.4,
+    "pct_pop_elec_HREA_low": 66.22,
+    "pct_pop_elec_HREA_high": 68.1
+  },
+  {
+    "year": 2018,
+    "country": "Equatorial Guinea",
+    "pop": 1308966,
+    "pct_pop_elec_HREA": 72.75,
+    "pct_pop_elec_HREA_low": 71.91,
+    "pct_pop_elec_HREA_high": 73.27
+  },
+  {
+    "year": 2013,
+    "country": "Eritrea",
+    "pop": 3281453,
+    "pct_pop_elec_HREA": 24.04,
+    "pct_pop_elec_HREA_low": 22.8,
+    "pct_pop_elec_HREA_high": 25.67
+  },
+  {
+    "year": 2014,
+    "country": "Eritrea",
+    "pop": 3311444,
+    "pct_pop_elec_HREA": 22.93,
+    "pct_pop_elec_HREA_low": 21.62,
+    "pct_pop_elec_HREA_high": 24.67
+  },
+  {
+    "year": 2015,
+    "country": "Eritrea",
+    "pop": 3342818,
+    "pct_pop_elec_HREA": 23.03,
+    "pct_pop_elec_HREA_low": 21.4,
+    "pct_pop_elec_HREA_high": 24.45
+  },
+  {
+    "year": 2016,
+    "country": "Eritrea",
+    "pop": 3376558,
+    "pct_pop_elec_HREA": 22.71,
+    "pct_pop_elec_HREA_low": 21.64,
+    "pct_pop_elec_HREA_high": 24.21
+  },
+  {
+    "year": 2017,
+    "country": "Eritrea",
+    "pop": 3412894,
+    "pct_pop_elec_HREA": 23.03,
+    "pct_pop_elec_HREA_low": 21.83,
+    "pct_pop_elec_HREA_high": 24.53
+  },
+  {
+    "year": 2018,
+    "country": "Eritrea",
+    "pop": 3452797,
+    "pct_pop_elec_HREA": 23.35,
+    "pct_pop_elec_HREA_low": 21.88,
+    "pct_pop_elec_HREA_high": 24.84
+  },
+  {
+    "year": 2019,
+    "country": "Eritrea",
+    "pop": 3497117,
+    "pct_pop_elec_HREA": 21.93,
+    "pct_pop_elec_HREA_low": 20.76,
+    "pct_pop_elec_HREA_high": 23.6
+  },
+  {
+    "year": 2020,
+    "country": "Eritrea",
+    "pop": 3546427,
+    "pct_pop_elec_HREA": 21.02,
+    "pct_pop_elec_HREA_low": 19.57,
+    "pct_pop_elec_HREA_high": 22.16
+  },
+  {
+    "year": 2013,
+    "country": "Eswatini",
+    "pop": 1086843,
+    "pct_pop_elec_HREA": 66.39,
+    "pct_pop_elec_HREA_low": 59.81,
+    "pct_pop_elec_HREA_high": 71.68
+  },
+  {
+    "year": 2014,
+    "country": "Eswatini",
+    "pop": 1095022,
+    "pct_pop_elec_HREA": 65.37,
+    "pct_pop_elec_HREA_low": 58.7,
+    "pct_pop_elec_HREA_high": 70.85
+  },
+  {
+    "year": 2015,
+    "country": "Eswatini",
+    "pop": 1104038,
+    "pct_pop_elec_HREA": 65.05,
+    "pct_pop_elec_HREA_low": 57.74,
+    "pct_pop_elec_HREA_high": 70.85
+  },
+  {
+    "year": 2016,
+    "country": "Eswatini",
+    "pop": 1113994,
+    "pct_pop_elec_HREA": 64.96,
+    "pct_pop_elec_HREA_low": 57.94,
+    "pct_pop_elec_HREA_high": 71.02
+  },
+  {
+    "year": 2017,
+    "country": "Eswatini",
+    "pop": 1124808,
+    "pct_pop_elec_HREA": 64.49,
+    "pct_pop_elec_HREA_low": 56.8,
+    "pct_pop_elec_HREA_high": 70.62
+  },
+  {
+    "year": 2018,
+    "country": "Eswatini",
+    "pop": 1136274,
+    "pct_pop_elec_HREA": 58.81,
+    "pct_pop_elec_HREA_low": 51.49,
+    "pct_pop_elec_HREA_high": 65.08
+  },
+  {
+    "year": 2019,
+    "country": "Eswatini",
+    "pop": 1148133,
+    "pct_pop_elec_HREA": 63.83,
+    "pct_pop_elec_HREA_low": 56.27,
+    "pct_pop_elec_HREA_high": 70.01
+  },
+  {
+    "year": 2020,
+    "country": "Eswatini",
+    "pop": 1160164,
+    "pct_pop_elec_HREA": 62.5,
+    "pct_pop_elec_HREA_low": 55.56,
+    "pct_pop_elec_HREA_high": 68.43
+  },
+  {
+    "year": 2013,
+    "country": "Ethiopia",
+    "pop": 95385793,
+    "pct_pop_elec_HREA": 18.09,
+    "pct_pop_elec_HREA_low": 16.94,
+    "pct_pop_elec_HREA_high": 19.12
+  },
+  {
+    "year": 2014,
+    "country": "Ethiopia",
+    "pop": 98094264,
+    "pct_pop_elec_HREA": 18.34,
+    "pct_pop_elec_HREA_low": 17.18,
+    "pct_pop_elec_HREA_high": 19.38
+  },
+  {
+    "year": 2015,
+    "country": "Ethiopia",
+    "pop": 100835453,
+    "pct_pop_elec_HREA": 18.36,
+    "pct_pop_elec_HREA_low": 17.16,
+    "pct_pop_elec_HREA_high": 19.44
+  },
+  {
+    "year": 2016,
+    "country": "Ethiopia",
+    "pop": 103603461,
+    "pct_pop_elec_HREA": 18.49,
+    "pct_pop_elec_HREA_low": 17.29,
+    "pct_pop_elec_HREA_high": 19.52
+  },
+  {
+    "year": 2017,
+    "country": "Ethiopia",
+    "pop": 106399926,
+    "pct_pop_elec_HREA": 18.47,
+    "pct_pop_elec_HREA_low": 17.25,
+    "pct_pop_elec_HREA_high": 19.59
+  },
+  {
+    "year": 2018,
+    "country": "Ethiopia",
+    "pop": 109224410,
+    "pct_pop_elec_HREA": 17.76,
+    "pct_pop_elec_HREA_low": 16.54,
+    "pct_pop_elec_HREA_high": 18.84
+  },
+  {
+    "year": 2019,
+    "country": "Ethiopia",
+    "pop": 112078727,
+    "pct_pop_elec_HREA": 17.71,
+    "pct_pop_elec_HREA_low": 16.41,
+    "pct_pop_elec_HREA_high": 18.78
+  },
+  {
+    "year": 2020,
+    "country": "Ethiopia",
+    "pop": 114963583,
+    "pct_pop_elec_HREA": 17.71,
+    "pct_pop_elec_HREA_low": 16.42,
+    "pct_pop_elec_HREA_high": 18.85
+  },
+  {
+    "year": 2013,
+    "country": "Gabon",
+    "pop": 1817070,
+    "pct_pop_elec_HREA": 74.98,
+    "pct_pop_elec_HREA_low": 73.19,
+    "pct_pop_elec_HREA_high": 76.29
+  },
+  {
+    "year": 2014,
+    "country": "Gabon",
+    "pop": 1883801,
+    "pct_pop_elec_HREA": 73.1,
+    "pct_pop_elec_HREA_low": 70.93,
+    "pct_pop_elec_HREA_high": 74.51
+  },
+  {
+    "year": 2015,
+    "country": "Gabon",
+    "pop": 1947690,
+    "pct_pop_elec_HREA": 71.15,
+    "pct_pop_elec_HREA_low": 67.84,
+    "pct_pop_elec_HREA_high": 73.71
+  },
+  {
+    "year": 2016,
+    "country": "Gabon",
+    "pop": 2007882,
+    "pct_pop_elec_HREA": 72.27,
+    "pct_pop_elec_HREA_low": 69.11,
+    "pct_pop_elec_HREA_high": 73.72
+  },
+  {
+    "year": 2017,
+    "country": "Gabon",
+    "pop": 2064812,
+    "pct_pop_elec_HREA": 72.38,
+    "pct_pop_elec_HREA_low": 69.15,
+    "pct_pop_elec_HREA_high": 73.96
+  },
+  {
+    "year": 2020,
+    "country": "Gabon",
+    "pop": 2225728,
+    "pct_pop_elec_HREA": 71.53,
+    "pct_pop_elec_HREA_low": 68.99,
+    "pct_pop_elec_HREA_high": 73.31
+  },
+  {
+    "year": 2013,
+    "country": "Gambia",
+    "pop": 1963708,
+    "pct_pop_elec_HREA": 50.93,
+    "pct_pop_elec_HREA_low": 48.71,
+    "pct_pop_elec_HREA_high": 52.59
+  },
+  {
+    "year": 2014,
+    "country": "Gambia",
+    "pop": 2024037,
+    "pct_pop_elec_HREA": 51.35,
+    "pct_pop_elec_HREA_low": 49.16,
+    "pct_pop_elec_HREA_high": 53.31
+  },
+  {
+    "year": 2015,
+    "country": "Gambia",
+    "pop": 2085860,
+    "pct_pop_elec_HREA": 50.22,
+    "pct_pop_elec_HREA_low": 48.43,
+    "pct_pop_elec_HREA_high": 52
+  },
+  {
+    "year": 2016,
+    "country": "Gambia",
+    "pop": 2149134,
+    "pct_pop_elec_HREA": 51.03,
+    "pct_pop_elec_HREA_low": 48.77,
+    "pct_pop_elec_HREA_high": 52.95
+  },
+  {
+    "year": 2017,
+    "country": "Gambia",
+    "pop": 2213900,
+    "pct_pop_elec_HREA": 50.89,
+    "pct_pop_elec_HREA_low": 48.98,
+    "pct_pop_elec_HREA_high": 53.31
+  },
+  {
+    "year": 2018,
+    "country": "Gambia",
+    "pop": 2280092,
+    "pct_pop_elec_HREA": 54.34,
+    "pct_pop_elec_HREA_low": 51.86,
+    "pct_pop_elec_HREA_high": 57.23
+  },
+  {
+    "year": 2019,
+    "country": "Gambia",
+    "pop": 2347696,
+    "pct_pop_elec_HREA": 60.14,
+    "pct_pop_elec_HREA_low": 56.27,
+    "pct_pop_elec_HREA_high": 62.68
+  },
+  {
+    "year": 2020,
+    "country": "Gambia",
+    "pop": 2416664,
+    "pct_pop_elec_HREA": 62.67,
+    "pct_pop_elec_HREA_low": 59.83,
+    "pct_pop_elec_HREA_high": 65.19
+  },
+  {
+    "year": 2013,
+    "country": "Ghana",
+    "pop": 26607641,
+    "pct_pop_elec_HREA": 72.9,
+    "pct_pop_elec_HREA_low": 70.93,
+    "pct_pop_elec_HREA_high": 74.39
+  },
+  {
+    "year": 2014,
+    "country": "Ghana",
+    "pop": 27224480,
+    "pct_pop_elec_HREA": 72.64,
+    "pct_pop_elec_HREA_low": 70.26,
+    "pct_pop_elec_HREA_high": 74.39
+  },
+  {
+    "year": 2015,
+    "country": "Ghana",
+    "pop": 27849203,
+    "pct_pop_elec_HREA": 73.36,
+    "pct_pop_elec_HREA_low": 70.87,
+    "pct_pop_elec_HREA_high": 75.27
+  },
+  {
+    "year": 2016,
+    "country": "Ghana",
+    "pop": 28481947,
+    "pct_pop_elec_HREA": 77.75,
+    "pct_pop_elec_HREA_low": 75.76,
+    "pct_pop_elec_HREA_high": 79.24
+  },
+  {
+    "year": 2017,
+    "country": "Ghana",
+    "pop": 29121464,
+    "pct_pop_elec_HREA": 78.43,
+    "pct_pop_elec_HREA_low": 76.43,
+    "pct_pop_elec_HREA_high": 79.88
+  },
+  {
+    "year": 2018,
+    "country": "Ghana",
+    "pop": 29767108,
+    "pct_pop_elec_HREA": 79.01,
+    "pct_pop_elec_HREA_low": 77.25,
+    "pct_pop_elec_HREA_high": 80.38
+  },
+  {
+    "year": 2019,
+    "country": "Ghana",
+    "pop": 30417858,
+    "pct_pop_elec_HREA": 80.41,
+    "pct_pop_elec_HREA_low": 78.74,
+    "pct_pop_elec_HREA_high": 81.64
+  },
+  {
+    "year": 2020,
+    "country": "Ghana",
+    "pop": 31072945,
+    "pct_pop_elec_HREA": 81.62,
+    "pct_pop_elec_HREA_low": 79.99,
+    "pct_pop_elec_HREA_high": 82.84
+  },
+  {
+    "year": 2013,
+    "country": "Guinea",
+    "pop": 10892821,
+    "pct_pop_elec_HREA": 34.35,
+    "pct_pop_elec_HREA_low": 32.36,
+    "pct_pop_elec_HREA_high": 35.86
+  },
+  {
+    "year": 2014,
+    "country": "Guinea",
+    "pop": 11150970,
+    "pct_pop_elec_HREA": 34.14,
+    "pct_pop_elec_HREA_low": 32.28,
+    "pct_pop_elec_HREA_high": 35.97
+  },
+  {
+    "year": 2015,
+    "country": "Guinea",
+    "pop": 11432096,
+    "pct_pop_elec_HREA": 36.05,
+    "pct_pop_elec_HREA_low": 33.73,
+    "pct_pop_elec_HREA_high": 37.81
+  },
+  {
+    "year": 2016,
+    "country": "Guinea",
+    "pop": 11738434,
+    "pct_pop_elec_HREA": 39.55,
+    "pct_pop_elec_HREA_low": 37.26,
+    "pct_pop_elec_HREA_high": 41.59
+  },
+  {
+    "year": 2017,
+    "country": "Guinea",
+    "pop": 12067516,
+    "pct_pop_elec_HREA": 38.67,
+    "pct_pop_elec_HREA_low": 36.24,
+    "pct_pop_elec_HREA_high": 40.84
+  },
+  {
+    "year": 2018,
+    "country": "Guinea",
+    "pop": 12414292,
+    "pct_pop_elec_HREA": 36.67,
+    "pct_pop_elec_HREA_low": 34,
+    "pct_pop_elec_HREA_high": 39.07
+  },
+  {
+    "year": 2019,
+    "country": "Guinea",
+    "pop": 12771246,
+    "pct_pop_elec_HREA": 35.21,
+    "pct_pop_elec_HREA_low": 33.01,
+    "pct_pop_elec_HREA_high": 37.38
+  },
+  {
+    "year": 2020,
+    "country": "Guinea",
+    "pop": 13132792,
+    "pct_pop_elec_HREA": 35.87,
+    "pct_pop_elec_HREA_low": 33.86,
+    "pct_pop_elec_HREA_high": 37.92
+  },
+  {
+    "year": 2013,
+    "country": "Guinea-Bissau",
+    "pop": 1648259,
+    "pct_pop_elec_HREA": 28.02,
+    "pct_pop_elec_HREA_low": 25.82,
+    "pct_pop_elec_HREA_high": 29.59
+  },
+  {
+    "year": 2014,
+    "country": "Guinea-Bissau",
+    "pop": 1692433,
+    "pct_pop_elec_HREA": 28.92,
+    "pct_pop_elec_HREA_low": 27.02,
+    "pct_pop_elec_HREA_high": 30.54
+  },
+  {
+    "year": 2015,
+    "country": "Guinea-Bissau",
+    "pop": 1737207,
+    "pct_pop_elec_HREA": 34.96,
+    "pct_pop_elec_HREA_low": 33.19,
+    "pct_pop_elec_HREA_high": 36.14
+  },
+  {
+    "year": 2016,
+    "country": "Guinea-Bissau",
+    "pop": 1782434,
+    "pct_pop_elec_HREA": 36.63,
+    "pct_pop_elec_HREA_low": 35.48,
+    "pct_pop_elec_HREA_high": 37.57
+  },
+  {
+    "year": 2017,
+    "country": "Guinea-Bissau",
+    "pop": 1828146,
+    "pct_pop_elec_HREA": 34.54,
+    "pct_pop_elec_HREA_low": 32.85,
+    "pct_pop_elec_HREA_high": 36.01
+  },
+  {
+    "year": 2018,
+    "country": "Guinea-Bissau",
+    "pop": 1874304,
+    "pct_pop_elec_HREA": 34.93,
+    "pct_pop_elec_HREA_low": 32.96,
+    "pct_pop_elec_HREA_high": 35.95
+  },
+  {
+    "year": 2019,
+    "country": "Guinea-Bissau",
+    "pop": 1920917,
+    "pct_pop_elec_HREA": 34.52,
+    "pct_pop_elec_HREA_low": 33.65,
+    "pct_pop_elec_HREA_high": 35.43
+  },
+  {
+    "year": 2020,
+    "country": "Guinea-Bissau",
+    "pop": 1967998,
+    "pct_pop_elec_HREA": 32.84,
+    "pct_pop_elec_HREA_low": 31.5,
+    "pct_pop_elec_HREA_high": 33.88
+  },
+  {
+    "year": 2013,
+    "country": "India",
+    "pop": 1280842119,
+    "pct_pop_elec_HREA": 83.3,
+    "pct_pop_elec_HREA_low": 79.45,
+    "pct_pop_elec_HREA_high": 85.97
+  },
+  {
+    "year": 2014,
+    "country": "India",
+    "pop": 1295600768,
+    "pct_pop_elec_HREA": 84.53,
+    "pct_pop_elec_HREA_low": 80.59,
+    "pct_pop_elec_HREA_high": 87.21
+  },
+  {
+    "year": 2015,
+    "country": "India",
+    "pop": 1310152392,
+    "pct_pop_elec_HREA": 85.87,
+    "pct_pop_elec_HREA_low": 81.99,
+    "pct_pop_elec_HREA_high": 88.46
+  },
+  {
+    "year": 2016,
+    "country": "India",
+    "pop": 1324517250,
+    "pct_pop_elec_HREA": 88.29,
+    "pct_pop_elec_HREA_low": 85.01,
+    "pct_pop_elec_HREA_high": 90.45
+  },
+  {
+    "year": 2017,
+    "country": "India",
+    "pop": 1338676779,
+    "pct_pop_elec_HREA": 87.82,
+    "pct_pop_elec_HREA_low": 84.5,
+    "pct_pop_elec_HREA_high": 90.04
+  },
+  {
+    "year": 2018,
+    "country": "India",
+    "pop": 1352642283,
+    "pct_pop_elec_HREA": 89.33,
+    "pct_pop_elec_HREA_low": 86.3,
+    "pct_pop_elec_HREA_high": 91.32
+  },
+  {
+    "year": 2019,
+    "country": "India",
+    "pop": 1366417756,
+    "pct_pop_elec_HREA": 90.16,
+    "pct_pop_elec_HREA_low": 87.23,
+    "pct_pop_elec_HREA_high": 92.06
+  },
+  {
+    "year": 2020,
+    "country": "India",
+    "pop": 1380004385,
+    "pct_pop_elec_HREA": 88.82,
+    "pct_pop_elec_HREA_low": 85.56,
+    "pct_pop_elec_HREA_high": 90.96
+  },
+  {
+    "year": 2013,
+    "country": "Indonesia",
+    "pop": 251805314,
+    "pct_pop_elec_HREA": 88.08,
+    "pct_pop_elec_HREA_low": 85.42,
+    "pct_pop_elec_HREA_high": 90.05
+  },
+  {
+    "year": 2014,
+    "country": "Indonesia",
+    "pop": 255128076,
+    "pct_pop_elec_HREA": 89.06,
+    "pct_pop_elec_HREA_low": 87.29,
+    "pct_pop_elec_HREA_high": 90.29
+  },
+  {
+    "year": 2015,
+    "country": "Indonesia",
+    "pop": 258383257,
+    "pct_pop_elec_HREA": 84.63,
+    "pct_pop_elec_HREA_low": 81.77,
+    "pct_pop_elec_HREA_high": 86.7
+  },
+  {
+    "year": 2016,
+    "country": "Indonesia",
+    "pop": 261556386,
+    "pct_pop_elec_HREA": 86.78,
+    "pct_pop_elec_HREA_low": 84.17,
+    "pct_pop_elec_HREA_high": 88.6
+  },
+  {
+    "year": 2017,
+    "country": "Indonesia",
+    "pop": 264650969,
+    "pct_pop_elec_HREA": 87.13,
+    "pct_pop_elec_HREA_low": 84.69,
+    "pct_pop_elec_HREA_high": 88.88
+  },
+  {
+    "year": 2018,
+    "country": "Indonesia",
+    "pop": 267670549,
+    "pct_pop_elec_HREA": 88.13,
+    "pct_pop_elec_HREA_low": 85.67,
+    "pct_pop_elec_HREA_high": 89.86
+  },
+  {
+    "year": 2019,
+    "country": "Indonesia",
+    "pop": 270625567,
+    "pct_pop_elec_HREA": 88.5,
+    "pct_pop_elec_HREA_low": 86.35,
+    "pct_pop_elec_HREA_high": 89.98
+  },
+  {
+    "year": 2020,
+    "country": "Indonesia",
+    "pop": 273523621,
+    "pct_pop_elec_HREA": 88.56,
+    "pct_pop_elec_HREA_low": 86.39,
+    "pct_pop_elec_HREA_high": 90.09
+  },
+  {
+    "year": 2013,
+    "country": "Iraq",
+    "pop": 33157061,
+    "pct_pop_elec_HREA": 96.06,
+    "pct_pop_elec_HREA_low": 95.21,
+    "pct_pop_elec_HREA_high": 96.61
+  },
+  {
+    "year": 2014,
+    "country": "Iraq",
+    "pop": 34411949,
+    "pct_pop_elec_HREA": 95.12,
+    "pct_pop_elec_HREA_low": 94.08,
+    "pct_pop_elec_HREA_high": 95.86
+  },
+  {
+    "year": 2015,
+    "country": "Iraq",
+    "pop": 35572269,
+    "pct_pop_elec_HREA": 90.75,
+    "pct_pop_elec_HREA_low": 89.39,
+    "pct_pop_elec_HREA_high": 91.81
+  },
+  {
+    "year": 2016,
+    "country": "Iraq",
+    "pop": 36610632,
+    "pct_pop_elec_HREA": 91.42,
+    "pct_pop_elec_HREA_low": 90.07,
+    "pct_pop_elec_HREA_high": 92.5
+  },
+  {
+    "year": 2017,
+    "country": "Iraq",
+    "pop": 37552789,
+    "pct_pop_elec_HREA": 93.17,
+    "pct_pop_elec_HREA_low": 92.23,
+    "pct_pop_elec_HREA_high": 93.91
+  },
+  {
+    "year": 2018,
+    "country": "Iraq",
+    "pop": 38433604,
+    "pct_pop_elec_HREA": 95.55,
+    "pct_pop_elec_HREA_low": 94.83,
+    "pct_pop_elec_HREA_high": 96.03
+  },
+  {
+    "year": 2019,
+    "country": "Iraq",
+    "pop": 39309789,
+    "pct_pop_elec_HREA": 96.71,
+    "pct_pop_elec_HREA_low": 96.09,
+    "pct_pop_elec_HREA_high": 97.15
+  },
+  {
+    "year": 2020,
+    "country": "Iraq",
+    "pop": 40222503,
+    "pct_pop_elec_HREA": 97.44,
+    "pct_pop_elec_HREA_low": 96.94,
+    "pct_pop_elec_HREA_high": 97.79
+  },
+  {
+    "year": 2013,
+    "country": "Côte d'Ivoire",
+    "pop": 22087506,
+    "pct_pop_elec_HREA": 60.26,
+    "pct_pop_elec_HREA_low": 59.2,
+    "pct_pop_elec_HREA_high": 61.08
+  },
+  {
+    "year": 2014,
+    "country": "Côte d'Ivoire",
+    "pop": 22647672,
+    "pct_pop_elec_HREA": 61.03,
+    "pct_pop_elec_HREA_low": 59.94,
+    "pct_pop_elec_HREA_high": 61.83
+  },
+  {
+    "year": 2015,
+    "country": "Côte d'Ivoire",
+    "pop": 23226148,
+    "pct_pop_elec_HREA": 61.52,
+    "pct_pop_elec_HREA_low": 60.34,
+    "pct_pop_elec_HREA_high": 62.41
+  },
+  {
+    "year": 2016,
+    "country": "Côte d'Ivoire",
+    "pop": 23822726,
+    "pct_pop_elec_HREA": 63.21,
+    "pct_pop_elec_HREA_low": 62.06,
+    "pct_pop_elec_HREA_high": 64.06
+  },
+  {
+    "year": 2017,
+    "country": "Côte d'Ivoire",
+    "pop": 24437475,
+    "pct_pop_elec_HREA": 63.66,
+    "pct_pop_elec_HREA_low": 62.54,
+    "pct_pop_elec_HREA_high": 64.46
+  },
+  {
+    "year": 2018,
+    "country": "Côte d'Ivoire",
+    "pop": 25069226,
+    "pct_pop_elec_HREA": 64.36,
+    "pct_pop_elec_HREA_low": 63.24,
+    "pct_pop_elec_HREA_high": 65.16
+  },
+  {
+    "year": 2019,
+    "country": "Côte d'Ivoire",
+    "pop": 25716554,
+    "pct_pop_elec_HREA": 66.88,
+    "pct_pop_elec_HREA_low": 65.91,
+    "pct_pop_elec_HREA_high": 67.62
+  },
+  {
+    "year": 2020,
+    "country": "Côte d'Ivoire",
+    "pop": 26378275,
+    "pct_pop_elec_HREA": 69.28,
+    "pct_pop_elec_HREA_low": 68.41,
+    "pct_pop_elec_HREA_high": 69.92
+  },
+  {
+    "year": 2013,
+    "country": "Jordan",
+    "pop": 8518992,
+    "pct_pop_elec_HREA": 99.28,
+    "pct_pop_elec_HREA_low": 99.09,
+    "pct_pop_elec_HREA_high": 99.43
+  },
+  {
+    "year": 2014,
+    "country": "Jordan",
+    "pop": 8918822,
+    "pct_pop_elec_HREA": 99.21,
+    "pct_pop_elec_HREA_low": 98.98,
+    "pct_pop_elec_HREA_high": 99.33
+  },
+  {
+    "year": 2015,
+    "country": "Jordan",
+    "pop": 9266573,
+    "pct_pop_elec_HREA": 99.2,
+    "pct_pop_elec_HREA_low": 99.01,
+    "pct_pop_elec_HREA_high": 99.34
+  },
+  {
+    "year": 2016,
+    "country": "Jordan",
+    "pop": 9554286,
+    "pct_pop_elec_HREA": 99.21,
+    "pct_pop_elec_HREA_low": 99.05,
+    "pct_pop_elec_HREA_high": 99.34
+  },
+  {
+    "year": 2017,
+    "country": "Jordan",
+    "pop": 9785840,
+    "pct_pop_elec_HREA": 99.21,
+    "pct_pop_elec_HREA_low": 99.02,
+    "pct_pop_elec_HREA_high": 99.33
+  },
+  {
+    "year": 2018,
+    "country": "Jordan",
+    "pop": 9965322,
+    "pct_pop_elec_HREA": 99.23,
+    "pct_pop_elec_HREA_low": 99.03,
+    "pct_pop_elec_HREA_high": 99.34
+  },
+  {
+    "year": 2019,
+    "country": "Jordan",
+    "pop": 10101697,
+    "pct_pop_elec_HREA": 99.28,
+    "pct_pop_elec_HREA_low": 99.1,
+    "pct_pop_elec_HREA_high": 99.43
+  },
+  {
+    "year": 2020,
+    "country": "Jordan",
+    "pop": 10203140,
+    "pct_pop_elec_HREA": 99.43,
+    "pct_pop_elec_HREA_low": 99.29,
+    "pct_pop_elec_HREA_high": 99.52
+  },
+  {
+    "year": 2013,
+    "country": "Kenya",
+    "pop": 45519986,
+    "pct_pop_elec_HREA": 33.64,
+    "pct_pop_elec_HREA_low": 30.74,
+    "pct_pop_elec_HREA_high": 36.62
+  },
+  {
+    "year": 2014,
+    "country": "Kenya",
+    "pop": 46700063,
+    "pct_pop_elec_HREA": 34.6,
+    "pct_pop_elec_HREA_low": 31.53,
+    "pct_pop_elec_HREA_high": 37.68
+  },
+  {
+    "year": 2015,
+    "country": "Kenya",
+    "pop": 47878339,
+    "pct_pop_elec_HREA": 35.58,
+    "pct_pop_elec_HREA_low": 32.39,
+    "pct_pop_elec_HREA_high": 38.89
+  },
+  {
+    "year": 2016,
+    "country": "Kenya",
+    "pop": 49051531,
+    "pct_pop_elec_HREA": 39.98,
+    "pct_pop_elec_HREA_low": 35.84,
+    "pct_pop_elec_HREA_high": 44.03
+  },
+  {
+    "year": 2017,
+    "country": "Kenya",
+    "pop": 50221146,
+    "pct_pop_elec_HREA": 42.55,
+    "pct_pop_elec_HREA_low": 38.33,
+    "pct_pop_elec_HREA_high": 46.74
+  },
+  {
+    "year": 2018,
+    "country": "Kenya",
+    "pop": 51392570,
+    "pct_pop_elec_HREA": 45.19,
+    "pct_pop_elec_HREA_low": 40.46,
+    "pct_pop_elec_HREA_high": 49.56
+  },
+  {
+    "year": 2019,
+    "country": "Kenya",
+    "pop": 52573967,
+    "pct_pop_elec_HREA": 49.37,
+    "pct_pop_elec_HREA_low": 44.32,
+    "pct_pop_elec_HREA_high": 53.81
+  },
+  {
+    "year": 2020,
+    "country": "Kenya",
+    "pop": 53771300,
+    "pct_pop_elec_HREA": 49.72,
+    "pct_pop_elec_HREA_low": 44.6,
+    "pct_pop_elec_HREA_high": 54.23
+  },
+  {
+    "year": 2013,
+    "country": "Lao People's Democratic Republic",
+    "pop": 6541302,
+    "pct_pop_elec_HREA": 42.09,
+    "pct_pop_elec_HREA_low": 38.45,
+    "pct_pop_elec_HREA_high": 45.51
+  },
+  {
+    "year": 2014,
+    "country": "Lao People's Democratic Republic",
+    "pop": 6639763,
+    "pct_pop_elec_HREA": 42.17,
+    "pct_pop_elec_HREA_low": 38.4,
+    "pct_pop_elec_HREA_high": 45.47
+  },
+  {
+    "year": 2015,
+    "country": "Lao People's Democratic Republic",
+    "pop": 6741160,
+    "pct_pop_elec_HREA": 41.92,
+    "pct_pop_elec_HREA_low": 38.21,
+    "pct_pop_elec_HREA_high": 45.25
+  },
+  {
+    "year": 2016,
+    "country": "Lao People's Democratic Republic",
+    "pop": 6845848,
+    "pct_pop_elec_HREA": 42.54,
+    "pct_pop_elec_HREA_low": 38.78,
+    "pct_pop_elec_HREA_high": 45.99
+  },
+  {
+    "year": 2017,
+    "country": "Lao People's Democratic Republic",
+    "pop": 6953031,
+    "pct_pop_elec_HREA": 42.63,
+    "pct_pop_elec_HREA_low": 38.76,
+    "pct_pop_elec_HREA_high": 45.8
+  },
+  {
+    "year": 2018,
+    "country": "Lao People's Democratic Republic",
+    "pop": 7061498,
+    "pct_pop_elec_HREA": 42.17,
+    "pct_pop_elec_HREA_low": 38.28,
+    "pct_pop_elec_HREA_high": 45.52
+  },
+  {
+    "year": 2019,
+    "country": "Lao People's Democratic Republic",
+    "pop": 7169456,
+    "pct_pop_elec_HREA": 42.91,
+    "pct_pop_elec_HREA_low": 38.92,
+    "pct_pop_elec_HREA_high": 46.66
+  },
+  {
+    "year": 2020,
+    "country": "Lao People's Democratic Republic",
+    "pop": 7275556,
+    "pct_pop_elec_HREA": 42.66,
+    "pct_pop_elec_HREA_low": 38.41,
+    "pct_pop_elec_HREA_high": 46.58
+  },
+  {
+    "year": 2013,
+    "country": "Lesotho",
+    "pop": 2028528,
+    "pct_pop_elec_HREA": 37.5,
+    "pct_pop_elec_HREA_low": 35.36,
+    "pct_pop_elec_HREA_high": 39.36
+  },
+  {
+    "year": 2014,
+    "country": "Lesotho",
+    "pop": 2043448,
+    "pct_pop_elec_HREA": 36.49,
+    "pct_pop_elec_HREA_low": 34.12,
+    "pct_pop_elec_HREA_high": 38.53
+  },
+  {
+    "year": 2015,
+    "country": "Lesotho",
+    "pop": 2059011,
+    "pct_pop_elec_HREA": 36.88,
+    "pct_pop_elec_HREA_low": 34.21,
+    "pct_pop_elec_HREA_high": 39.19
+  },
+  {
+    "year": 2016,
+    "country": "Lesotho",
+    "pop": 2075041,
+    "pct_pop_elec_HREA": 37.03,
+    "pct_pop_elec_HREA_low": 34.21,
+    "pct_pop_elec_HREA_high": 39.41
+  },
+  {
+    "year": 2017,
+    "country": "Lesotho",
+    "pop": 2091532,
+    "pct_pop_elec_HREA": 37.85,
+    "pct_pop_elec_HREA_low": 34.93,
+    "pct_pop_elec_HREA_high": 40.5
+  },
+  {
+    "year": 2018,
+    "country": "Lesotho",
+    "pop": 2108327,
+    "pct_pop_elec_HREA": 36.32,
+    "pct_pop_elec_HREA_low": 33.35,
+    "pct_pop_elec_HREA_high": 39.12
+  },
+  {
+    "year": 2019,
+    "country": "Lesotho",
+    "pop": 2125267,
+    "pct_pop_elec_HREA": 38.37,
+    "pct_pop_elec_HREA_low": 34.99,
+    "pct_pop_elec_HREA_high": 41.46
+  },
+  {
+    "year": 2020,
+    "country": "Lesotho",
+    "pop": 2142252,
+    "pct_pop_elec_HREA": 38.05,
+    "pct_pop_elec_HREA_low": 34.6,
+    "pct_pop_elec_HREA_high": 41.17
+  },
+  {
+    "year": 2013,
+    "country": "Liberia",
+    "pop": 4248337,
+    "pct_pop_elec_HREA": 39.22,
+    "pct_pop_elec_HREA_low": 37.41,
+    "pct_pop_elec_HREA_high": 40.3
+  },
+  {
+    "year": 2014,
+    "country": "Liberia",
+    "pop": 4359508,
+    "pct_pop_elec_HREA": 39.66,
+    "pct_pop_elec_HREA_low": 37.82,
+    "pct_pop_elec_HREA_high": 41.02
+  },
+  {
+    "year": 2015,
+    "country": "Liberia",
+    "pop": 4472229,
+    "pct_pop_elec_HREA": 39.92,
+    "pct_pop_elec_HREA_low": 38.42,
+    "pct_pop_elec_HREA_high": 40.75
+  },
+  {
+    "year": 2016,
+    "country": "Liberia",
+    "pop": 4586788,
+    "pct_pop_elec_HREA": 40.84,
+    "pct_pop_elec_HREA_low": 39.61,
+    "pct_pop_elec_HREA_high": 41.66
+  },
+  {
+    "year": 2017,
+    "country": "Liberia",
+    "pop": 4702224,
+    "pct_pop_elec_HREA": 40.22,
+    "pct_pop_elec_HREA_low": 39.14,
+    "pct_pop_elec_HREA_high": 41.12
+  },
+  {
+    "year": 2018,
+    "country": "Liberia",
+    "pop": 4818976,
+    "pct_pop_elec_HREA": 39.8,
+    "pct_pop_elec_HREA_low": 38.65,
+    "pct_pop_elec_HREA_high": 40.69
+  },
+  {
+    "year": 2019,
+    "country": "Liberia",
+    "pop": 4937374,
+    "pct_pop_elec_HREA": 41.06,
+    "pct_pop_elec_HREA_low": 40.14,
+    "pct_pop_elec_HREA_high": 41.82
+  },
+  {
+    "year": 2013,
+    "country": "Libya",
+    "pop": 6320350,
+    "pct_pop_elec_HREA": 96.39,
+    "pct_pop_elec_HREA_low": 95.85,
+    "pct_pop_elec_HREA_high": 96.78
+  },
+  {
+    "year": 2014,
+    "country": "Libya",
+    "pop": 6362039,
+    "pct_pop_elec_HREA": 96.19,
+    "pct_pop_elec_HREA_low": 95.6,
+    "pct_pop_elec_HREA_high": 96.61
+  },
+  {
+    "year": 2015,
+    "country": "Libya",
+    "pop": 6418315,
+    "pct_pop_elec_HREA": 95.47,
+    "pct_pop_elec_HREA_low": 94.62,
+    "pct_pop_elec_HREA_high": 96.04
+  },
+  {
+    "year": 2016,
+    "country": "Libya",
+    "pop": 6492160,
+    "pct_pop_elec_HREA": 95.84,
+    "pct_pop_elec_HREA_low": 95.19,
+    "pct_pop_elec_HREA_high": 96.33
+  },
+  {
+    "year": 2017,
+    "country": "Libya",
+    "pop": 6580723,
+    "pct_pop_elec_HREA": 95.66,
+    "pct_pop_elec_HREA_low": 95.05,
+    "pct_pop_elec_HREA_high": 96.14
+  },
+  {
+    "year": 2018,
+    "country": "Libya",
+    "pop": 6678565,
+    "pct_pop_elec_HREA": 95.77,
+    "pct_pop_elec_HREA_low": 95.13,
+    "pct_pop_elec_HREA_high": 96.24
+  },
+  {
+    "year": 2019,
+    "country": "Libya",
+    "pop": 6777453,
+    "pct_pop_elec_HREA": 95.6,
+    "pct_pop_elec_HREA_low": 94.92,
+    "pct_pop_elec_HREA_high": 96.14
+  },
+  {
+    "year": 2020,
+    "country": "Libya",
+    "pop": 6871287,
+    "pct_pop_elec_HREA": 95.32,
+    "pct_pop_elec_HREA_low": 94.57,
+    "pct_pop_elec_HREA_high": 95.87
+  },
+  {
+    "year": 2013,
+    "country": "Madagascar",
+    "pop": 22961259,
+    "pct_pop_elec_HREA": 17.04,
+    "pct_pop_elec_HREA_low": 16.17,
+    "pct_pop_elec_HREA_high": 17.79
+  },
+  {
+    "year": 2014,
+    "country": "Madagascar",
+    "pop": 23589897,
+    "pct_pop_elec_HREA": 16.46,
+    "pct_pop_elec_HREA_low": 15.58,
+    "pct_pop_elec_HREA_high": 17.2
+  },
+  {
+    "year": 2015,
+    "country": "Madagascar",
+    "pop": 24234080,
+    "pct_pop_elec_HREA": 16.39,
+    "pct_pop_elec_HREA_low": 15.57,
+    "pct_pop_elec_HREA_high": 17.21
+  },
+  {
+    "year": 2016,
+    "country": "Madagascar",
+    "pop": 24894370,
+    "pct_pop_elec_HREA": 17.14,
+    "pct_pop_elec_HREA_low": 16.12,
+    "pct_pop_elec_HREA_high": 18.11
+  },
+  {
+    "year": 2017,
+    "country": "Madagascar",
+    "pop": 25570511,
+    "pct_pop_elec_HREA": 16.56,
+    "pct_pop_elec_HREA_low": 15.82,
+    "pct_pop_elec_HREA_high": 17.22
+  },
+  {
+    "year": 2018,
+    "country": "Madagascar",
+    "pop": 26262313,
+    "pct_pop_elec_HREA": 16.5,
+    "pct_pop_elec_HREA_low": 15.71,
+    "pct_pop_elec_HREA_high": 17.13
+  },
+  {
+    "year": 2019,
+    "country": "Madagascar",
+    "pop": 26969306,
+    "pct_pop_elec_HREA": 16.55,
+    "pct_pop_elec_HREA_low": 15.84,
+    "pct_pop_elec_HREA_high": 17.23
+  },
+  {
+    "year": 2020,
+    "country": "Madagascar",
+    "pop": 27691019,
+    "pct_pop_elec_HREA": 16.84,
+    "pct_pop_elec_HREA_low": 16,
+    "pct_pop_elec_HREA_high": 17.5
+  },
+  {
+    "year": 2013,
+    "country": "Malawi",
+    "pop": 15839287,
+    "pct_pop_elec_HREA": 27.03,
+    "pct_pop_elec_HREA_low": 25.45,
+    "pct_pop_elec_HREA_high": 28.5
+  },
+  {
+    "year": 2014,
+    "country": "Malawi",
+    "pop": 16289550,
+    "pct_pop_elec_HREA": 26.7,
+    "pct_pop_elec_HREA_low": 25.14,
+    "pct_pop_elec_HREA_high": 28.13
+  },
+  {
+    "year": 2015,
+    "country": "Malawi",
+    "pop": 16745305,
+    "pct_pop_elec_HREA": 26.77,
+    "pct_pop_elec_HREA_low": 25.16,
+    "pct_pop_elec_HREA_high": 28.22
+  },
+  {
+    "year": 2016,
+    "country": "Malawi",
+    "pop": 17205253,
+    "pct_pop_elec_HREA": 25.91,
+    "pct_pop_elec_HREA_low": 24.26,
+    "pct_pop_elec_HREA_high": 27.39
+  },
+  {
+    "year": 2017,
+    "country": "Malawi",
+    "pop": 17670193,
+    "pct_pop_elec_HREA": 26.26,
+    "pct_pop_elec_HREA_low": 24.46,
+    "pct_pop_elec_HREA_high": 27.87
+  },
+  {
+    "year": 2018,
+    "country": "Malawi",
+    "pop": 18143215,
+    "pct_pop_elec_HREA": 25.82,
+    "pct_pop_elec_HREA_low": 24.19,
+    "pct_pop_elec_HREA_high": 27.34
+  },
+  {
+    "year": 2019,
+    "country": "Malawi",
+    "pop": 18628749,
+    "pct_pop_elec_HREA": 26.13,
+    "pct_pop_elec_HREA_low": 24.3,
+    "pct_pop_elec_HREA_high": 27.76
+  },
+  {
+    "year": 2020,
+    "country": "Malawi",
+    "pop": 19129955,
+    "pct_pop_elec_HREA": 26.77,
+    "pct_pop_elec_HREA_low": 24.87,
+    "pct_pop_elec_HREA_high": 28.49
+  },
+  {
+    "year": 2013,
+    "country": "Mali",
+    "pop": 16449854,
+    "pct_pop_elec_HREA": 30.25,
+    "pct_pop_elec_HREA_low": 29.47,
+    "pct_pop_elec_HREA_high": 30.96
+  },
+  {
+    "year": 2014,
+    "country": "Mali",
+    "pop": 16934213,
+    "pct_pop_elec_HREA": 31.27,
+    "pct_pop_elec_HREA_low": 30.5,
+    "pct_pop_elec_HREA_high": 32.08
+  },
+  {
+    "year": 2015,
+    "country": "Mali",
+    "pop": 17438772,
+    "pct_pop_elec_HREA": 31.49,
+    "pct_pop_elec_HREA_low": 30.78,
+    "pct_pop_elec_HREA_high": 32.25
+  },
+  {
+    "year": 2016,
+    "country": "Mali",
+    "pop": 17965448,
+    "pct_pop_elec_HREA": 32.84,
+    "pct_pop_elec_HREA_low": 31.88,
+    "pct_pop_elec_HREA_high": 33.7
+  },
+  {
+    "year": 2017,
+    "country": "Mali",
+    "pop": 18512429,
+    "pct_pop_elec_HREA": 33.47,
+    "pct_pop_elec_HREA_low": 32.51,
+    "pct_pop_elec_HREA_high": 34.41
+  },
+  {
+    "year": 2018,
+    "country": "Mali",
+    "pop": 19077755,
+    "pct_pop_elec_HREA": 33.92,
+    "pct_pop_elec_HREA_low": 32.93,
+    "pct_pop_elec_HREA_high": 34.95
+  },
+  {
+    "year": 2019,
+    "country": "Mali",
+    "pop": 19658023,
+    "pct_pop_elec_HREA": 34.6,
+    "pct_pop_elec_HREA_low": 33.46,
+    "pct_pop_elec_HREA_high": 35.77
+  },
+  {
+    "year": 2020,
+    "country": "Mali",
+    "pop": 20250834,
+    "pct_pop_elec_HREA": 34.6,
+    "pct_pop_elec_HREA_low": 33.46,
+    "pct_pop_elec_HREA_high": 35.86
+  },
+  {
+    "year": 2013,
+    "country": "Mauritania",
+    "pop": 3817497,
+    "pct_pop_elec_HREA": 40.08,
+    "pct_pop_elec_HREA_low": 39.39,
+    "pct_pop_elec_HREA_high": 40.77
+  },
+  {
+    "year": 2014,
+    "country": "Mauritania",
+    "pop": 3930894,
+    "pct_pop_elec_HREA": 39.97,
+    "pct_pop_elec_HREA_low": 39.3,
+    "pct_pop_elec_HREA_high": 40.76
+  },
+  {
+    "year": 2015,
+    "country": "Mauritania",
+    "pop": 4046304,
+    "pct_pop_elec_HREA": 41.93,
+    "pct_pop_elec_HREA_low": 41.02,
+    "pct_pop_elec_HREA_high": 42.64
+  },
+  {
+    "year": 2016,
+    "country": "Mauritania",
+    "pop": 4163532,
+    "pct_pop_elec_HREA": 42.02,
+    "pct_pop_elec_HREA_low": 41.1,
+    "pct_pop_elec_HREA_high": 42.73
+  },
+  {
+    "year": 2017,
+    "country": "Mauritania",
+    "pop": 4282582,
+    "pct_pop_elec_HREA": 43.02,
+    "pct_pop_elec_HREA_low": 41.97,
+    "pct_pop_elec_HREA_high": 43.7
+  },
+  {
+    "year": 2018,
+    "country": "Mauritania",
+    "pop": 4403312,
+    "pct_pop_elec_HREA": 45.39,
+    "pct_pop_elec_HREA_low": 44.47,
+    "pct_pop_elec_HREA_high": 46.17
+  },
+  {
+    "year": 2019,
+    "country": "Mauritania",
+    "pop": 4525698,
+    "pct_pop_elec_HREA": 45.57,
+    "pct_pop_elec_HREA_low": 44.63,
+    "pct_pop_elec_HREA_high": 46.35
+  },
+  {
+    "year": 2020,
+    "country": "Mauritania",
+    "pop": 4649660,
+    "pct_pop_elec_HREA": 44.51,
+    "pct_pop_elec_HREA_low": 43.3,
+    "pct_pop_elec_HREA_high": 45.29
+  },
+  {
+    "year": 2018,
+    "country": "Mauritius",
+    "pop": 1267184,
+    "pct_pop_elec_HREA": 96.76,
+    "pct_pop_elec_HREA_low": 95.7,
+    "pct_pop_elec_HREA_high": 97.49
+  },
+  {
+    "year": 2019,
+    "country": "Mauritius",
+    "pop": 1269670,
+    "pct_pop_elec_HREA": 96.46,
+    "pct_pop_elec_HREA_low": 95.48,
+    "pct_pop_elec_HREA_high": 97.27
+  },
+  {
+    "year": 2020,
+    "country": "Mauritius",
+    "pop": 1271767,
+    "pct_pop_elec_HREA": 96.33,
+    "pct_pop_elec_HREA_low": 95.58,
+    "pct_pop_elec_HREA_high": 96.95
+  },
+  {
+    "year": 2014,
+    "country": "Mongolia",
+    "pop": 2940111,
+    "pct_pop_elec_HREA": 78.88,
+    "pct_pop_elec_HREA_low": 76.11,
+    "pct_pop_elec_HREA_high": 80.91
+  },
+  {
+    "year": 2015,
+    "country": "Mongolia",
+    "pop": 2998433,
+    "pct_pop_elec_HREA": 74.48,
+    "pct_pop_elec_HREA_low": 72.1,
+    "pct_pop_elec_HREA_high": 76.04
+  },
+  {
+    "year": 2016,
+    "country": "Mongolia",
+    "pop": 3056358,
+    "pct_pop_elec_HREA": 74.8,
+    "pct_pop_elec_HREA_low": 72.88,
+    "pct_pop_elec_HREA_high": 76.35
+  },
+  {
+    "year": 2017,
+    "country": "Mongolia",
+    "pop": 3113788,
+    "pct_pop_elec_HREA": 75.8,
+    "pct_pop_elec_HREA_low": 73.9,
+    "pct_pop_elec_HREA_high": 77.39
+  },
+  {
+    "year": 2018,
+    "country": "Mongolia",
+    "pop": 3170214,
+    "pct_pop_elec_HREA": 77.32,
+    "pct_pop_elec_HREA_low": 75.42,
+    "pct_pop_elec_HREA_high": 78.65
+  },
+  {
+    "year": 2019,
+    "country": "Mongolia",
+    "pop": 3225166,
+    "pct_pop_elec_HREA": 78.19,
+    "pct_pop_elec_HREA_low": 76.48,
+    "pct_pop_elec_HREA_high": 79.43
+  },
+  {
+    "year": 2020,
+    "country": "Mongolia",
+    "pop": 3278292,
+    "pct_pop_elec_HREA": 78.81,
+    "pct_pop_elec_HREA_low": 77.32,
+    "pct_pop_elec_HREA_high": 80.04
+  },
+  {
+    "year": 2013,
+    "country": "Morocco",
+    "pop": 33715705,
+    "pct_pop_elec_HREA": 88.07,
+    "pct_pop_elec_HREA_low": 86.66,
+    "pct_pop_elec_HREA_high": 89.2
+  },
+  {
+    "year": 2014,
+    "country": "Morocco",
+    "pop": 34192358,
+    "pct_pop_elec_HREA": 87.41,
+    "pct_pop_elec_HREA_low": 85.91,
+    "pct_pop_elec_HREA_high": 88.59
+  },
+  {
+    "year": 2015,
+    "country": "Morocco",
+    "pop": 34663608,
+    "pct_pop_elec_HREA": 88.44,
+    "pct_pop_elec_HREA_low": 87,
+    "pct_pop_elec_HREA_high": 89.54
+  },
+  {
+    "year": 2016,
+    "country": "Morocco",
+    "pop": 35126274,
+    "pct_pop_elec_HREA": 88.78,
+    "pct_pop_elec_HREA_low": 87.19,
+    "pct_pop_elec_HREA_high": 89.86
+  },
+  {
+    "year": 2017,
+    "country": "Morocco",
+    "pop": 35581257,
+    "pct_pop_elec_HREA": 88.78,
+    "pct_pop_elec_HREA_low": 87.32,
+    "pct_pop_elec_HREA_high": 89.78
+  },
+  {
+    "year": 2018,
+    "country": "Morocco",
+    "pop": 36029089,
+    "pct_pop_elec_HREA": 88.49,
+    "pct_pop_elec_HREA_low": 87.09,
+    "pct_pop_elec_HREA_high": 89.6
+  },
+  {
+    "year": 2019,
+    "country": "Morocco",
+    "pop": 36471766,
+    "pct_pop_elec_HREA": 89.04,
+    "pct_pop_elec_HREA_low": 87.66,
+    "pct_pop_elec_HREA_high": 89.99
+  },
+  {
+    "year": 2020,
+    "country": "Morocco",
+    "pop": 36910558,
+    "pct_pop_elec_HREA": 88.48,
+    "pct_pop_elec_HREA_low": 87.07,
+    "pct_pop_elec_HREA_high": 89.43
+  },
+  {
+    "year": 2013,
+    "country": "Mozambique",
+    "pop": 25560752,
+    "pct_pop_elec_HREA": 32.08,
+    "pct_pop_elec_HREA_low": 31.02,
+    "pct_pop_elec_HREA_high": 32.98
+  },
+  {
+    "year": 2014,
+    "country": "Mozambique",
+    "pop": 26286192,
+    "pct_pop_elec_HREA": 32.56,
+    "pct_pop_elec_HREA_low": 31.48,
+    "pct_pop_elec_HREA_high": 33.49
+  },
+  {
+    "year": 2015,
+    "country": "Mozambique",
+    "pop": 27042001,
+    "pct_pop_elec_HREA": 32.78,
+    "pct_pop_elec_HREA_low": 31.76,
+    "pct_pop_elec_HREA_high": 33.73
+  },
+  {
+    "year": 2016,
+    "country": "Mozambique",
+    "pop": 27829930,
+    "pct_pop_elec_HREA": 33.27,
+    "pct_pop_elec_HREA_low": 32.1,
+    "pct_pop_elec_HREA_high": 34.34
+  },
+  {
+    "year": 2017,
+    "country": "Mozambique",
+    "pop": 28649007,
+    "pct_pop_elec_HREA": 33.14,
+    "pct_pop_elec_HREA_low": 31.96,
+    "pct_pop_elec_HREA_high": 34.15
+  },
+  {
+    "year": 2018,
+    "country": "Mozambique",
+    "pop": 29496009,
+    "pct_pop_elec_HREA": 32.42,
+    "pct_pop_elec_HREA_low": 31.44,
+    "pct_pop_elec_HREA_high": 33.27
+  },
+  {
+    "year": 2019,
+    "country": "Mozambique",
+    "pop": 30366043,
+    "pct_pop_elec_HREA": 32.44,
+    "pct_pop_elec_HREA_low": 31.45,
+    "pct_pop_elec_HREA_high": 33.24
+  },
+  {
+    "year": 2020,
+    "country": "Mozambique",
+    "pop": 31255435,
+    "pct_pop_elec_HREA": 32.36,
+    "pct_pop_elec_HREA_low": 31.27,
+    "pct_pop_elec_HREA_high": 33.26
+  },
+  {
+    "year": 2013,
+    "country": "Myanmar",
+    "pop": 51852464,
+    "pct_pop_elec_HREA": 62.84,
+    "pct_pop_elec_HREA_low": 61.11,
+    "pct_pop_elec_HREA_high": 64.37
+  },
+  {
+    "year": 2014,
+    "country": "Myanmar",
+    "pop": 52280816,
+    "pct_pop_elec_HREA": 67.87,
+    "pct_pop_elec_HREA_low": 65.65,
+    "pct_pop_elec_HREA_high": 69.59
+  },
+  {
+    "year": 2015,
+    "country": "Myanmar",
+    "pop": 52680724,
+    "pct_pop_elec_HREA": 65.78,
+    "pct_pop_elec_HREA_low": 63.91,
+    "pct_pop_elec_HREA_high": 67.27
+  },
+  {
+    "year": 2016,
+    "country": "Myanmar",
+    "pop": 53045199,
+    "pct_pop_elec_HREA": 68.17,
+    "pct_pop_elec_HREA_low": 66.24,
+    "pct_pop_elec_HREA_high": 69.73
+  },
+  {
+    "year": 2017,
+    "country": "Myanmar",
+    "pop": 53382521,
+    "pct_pop_elec_HREA": 70.34,
+    "pct_pop_elec_HREA_low": 68.44,
+    "pct_pop_elec_HREA_high": 71.87
+  },
+  {
+    "year": 2018,
+    "country": "Myanmar",
+    "pop": 53708318,
+    "pct_pop_elec_HREA": 72.45,
+    "pct_pop_elec_HREA_low": 70.54,
+    "pct_pop_elec_HREA_high": 73.8
+  },
+  {
+    "year": 2019,
+    "country": "Myanmar",
+    "pop": 54045422,
+    "pct_pop_elec_HREA": 74.73,
+    "pct_pop_elec_HREA_low": 72.9,
+    "pct_pop_elec_HREA_high": 76.13
+  },
+  {
+    "year": 2020,
+    "country": "Myanmar",
+    "pop": 54409794,
+    "pct_pop_elec_HREA": 76.61,
+    "pct_pop_elec_HREA_low": 74.44,
+    "pct_pop_elec_HREA_high": 78.22
+  },
+  {
+    "year": 2013,
+    "country": "Namibia",
+    "pop": 2233506,
+    "pct_pop_elec_HREA": 54.35,
+    "pct_pop_elec_HREA_low": 52.93,
+    "pct_pop_elec_HREA_high": 55.61
+  },
+  {
+    "year": 2014,
+    "country": "Namibia",
+    "pop": 2273426,
+    "pct_pop_elec_HREA": 54.37,
+    "pct_pop_elec_HREA_low": 52.87,
+    "pct_pop_elec_HREA_high": 55.69
+  },
+  {
+    "year": 2015,
+    "country": "Namibia",
+    "pop": 2314901,
+    "pct_pop_elec_HREA": 55.54,
+    "pct_pop_elec_HREA_low": 53.86,
+    "pct_pop_elec_HREA_high": 57.14
+  },
+  {
+    "year": 2016,
+    "country": "Namibia",
+    "pop": 2358044,
+    "pct_pop_elec_HREA": 56.19,
+    "pct_pop_elec_HREA_low": 54.38,
+    "pct_pop_elec_HREA_high": 57.95
+  },
+  {
+    "year": 2017,
+    "country": "Namibia",
+    "pop": 2402623,
+    "pct_pop_elec_HREA": 55.69,
+    "pct_pop_elec_HREA_low": 54,
+    "pct_pop_elec_HREA_high": 57.23
+  },
+  {
+    "year": 2018,
+    "country": "Namibia",
+    "pop": 2448300,
+    "pct_pop_elec_HREA": 55.92,
+    "pct_pop_elec_HREA_low": 54.24,
+    "pct_pop_elec_HREA_high": 57.42
+  },
+  {
+    "year": 2019,
+    "country": "Namibia",
+    "pop": 2494524,
+    "pct_pop_elec_HREA": 56.97,
+    "pct_pop_elec_HREA_low": 55.1,
+    "pct_pop_elec_HREA_high": 58.64
+  },
+  {
+    "year": 2020,
+    "country": "Namibia",
+    "pop": 2540916,
+    "pct_pop_elec_HREA": 56.51,
+    "pct_pop_elec_HREA_low": 54.67,
+    "pct_pop_elec_HREA_high": 58.25
+  },
+  {
+    "year": 2013,
+    "country": "Nepal",
+    "pop": 26916795,
+    "pct_pop_elec_HREA": 51.2,
+    "pct_pop_elec_HREA_low": 46.61,
+    "pct_pop_elec_HREA_high": 54.71
+  },
+  {
+    "year": 2014,
+    "country": "Nepal",
+    "pop": 26905982,
+    "pct_pop_elec_HREA": 50.75,
+    "pct_pop_elec_HREA_low": 46.09,
+    "pct_pop_elec_HREA_high": 54.31
+  },
+  {
+    "year": 2015,
+    "country": "Nepal",
+    "pop": 27015033,
+    "pct_pop_elec_HREA": 50.96,
+    "pct_pop_elec_HREA_low": 46.59,
+    "pct_pop_elec_HREA_high": 54.46
+  },
+  {
+    "year": 2016,
+    "country": "Nepal",
+    "pop": 27263430,
+    "pct_pop_elec_HREA": 54.08,
+    "pct_pop_elec_HREA_low": 49.35,
+    "pct_pop_elec_HREA_high": 57.69
+  },
+  {
+    "year": 2017,
+    "country": "Nepal",
+    "pop": 27632682,
+    "pct_pop_elec_HREA": 52.26,
+    "pct_pop_elec_HREA_low": 47.84,
+    "pct_pop_elec_HREA_high": 55.57
+  },
+  {
+    "year": 2018,
+    "country": "Nepal",
+    "pop": 28095712,
+    "pct_pop_elec_HREA": 54.82,
+    "pct_pop_elec_HREA_low": 50.42,
+    "pct_pop_elec_HREA_high": 58
+  },
+  {
+    "year": 2019,
+    "country": "Nepal",
+    "pop": 28608715,
+    "pct_pop_elec_HREA": 56.11,
+    "pct_pop_elec_HREA_low": 51.86,
+    "pct_pop_elec_HREA_high": 59.6
+  },
+  {
+    "year": 2020,
+    "country": "Nepal",
+    "pop": 29136808,
+    "pct_pop_elec_HREA": 58.01,
+    "pct_pop_elec_HREA_low": 53.65,
+    "pct_pop_elec_HREA_high": 61.33
+  },
+  {
+    "year": 2013,
+    "country": "Niger",
+    "pop": 18504287,
+    "pct_pop_elec_HREA": 18.85,
+    "pct_pop_elec_HREA_low": 17.96,
+    "pct_pop_elec_HREA_high": 19.55
+  },
+  {
+    "year": 2014,
+    "country": "Niger",
+    "pop": 19240182,
+    "pct_pop_elec_HREA": 19.17,
+    "pct_pop_elec_HREA_low": 18.35,
+    "pct_pop_elec_HREA_high": 19.9
+  },
+  {
+    "year": 2015,
+    "country": "Niger",
+    "pop": 20001663,
+    "pct_pop_elec_HREA": 19.41,
+    "pct_pop_elec_HREA_low": 18.45,
+    "pct_pop_elec_HREA_high": 20.27
+  },
+  {
+    "year": 2016,
+    "country": "Niger",
+    "pop": 20788789,
+    "pct_pop_elec_HREA": 19.55,
+    "pct_pop_elec_HREA_low": 18.68,
+    "pct_pop_elec_HREA_high": 20.46
+  },
+  {
+    "year": 2017,
+    "country": "Niger",
+    "pop": 21602388,
+    "pct_pop_elec_HREA": 19.35,
+    "pct_pop_elec_HREA_low": 18.55,
+    "pct_pop_elec_HREA_high": 20.14
+  },
+  {
+    "year": 2018,
+    "country": "Niger",
+    "pop": 22442831,
+    "pct_pop_elec_HREA": 19.83,
+    "pct_pop_elec_HREA_low": 18.93,
+    "pct_pop_elec_HREA_high": 20.87
+  },
+  {
+    "year": 2019,
+    "country": "Niger",
+    "pop": 23310719,
+    "pct_pop_elec_HREA": 19.88,
+    "pct_pop_elec_HREA_low": 18.92,
+    "pct_pop_elec_HREA_high": 20.78
+  },
+  {
+    "year": 2020,
+    "country": "Niger",
+    "pop": 24206636,
+    "pct_pop_elec_HREA": 20.56,
+    "pct_pop_elec_HREA_low": 19.56,
+    "pct_pop_elec_HREA_high": 21.52
+  },
+  {
+    "year": 2013,
+    "country": "Nigeria",
+    "pop": 171765819,
+    "pct_pop_elec_HREA": 54.08,
+    "pct_pop_elec_HREA_low": 51.36,
+    "pct_pop_elec_HREA_high": 56.22
+  },
+  {
+    "year": 2014,
+    "country": "Nigeria",
+    "pop": 176404931,
+    "pct_pop_elec_HREA": 53.87,
+    "pct_pop_elec_HREA_low": 51.12,
+    "pct_pop_elec_HREA_high": 56.08
+  },
+  {
+    "year": 2015,
+    "country": "Nigeria",
+    "pop": 181137454,
+    "pct_pop_elec_HREA": 53.73,
+    "pct_pop_elec_HREA_low": 50.87,
+    "pct_pop_elec_HREA_high": 56.05
+  },
+  {
+    "year": 2016,
+    "country": "Nigeria",
+    "pop": 185960244,
+    "pct_pop_elec_HREA": 52.44,
+    "pct_pop_elec_HREA_low": 49.33,
+    "pct_pop_elec_HREA_high": 54.89
+  },
+  {
+    "year": 2017,
+    "country": "Nigeria",
+    "pop": 190873247,
+    "pct_pop_elec_HREA": 51.1,
+    "pct_pop_elec_HREA_low": 47.9,
+    "pct_pop_elec_HREA_high": 53.67
+  },
+  {
+    "year": 2018,
+    "country": "Nigeria",
+    "pop": 195874685,
+    "pct_pop_elec_HREA": 51.18,
+    "pct_pop_elec_HREA_low": 48.24,
+    "pct_pop_elec_HREA_high": 53.68
+  },
+  {
+    "year": 2019,
+    "country": "Nigeria",
+    "pop": 200963603,
+    "pct_pop_elec_HREA": 53.9,
+    "pct_pop_elec_HREA_low": 50.92,
+    "pct_pop_elec_HREA_high": 56.34
+  },
+  {
+    "year": 2020,
+    "country": "Nigeria",
+    "pop": 206139587,
+    "pct_pop_elec_HREA": 51.94,
+    "pct_pop_elec_HREA_low": 48.94,
+    "pct_pop_elec_HREA_high": 54.46
+  },
+  {
+    "year": 2013,
+    "country": "Pakistan",
+    "pop": 191260799,
+    "pct_pop_elec_HREA": 81.12,
+    "pct_pop_elec_HREA_low": 76.76,
+    "pct_pop_elec_HREA_high": 84.08
+  },
+  {
+    "year": 2014,
+    "country": "Pakistan",
+    "pop": 195305012,
+    "pct_pop_elec_HREA": 76.35,
+    "pct_pop_elec_HREA_low": 71.05,
+    "pct_pop_elec_HREA_high": 80.13
+  },
+  {
+    "year": 2015,
+    "country": "Pakistan",
+    "pop": 199426953,
+    "pct_pop_elec_HREA": 76.74,
+    "pct_pop_elec_HREA_low": 71.61,
+    "pct_pop_elec_HREA_high": 80.38
+  },
+  {
+    "year": 2016,
+    "country": "Pakistan",
+    "pop": 203631356,
+    "pct_pop_elec_HREA": 77.05,
+    "pct_pop_elec_HREA_low": 72.3,
+    "pct_pop_elec_HREA_high": 80.45
+  },
+  {
+    "year": 2017,
+    "country": "Pakistan",
+    "pop": 207906210,
+    "pct_pop_elec_HREA": 75.81,
+    "pct_pop_elec_HREA_low": 71.17,
+    "pct_pop_elec_HREA_high": 79.17
+  },
+  {
+    "year": 2018,
+    "country": "Pakistan",
+    "pop": 212228288,
+    "pct_pop_elec_HREA": 79.99,
+    "pct_pop_elec_HREA_low": 75.54,
+    "pct_pop_elec_HREA_high": 83.02
+  },
+  {
+    "year": 2019,
+    "country": "Pakistan",
+    "pop": 216565317,
+    "pct_pop_elec_HREA": 78.01,
+    "pct_pop_elec_HREA_low": 73.08,
+    "pct_pop_elec_HREA_high": 81.38
+  },
+  {
+    "year": 2020,
+    "country": "Pakistan",
+    "pop": 220892331,
+    "pct_pop_elec_HREA": 77.9,
+    "pct_pop_elec_HREA_low": 73,
+    "pct_pop_elec_HREA_high": 81.28
+  },
+  {
+    "year": 2013,
+    "country": "Philippines",
+    "pop": 98871558,
+    "pct_pop_elec_HREA": 67.05,
+    "pct_pop_elec_HREA_low": 63.58,
+    "pct_pop_elec_HREA_high": 69.96
+  },
+  {
+    "year": 2014,
+    "country": "Philippines",
+    "pop": 100513137,
+    "pct_pop_elec_HREA": 66.99,
+    "pct_pop_elec_HREA_low": 63.73,
+    "pct_pop_elec_HREA_high": 69.72
+  },
+  {
+    "year": 2015,
+    "country": "Philippines",
+    "pop": 102113206,
+    "pct_pop_elec_HREA": 69.17,
+    "pct_pop_elec_HREA_low": 65.82,
+    "pct_pop_elec_HREA_high": 72.04
+  },
+  {
+    "year": 2016,
+    "country": "Philippines",
+    "pop": 103663812,
+    "pct_pop_elec_HREA": 68.95,
+    "pct_pop_elec_HREA_low": 65.57,
+    "pct_pop_elec_HREA_high": 71.85
+  },
+  {
+    "year": 2017,
+    "country": "Philippines",
+    "pop": 105172921,
+    "pct_pop_elec_HREA": 69.02,
+    "pct_pop_elec_HREA_low": 65.64,
+    "pct_pop_elec_HREA_high": 71.84
+  },
+  {
+    "year": 2018,
+    "country": "Philippines",
+    "pop": 106651394,
+    "pct_pop_elec_HREA": 70.09,
+    "pct_pop_elec_HREA_low": 66.83,
+    "pct_pop_elec_HREA_high": 72.82
+  },
+  {
+    "year": 2019,
+    "country": "Philippines",
+    "pop": 108116622,
+    "pct_pop_elec_HREA": 73.82,
+    "pct_pop_elec_HREA_low": 70.36,
+    "pct_pop_elec_HREA_high": 76.62
+  },
+  {
+    "year": 2020,
+    "country": "Philippines",
+    "pop": 109581085,
+    "pct_pop_elec_HREA": 73.91,
+    "pct_pop_elec_HREA_low": 70.43,
+    "pct_pop_elec_HREA_high": 76.67
+  },
+  {
+    "year": 2013,
+    "country": "Rwanda",
+    "pop": 10811538,
+    "pct_pop_elec_HREA": 18.88,
+    "pct_pop_elec_HREA_low": 16.64,
+    "pct_pop_elec_HREA_high": 20.95
+  },
+  {
+    "year": 2014,
+    "country": "Rwanda",
+    "pop": 11083629,
+    "pct_pop_elec_HREA": 19.42,
+    "pct_pop_elec_HREA_low": 17.1,
+    "pct_pop_elec_HREA_high": 21.55
+  },
+  {
+    "year": 2015,
+    "country": "Rwanda",
+    "pop": 11369066,
+    "pct_pop_elec_HREA": 21.8,
+    "pct_pop_elec_HREA_low": 19.34,
+    "pct_pop_elec_HREA_high": 24.23
+  },
+  {
+    "year": 2016,
+    "country": "Rwanda",
+    "pop": 11668829,
+    "pct_pop_elec_HREA": 21.47,
+    "pct_pop_elec_HREA_low": 19.13,
+    "pct_pop_elec_HREA_high": 23.85
+  },
+  {
+    "year": 2017,
+    "country": "Rwanda",
+    "pop": 11980960,
+    "pct_pop_elec_HREA": 23.15,
+    "pct_pop_elec_HREA_low": 20.54,
+    "pct_pop_elec_HREA_high": 25.73
+  },
+  {
+    "year": 2018,
+    "country": "Rwanda",
+    "pop": 12301969,
+    "pct_pop_elec_HREA": 23.89,
+    "pct_pop_elec_HREA_low": 21.33,
+    "pct_pop_elec_HREA_high": 26.42
+  },
+  {
+    "year": 2019,
+    "country": "Rwanda",
+    "pop": 12626938,
+    "pct_pop_elec_HREA": 23.7,
+    "pct_pop_elec_HREA_low": 21.24,
+    "pct_pop_elec_HREA_high": 26.01
+  },
+  {
+    "year": 2020,
+    "country": "Rwanda",
+    "pop": 12952209,
+    "pct_pop_elec_HREA": 26.79,
+    "pct_pop_elec_HREA_low": 23.94,
+    "pct_pop_elec_HREA_high": 29.49
+  },
+  {
+    "year": 2013,
+    "country": "Sao Tome and Principe",
+    "pop": 192076,
+    "pct_pop_elec_HREA": 85.71,
+    "pct_pop_elec_HREA_low": 84.71,
+    "pct_pop_elec_HREA_high": 86.61
+  },
+  {
+    "year": 2014,
+    "country": "Sao Tome and Principe",
+    "pop": 195727,
+    "pct_pop_elec_HREA": 86.68,
+    "pct_pop_elec_HREA_low": 85.89,
+    "pct_pop_elec_HREA_high": 87.57
+  },
+  {
+    "year": 2015,
+    "country": "Sao Tome and Principe",
+    "pop": 199439,
+    "pct_pop_elec_HREA": 88.38,
+    "pct_pop_elec_HREA_low": 87.18,
+    "pct_pop_elec_HREA_high": 89.41
+  },
+  {
+    "year": 2016,
+    "country": "Sao Tome and Principe",
+    "pop": 203221,
+    "pct_pop_elec_HREA": 89.71,
+    "pct_pop_elec_HREA_low": 87.93,
+    "pct_pop_elec_HREA_high": 90.66
+  },
+  {
+    "year": 2017,
+    "country": "Sao Tome and Principe",
+    "pop": 207086,
+    "pct_pop_elec_HREA": 91.16,
+    "pct_pop_elec_HREA_low": 89.93,
+    "pct_pop_elec_HREA_high": 91.87
+  },
+  {
+    "year": 2018,
+    "country": "Sao Tome and Principe",
+    "pop": 211032,
+    "pct_pop_elec_HREA": 90.95,
+    "pct_pop_elec_HREA_low": 90.04,
+    "pct_pop_elec_HREA_high": 92.05
+  },
+  {
+    "year": 2013,
+    "country": "Senegal",
+    "pop": 13782429,
+    "pct_pop_elec_HREA": 55.85,
+    "pct_pop_elec_HREA_low": 53.67,
+    "pct_pop_elec_HREA_high": 57.56
+  },
+  {
+    "year": 2014,
+    "country": "Senegal",
+    "pop": 14174740,
+    "pct_pop_elec_HREA": 55.53,
+    "pct_pop_elec_HREA_low": 53.42,
+    "pct_pop_elec_HREA_high": 57.37
+  },
+  {
+    "year": 2015,
+    "country": "Senegal",
+    "pop": 14578450,
+    "pct_pop_elec_HREA": 55.42,
+    "pct_pop_elec_HREA_low": 53.05,
+    "pct_pop_elec_HREA_high": 57.38
+  },
+  {
+    "year": 2016,
+    "country": "Senegal",
+    "pop": 14993514,
+    "pct_pop_elec_HREA": 56.4,
+    "pct_pop_elec_HREA_low": 54.13,
+    "pct_pop_elec_HREA_high": 58.22
+  },
+  {
+    "year": 2017,
+    "country": "Senegal",
+    "pop": 15419354,
+    "pct_pop_elec_HREA": 57.08,
+    "pct_pop_elec_HREA_low": 54.79,
+    "pct_pop_elec_HREA_high": 59.05
+  },
+  {
+    "year": 2018,
+    "country": "Senegal",
+    "pop": 15854324,
+    "pct_pop_elec_HREA": 58.43,
+    "pct_pop_elec_HREA_low": 56.16,
+    "pct_pop_elec_HREA_high": 60.3
+  },
+  {
+    "year": 2019,
+    "country": "Senegal",
+    "pop": 16296362,
+    "pct_pop_elec_HREA": 60.69,
+    "pct_pop_elec_HREA_low": 58.14,
+    "pct_pop_elec_HREA_high": 62.66
+  },
+  {
+    "year": 2020,
+    "country": "Senegal",
+    "pop": 16743930,
+    "pct_pop_elec_HREA": 62.96,
+    "pct_pop_elec_HREA_low": 60.44,
+    "pct_pop_elec_HREA_high": 65.17
+  },
+  {
+    "year": 2013,
+    "country": "Sierra Leone",
+    "pop": 6863975,
+    "pct_pop_elec_HREA": 32.15,
+    "pct_pop_elec_HREA_low": 30.24,
+    "pct_pop_elec_HREA_high": 33.66
+  },
+  {
+    "year": 2014,
+    "country": "Sierra Leone",
+    "pop": 7017153,
+    "pct_pop_elec_HREA": 33.52,
+    "pct_pop_elec_HREA_low": 31.58,
+    "pct_pop_elec_HREA_high": 35.08
+  },
+  {
+    "year": 2015,
+    "country": "Sierra Leone",
+    "pop": 7171909,
+    "pct_pop_elec_HREA": 32.43,
+    "pct_pop_elec_HREA_low": 30.94,
+    "pct_pop_elec_HREA_high": 33.72
+  },
+  {
+    "year": 2016,
+    "country": "Sierra Leone",
+    "pop": 7328846,
+    "pct_pop_elec_HREA": 33.59,
+    "pct_pop_elec_HREA_low": 31.93,
+    "pct_pop_elec_HREA_high": 35.11
+  },
+  {
+    "year": 2017,
+    "country": "Sierra Leone",
+    "pop": 7488427,
+    "pct_pop_elec_HREA": 33.25,
+    "pct_pop_elec_HREA_low": 31.62,
+    "pct_pop_elec_HREA_high": 34.69
+  },
+  {
+    "year": 2018,
+    "country": "Sierra Leone",
+    "pop": 7650149,
+    "pct_pop_elec_HREA": 32.93,
+    "pct_pop_elec_HREA_low": 31.16,
+    "pct_pop_elec_HREA_high": 34.4
+  },
+  {
+    "year": 2019,
+    "country": "Sierra Leone",
+    "pop": 7813207,
+    "pct_pop_elec_HREA": 33.99,
+    "pct_pop_elec_HREA_low": 32.31,
+    "pct_pop_elec_HREA_high": 35.31
+  },
+  {
+    "year": 2013,
+    "country": "Somalia",
+    "pop": 13063711,
+    "pct_pop_elec_HREA": 46.07,
+    "pct_pop_elec_HREA_low": 44.42,
+    "pct_pop_elec_HREA_high": 47.56
+  },
+  {
+    "year": 2014,
+    "country": "Somalia",
+    "pop": 13423571,
+    "pct_pop_elec_HREA": 48.24,
+    "pct_pop_elec_HREA_low": 47.18,
+    "pct_pop_elec_HREA_high": 49.2
+  },
+  {
+    "year": 2015,
+    "country": "Somalia",
+    "pop": 13797204,
+    "pct_pop_elec_HREA": 50.09,
+    "pct_pop_elec_HREA_low": 48.46,
+    "pct_pop_elec_HREA_high": 50.74
+  },
+  {
+    "year": 2016,
+    "country": "Somalia",
+    "pop": 14185635,
+    "pct_pop_elec_HREA": 52.11,
+    "pct_pop_elec_HREA_low": 50.97,
+    "pct_pop_elec_HREA_high": 52.46
+  },
+  {
+    "year": 2017,
+    "country": "Somalia",
+    "pop": 14589165,
+    "pct_pop_elec_HREA": 53.49,
+    "pct_pop_elec_HREA_low": 52.76,
+    "pct_pop_elec_HREA_high": 54.32
+  },
+  {
+    "year": 2018,
+    "country": "Somalia",
+    "pop": 15008225,
+    "pct_pop_elec_HREA": 55.59,
+    "pct_pop_elec_HREA_low": 54.3,
+    "pct_pop_elec_HREA_high": 56.38
+  },
+  {
+    "year": 2019,
+    "country": "Somalia",
+    "pop": 15442906,
+    "pct_pop_elec_HREA": 56.05,
+    "pct_pop_elec_HREA_low": 55.26,
+    "pct_pop_elec_HREA_high": 57.02
+  },
+  {
+    "year": 2020,
+    "country": "Somalia",
+    "pop": 15893219,
+    "pct_pop_elec_HREA": 57.27,
+    "pct_pop_elec_HREA_low": 56.24,
+    "pct_pop_elec_HREA_high": 57.82
+  },
+  {
+    "year": 2013,
+    "country": "South Africa",
+    "pop": 53687125,
+    "pct_pop_elec_HREA": 91.53,
+    "pct_pop_elec_HREA_low": 90.34,
+    "pct_pop_elec_HREA_high": 92.49
+  },
+  {
+    "year": 2014,
+    "country": "South Africa",
+    "pop": 54544184,
+    "pct_pop_elec_HREA": 91.18,
+    "pct_pop_elec_HREA_low": 89.94,
+    "pct_pop_elec_HREA_high": 92.17
+  },
+  {
+    "year": 2015,
+    "country": "South Africa",
+    "pop": 55386369,
+    "pct_pop_elec_HREA": 91.18,
+    "pct_pop_elec_HREA_low": 89.94,
+    "pct_pop_elec_HREA_high": 92.15
+  },
+  {
+    "year": 2016,
+    "country": "South Africa",
+    "pop": 56207649,
+    "pct_pop_elec_HREA": 91.31,
+    "pct_pop_elec_HREA_low": 90.04,
+    "pct_pop_elec_HREA_high": 92.3
+  },
+  {
+    "year": 2017,
+    "country": "South Africa",
+    "pop": 57009751,
+    "pct_pop_elec_HREA": 91.13,
+    "pct_pop_elec_HREA_low": 89.83,
+    "pct_pop_elec_HREA_high": 92.13
+  },
+  {
+    "year": 2018,
+    "country": "South Africa",
+    "pop": 57792520,
+    "pct_pop_elec_HREA": 90.86,
+    "pct_pop_elec_HREA_low": 89.51,
+    "pct_pop_elec_HREA_high": 91.96
+  },
+  {
+    "year": 2019,
+    "country": "South Africa",
+    "pop": 58558267,
+    "pct_pop_elec_HREA": 92.04,
+    "pct_pop_elec_HREA_low": 90.68,
+    "pct_pop_elec_HREA_high": 93.11
+  },
+  {
+    "year": 2020,
+    "country": "South Africa",
+    "pop": 59308690,
+    "pct_pop_elec_HREA": 92.21,
+    "pct_pop_elec_HREA_low": 90.88,
+    "pct_pop_elec_HREA_high": 93.25
+  },
+  {
+    "year": 2013,
+    "country": "South Sudan",
+    "pop": 10355030,
+    "pct_pop_elec_HREA": 21.71,
+    "pct_pop_elec_HREA_low": 18.05,
+    "pct_pop_elec_HREA_high": 24.49
+  },
+  {
+    "year": 2014,
+    "country": "South Sudan",
+    "pop": 10554882,
+    "pct_pop_elec_HREA": 20.65,
+    "pct_pop_elec_HREA_low": 17.47,
+    "pct_pop_elec_HREA_high": 24.73
+  },
+  {
+    "year": 2015,
+    "country": "South Sudan",
+    "pop": 10715657,
+    "pct_pop_elec_HREA": 17.12,
+    "pct_pop_elec_HREA_low": 14.84,
+    "pct_pop_elec_HREA_high": 20.72
+  },
+  {
+    "year": 2016,
+    "country": "South Sudan",
+    "pop": 10832520,
+    "pct_pop_elec_HREA": 21.22,
+    "pct_pop_elec_HREA_low": 17.1,
+    "pct_pop_elec_HREA_high": 23.02
+  },
+  {
+    "year": 2017,
+    "country": "South Sudan",
+    "pop": 10910774,
+    "pct_pop_elec_HREA": 17.32,
+    "pct_pop_elec_HREA_low": 15.73,
+    "pct_pop_elec_HREA_high": 20.12
+  },
+  {
+    "year": 2018,
+    "country": "South Sudan",
+    "pop": 10975924,
+    "pct_pop_elec_HREA": 17.55,
+    "pct_pop_elec_HREA_low": 16.31,
+    "pct_pop_elec_HREA_high": 20.27
+  },
+  {
+    "year": 2019,
+    "country": "South Sudan",
+    "pop": 11062114,
+    "pct_pop_elec_HREA": 20.22,
+    "pct_pop_elec_HREA_low": 17.31,
+    "pct_pop_elec_HREA_high": 22.78
+  },
+  {
+    "year": 2020,
+    "country": "South Sudan",
+    "pop": 11193729,
+    "pct_pop_elec_HREA": 21.72,
+    "pct_pop_elec_HREA_low": 18.16,
+    "pct_pop_elec_HREA_high": 24.45
+  },
+  {
+    "year": 2013,
+    "country": "Sri Lanka",
+    "pop": 20663053,
+    "pct_pop_elec_HREA": 78.49,
+    "pct_pop_elec_HREA_low": 70.85,
+    "pct_pop_elec_HREA_high": 84.13
+  },
+  {
+    "year": 2014,
+    "country": "Sri Lanka",
+    "pop": 20788512,
+    "pct_pop_elec_HREA": 75.83,
+    "pct_pop_elec_HREA_low": 68.09,
+    "pct_pop_elec_HREA_high": 81.9
+  },
+  {
+    "year": 2015,
+    "country": "Sri Lanka",
+    "pop": 20908024,
+    "pct_pop_elec_HREA": 78.84,
+    "pct_pop_elec_HREA_low": 70.95,
+    "pct_pop_elec_HREA_high": 84.63
+  },
+  {
+    "year": 2016,
+    "country": "Sri Lanka",
+    "pop": 21021177,
+    "pct_pop_elec_HREA": 78.79,
+    "pct_pop_elec_HREA_low": 70.72,
+    "pct_pop_elec_HREA_high": 84.95
+  },
+  {
+    "year": 2017,
+    "country": "Sri Lanka",
+    "pop": 21128028,
+    "pct_pop_elec_HREA": 78.12,
+    "pct_pop_elec_HREA_low": 70.14,
+    "pct_pop_elec_HREA_high": 84.12
+  },
+  {
+    "year": 2018,
+    "country": "Sri Lanka",
+    "pop": 21228760,
+    "pct_pop_elec_HREA": 81.72,
+    "pct_pop_elec_HREA_low": 74.3,
+    "pct_pop_elec_HREA_high": 87.1
+  },
+  {
+    "year": 2019,
+    "country": "Sri Lanka",
+    "pop": 21323734,
+    "pct_pop_elec_HREA": 82.22,
+    "pct_pop_elec_HREA_low": 75.17,
+    "pct_pop_elec_HREA_high": 87.27
+  },
+  {
+    "year": 2020,
+    "country": "Sri Lanka",
+    "pop": 21413250,
+    "pct_pop_elec_HREA": 81.81,
+    "pct_pop_elec_HREA_low": 74.9,
+    "pct_pop_elec_HREA_high": 86.88
+  },
+  {
+    "year": 2013,
+    "country": "Sudan",
+    "pop": 37072555,
+    "pct_pop_elec_HREA": 59.02,
+    "pct_pop_elec_HREA_low": 57.46,
+    "pct_pop_elec_HREA_high": 60.17
+  },
+  {
+    "year": 2014,
+    "country": "Sudan",
+    "pop": 37977657,
+    "pct_pop_elec_HREA": 59.84,
+    "pct_pop_elec_HREA_low": 58.44,
+    "pct_pop_elec_HREA_high": 60.77
+  },
+  {
+    "year": 2015,
+    "country": "Sudan",
+    "pop": 38902948,
+    "pct_pop_elec_HREA": 60.82,
+    "pct_pop_elec_HREA_low": 59.68,
+    "pct_pop_elec_HREA_high": 61.72
+  },
+  {
+    "year": 2016,
+    "country": "Sudan",
+    "pop": 39847433,
+    "pct_pop_elec_HREA": 61.33,
+    "pct_pop_elec_HREA_low": 60.45,
+    "pct_pop_elec_HREA_high": 62.06
+  },
+  {
+    "year": 2017,
+    "country": "Sudan",
+    "pop": 40813398,
+    "pct_pop_elec_HREA": 62.44,
+    "pct_pop_elec_HREA_low": 61.3,
+    "pct_pop_elec_HREA_high": 63.07
+  },
+  {
+    "year": 2018,
+    "country": "Sudan",
+    "pop": 41801532,
+    "pct_pop_elec_HREA": 62.46,
+    "pct_pop_elec_HREA_low": 61.7,
+    "pct_pop_elec_HREA_high": 63.04
+  },
+  {
+    "year": 2019,
+    "country": "Sudan",
+    "pop": 42813237,
+    "pct_pop_elec_HREA": 63.36,
+    "pct_pop_elec_HREA_low": 62.71,
+    "pct_pop_elec_HREA_high": 64.23
+  },
+  {
+    "year": 2020,
+    "country": "Sudan",
+    "pop": 43849269,
+    "pct_pop_elec_HREA": 64.32,
+    "pct_pop_elec_HREA_low": 63.48,
+    "pct_pop_elec_HREA_high": 65.32
+  },
+  {
+    "year": 2014,
+    "country": "Tajikistan",
+    "pop": 8252828,
+    "pct_pop_elec_HREA": 81.25,
+    "pct_pop_elec_HREA_low": 77.05,
+    "pct_pop_elec_HREA_high": 84.22
+  },
+  {
+    "year": 2015,
+    "country": "Tajikistan",
+    "pop": 8454019,
+    "pct_pop_elec_HREA": 82.81,
+    "pct_pop_elec_HREA_low": 78.84,
+    "pct_pop_elec_HREA_high": 85.72
+  },
+  {
+    "year": 2016,
+    "country": "Tajikistan",
+    "pop": 8663575,
+    "pct_pop_elec_HREA": 82.83,
+    "pct_pop_elec_HREA_low": 78.8,
+    "pct_pop_elec_HREA_high": 85.87
+  },
+  {
+    "year": 2017,
+    "country": "Tajikistan",
+    "pop": 8880270,
+    "pct_pop_elec_HREA": 81.12,
+    "pct_pop_elec_HREA_low": 76.62,
+    "pct_pop_elec_HREA_high": 84.33
+  },
+  {
+    "year": 2018,
+    "country": "Tajikistan",
+    "pop": 9100847,
+    "pct_pop_elec_HREA": 82.29,
+    "pct_pop_elec_HREA_low": 78.08,
+    "pct_pop_elec_HREA_high": 85.28
+  },
+  {
+    "year": 2019,
+    "country": "Tajikistan",
+    "pop": 9321023,
+    "pct_pop_elec_HREA": 83.63,
+    "pct_pop_elec_HREA_low": 79.94,
+    "pct_pop_elec_HREA_high": 86.45
+  },
+  {
+    "year": 2020,
+    "country": "Tajikistan",
+    "pop": 9537642,
+    "pct_pop_elec_HREA": 86.65,
+    "pct_pop_elec_HREA_low": 83.33,
+    "pct_pop_elec_HREA_high": 88.93
+  },
+  {
+    "year": 2013,
+    "country": "United Republic of Tanzania",
+    "pop": 48483132,
+    "pct_pop_elec_HREA": 30.6,
+    "pct_pop_elec_HREA_low": 29.1,
+    "pct_pop_elec_HREA_high": 31.91
+  },
+  {
+    "year": 2014,
+    "country": "United Republic of Tanzania",
+    "pop": 49960563,
+    "pct_pop_elec_HREA": 30.9,
+    "pct_pop_elec_HREA_low": 29.39,
+    "pct_pop_elec_HREA_high": 32.26
+  },
+  {
+    "year": 2015,
+    "country": "United Republic of Tanzania",
+    "pop": 51482638,
+    "pct_pop_elec_HREA": 31.99,
+    "pct_pop_elec_HREA_low": 30.36,
+    "pct_pop_elec_HREA_high": 33.53
+  },
+  {
+    "year": 2016,
+    "country": "United Republic of Tanzania",
+    "pop": 53049231,
+    "pct_pop_elec_HREA": 33.38,
+    "pct_pop_elec_HREA_low": 31.55,
+    "pct_pop_elec_HREA_high": 34.98
+  },
+  {
+    "year": 2017,
+    "country": "United Republic of Tanzania",
+    "pop": 54660345,
+    "pct_pop_elec_HREA": 33.68,
+    "pct_pop_elec_HREA_low": 31.92,
+    "pct_pop_elec_HREA_high": 35.31
+  },
+  {
+    "year": 2018,
+    "country": "United Republic of Tanzania",
+    "pop": 56313444,
+    "pct_pop_elec_HREA": 34.18,
+    "pct_pop_elec_HREA_low": 32.29,
+    "pct_pop_elec_HREA_high": 35.9
+  },
+  {
+    "year": 2019,
+    "country": "United Republic of Tanzania",
+    "pop": 58005461,
+    "pct_pop_elec_HREA": 34.8,
+    "pct_pop_elec_HREA_low": 32.96,
+    "pct_pop_elec_HREA_high": 36.56
+  },
+  {
+    "year": 2020,
+    "country": "United Republic of Tanzania",
+    "pop": 59734213,
+    "pct_pop_elec_HREA": 35.62,
+    "pct_pop_elec_HREA_low": 33.68,
+    "pct_pop_elec_HREA_high": 37.52
+  },
+  {
+    "year": 2013,
+    "country": "Thailand",
+    "pop": 68144519,
+    "pct_pop_elec_HREA": 82.45,
+    "pct_pop_elec_HREA_low": 79.05,
+    "pct_pop_elec_HREA_high": 84.98
+  },
+  {
+    "year": 2014,
+    "country": "Thailand",
+    "pop": 68438748,
+    "pct_pop_elec_HREA": 80.71,
+    "pct_pop_elec_HREA_low": 77.38,
+    "pct_pop_elec_HREA_high": 83.31
+  },
+  {
+    "year": 2015,
+    "country": "Thailand",
+    "pop": 68714519,
+    "pct_pop_elec_HREA": 81.57,
+    "pct_pop_elec_HREA_low": 78.36,
+    "pct_pop_elec_HREA_high": 84.02
+  },
+  {
+    "year": 2016,
+    "country": "Thailand",
+    "pop": 68971313,
+    "pct_pop_elec_HREA": 81.99,
+    "pct_pop_elec_HREA_low": 78.76,
+    "pct_pop_elec_HREA_high": 84.44
+  },
+  {
+    "year": 2017,
+    "country": "Thailand",
+    "pop": 69209817,
+    "pct_pop_elec_HREA": 82.13,
+    "pct_pop_elec_HREA_low": 79.05,
+    "pct_pop_elec_HREA_high": 84.48
+  },
+  {
+    "year": 2018,
+    "country": "Thailand",
+    "pop": 69428454,
+    "pct_pop_elec_HREA": 83.52,
+    "pct_pop_elec_HREA_low": 80.53,
+    "pct_pop_elec_HREA_high": 85.73
+  },
+  {
+    "year": 2019,
+    "country": "Thailand",
+    "pop": 69625581,
+    "pct_pop_elec_HREA": 83.08,
+    "pct_pop_elec_HREA_low": 80.08,
+    "pct_pop_elec_HREA_high": 85.38
+  },
+  {
+    "year": 2020,
+    "country": "Thailand",
+    "pop": 69799978,
+    "pct_pop_elec_HREA": 83.54,
+    "pct_pop_elec_HREA_low": 80.57,
+    "pct_pop_elec_HREA_high": 85.78
+  },
+  {
+    "year": 2013,
+    "country": "Timor-Leste",
+    "pop": 1153288,
+    "pct_pop_elec_HREA": 57.94,
+    "pct_pop_elec_HREA_low": 55.96,
+    "pct_pop_elec_HREA_high": 59.72
+  },
+  {
+    "year": 2014,
+    "country": "Timor-Leste",
+    "pop": 1174333,
+    "pct_pop_elec_HREA": 60.27,
+    "pct_pop_elec_HREA_low": 56.61,
+    "pct_pop_elec_HREA_high": 63.38
+  },
+  {
+    "year": 2015,
+    "country": "Timor-Leste",
+    "pop": 1196294,
+    "pct_pop_elec_HREA": 62.36,
+    "pct_pop_elec_HREA_low": 58.8,
+    "pct_pop_elec_HREA_high": 65.2
+  },
+  {
+    "year": 2016,
+    "country": "Timor-Leste",
+    "pop": 1219289,
+    "pct_pop_elec_HREA": 62.06,
+    "pct_pop_elec_HREA_low": 57.97,
+    "pct_pop_elec_HREA_high": 65.19
+  },
+  {
+    "year": 2017,
+    "country": "Timor-Leste",
+    "pop": 1243260,
+    "pct_pop_elec_HREA": 63.58,
+    "pct_pop_elec_HREA_low": 59.1,
+    "pct_pop_elec_HREA_high": 67.25
+  },
+  {
+    "year": 2018,
+    "country": "Timor-Leste",
+    "pop": 1267975,
+    "pct_pop_elec_HREA": 64.82,
+    "pct_pop_elec_HREA_low": 60.26,
+    "pct_pop_elec_HREA_high": 68.64
+  },
+  {
+    "year": 2019,
+    "country": "Timor-Leste",
+    "pop": 1293120,
+    "pct_pop_elec_HREA": 67.11,
+    "pct_pop_elec_HREA_low": 62.79,
+    "pct_pop_elec_HREA_high": 70.98
+  },
+  {
+    "year": 2020,
+    "country": "Timor-Leste",
+    "pop": 1318442,
+    "pct_pop_elec_HREA": 68.91,
+    "pct_pop_elec_HREA_low": 63.77,
+    "pct_pop_elec_HREA_high": 72.55
+  },
+  {
+    "year": 2013,
+    "country": "Togo",
+    "pop": 6954721,
+    "pct_pop_elec_HREA": 55.03,
+    "pct_pop_elec_HREA_low": 52.56,
+    "pct_pop_elec_HREA_high": 57.11
+  },
+  {
+    "year": 2014,
+    "country": "Togo",
+    "pop": 7137997,
+    "pct_pop_elec_HREA": 55.81,
+    "pct_pop_elec_HREA_low": 53.14,
+    "pct_pop_elec_HREA_high": 57.93
+  },
+  {
+    "year": 2015,
+    "country": "Togo",
+    "pop": 7323162,
+    "pct_pop_elec_HREA": 59.81,
+    "pct_pop_elec_HREA_low": 57.17,
+    "pct_pop_elec_HREA_high": 61.97
+  },
+  {
+    "year": 2016,
+    "country": "Togo",
+    "pop": 7509952,
+    "pct_pop_elec_HREA": 62.03,
+    "pct_pop_elec_HREA_low": 59.02,
+    "pct_pop_elec_HREA_high": 64.51
+  },
+  {
+    "year": 2017,
+    "country": "Togo",
+    "pop": 7698476,
+    "pct_pop_elec_HREA": 61.36,
+    "pct_pop_elec_HREA_low": 58.44,
+    "pct_pop_elec_HREA_high": 63.53
+  },
+  {
+    "year": 2018,
+    "country": "Togo",
+    "pop": 7889095,
+    "pct_pop_elec_HREA": 61.44,
+    "pct_pop_elec_HREA_low": 59.32,
+    "pct_pop_elec_HREA_high": 63.18
+  },
+  {
+    "year": 2019,
+    "country": "Togo",
+    "pop": 8082359,
+    "pct_pop_elec_HREA": 62.46,
+    "pct_pop_elec_HREA_low": 60.27,
+    "pct_pop_elec_HREA_high": 64.15
+  },
+  {
+    "year": 2020,
+    "country": "Togo",
+    "pop": 8278737,
+    "pct_pop_elec_HREA": 64.12,
+    "pct_pop_elec_HREA_low": 61.65,
+    "pct_pop_elec_HREA_high": 65.96
+  },
+  {
+    "year": 2013,
+    "country": "Tunisia",
+    "pop": 10952949,
+    "pct_pop_elec_HREA": 83.82,
+    "pct_pop_elec_HREA_low": 81.31,
+    "pct_pop_elec_HREA_high": 85.8
+  },
+  {
+    "year": 2014,
+    "country": "Tunisia",
+    "pop": 11063195,
+    "pct_pop_elec_HREA": 81.67,
+    "pct_pop_elec_HREA_low": 79.1,
+    "pct_pop_elec_HREA_high": 83.8
+  },
+  {
+    "year": 2015,
+    "country": "Tunisia",
+    "pop": 11179951,
+    "pct_pop_elec_HREA": 82.5,
+    "pct_pop_elec_HREA_low": 79.97,
+    "pct_pop_elec_HREA_high": 84.51
+  },
+  {
+    "year": 2016,
+    "country": "Tunisia",
+    "pop": 11303942,
+    "pct_pop_elec_HREA": 82.14,
+    "pct_pop_elec_HREA_low": 79.68,
+    "pct_pop_elec_HREA_high": 84.2
+  },
+  {
+    "year": 2017,
+    "country": "Tunisia",
+    "pop": 11433438,
+    "pct_pop_elec_HREA": 81.96,
+    "pct_pop_elec_HREA_low": 79.51,
+    "pct_pop_elec_HREA_high": 83.93
+  },
+  {
+    "year": 2018,
+    "country": "Tunisia",
+    "pop": 11565203,
+    "pct_pop_elec_HREA": 81.64,
+    "pct_pop_elec_HREA_low": 79.34,
+    "pct_pop_elec_HREA_high": 83.58
+  },
+  {
+    "year": 2019,
+    "country": "Tunisia",
+    "pop": 11694721,
+    "pct_pop_elec_HREA": 81.75,
+    "pct_pop_elec_HREA_low": 79.39,
+    "pct_pop_elec_HREA_high": 83.68
+  },
+  {
+    "year": 2020,
+    "country": "Tunisia",
+    "pop": 11818618,
+    "pct_pop_elec_HREA": 81.51,
+    "pct_pop_elec_HREA_low": 79.22,
+    "pct_pop_elec_HREA_high": 83.38
+  },
+  {
+    "year": 2013,
+    "country": "Uganda",
+    "pop": 35694519,
+    "pct_pop_elec_HREA": 19.62,
+    "pct_pop_elec_HREA_low": 18.21,
+    "pct_pop_elec_HREA_high": 20.92
+  },
+  {
+    "year": 2014,
+    "country": "Uganda",
+    "pop": 36911530,
+    "pct_pop_elec_HREA": 19.91,
+    "pct_pop_elec_HREA_low": 18.51,
+    "pct_pop_elec_HREA_high": 21.32
+  },
+  {
+    "year": 2015,
+    "country": "Uganda",
+    "pop": 38225447,
+    "pct_pop_elec_HREA": 20.6,
+    "pct_pop_elec_HREA_low": 18.97,
+    "pct_pop_elec_HREA_high": 22.31
+  },
+  {
+    "year": 2016,
+    "country": "Uganda",
+    "pop": 39649173,
+    "pct_pop_elec_HREA": 21.21,
+    "pct_pop_elec_HREA_low": 19.51,
+    "pct_pop_elec_HREA_high": 22.91
+  },
+  {
+    "year": 2017,
+    "country": "Uganda",
+    "pop": 41166588,
+    "pct_pop_elec_HREA": 21.45,
+    "pct_pop_elec_HREA_low": 19.71,
+    "pct_pop_elec_HREA_high": 23.1
+  },
+  {
+    "year": 2018,
+    "country": "Uganda",
+    "pop": 42729032,
+    "pct_pop_elec_HREA": 21.99,
+    "pct_pop_elec_HREA_low": 20.18,
+    "pct_pop_elec_HREA_high": 23.87
+  },
+  {
+    "year": 2019,
+    "country": "Uganda",
+    "pop": 44269587,
+    "pct_pop_elec_HREA": 22.47,
+    "pct_pop_elec_HREA_low": 20.68,
+    "pct_pop_elec_HREA_high": 24.28
+  },
+  {
+    "year": 2020,
+    "country": "Uganda",
+    "pop": 45741000,
+    "pct_pop_elec_HREA": 22.94,
+    "pct_pop_elec_HREA_low": 21.1,
+    "pct_pop_elec_HREA_high": 24.68
+  },
+  {
+    "year": 2013,
+    "country": "Viet Nam",
+    "pop": 90752593,
+    "pct_pop_elec_HREA": 72.16,
+    "pct_pop_elec_HREA_low": 67.86,
+    "pct_pop_elec_HREA_high": 75.45
+  },
+  {
+    "year": 2014,
+    "country": "Viet Nam",
+    "pop": 91713850,
+    "pct_pop_elec_HREA": 72.57,
+    "pct_pop_elec_HREA_low": 68.35,
+    "pct_pop_elec_HREA_high": 75.74
+  },
+  {
+    "year": 2015,
+    "country": "Viet Nam",
+    "pop": 92677082,
+    "pct_pop_elec_HREA": 74.48,
+    "pct_pop_elec_HREA_low": 70.54,
+    "pct_pop_elec_HREA_high": 77.36
+  },
+  {
+    "year": 2016,
+    "country": "Viet Nam",
+    "pop": 93640435,
+    "pct_pop_elec_HREA": 76.39,
+    "pct_pop_elec_HREA_low": 72.78,
+    "pct_pop_elec_HREA_high": 79.1
+  },
+  {
+    "year": 2017,
+    "country": "Viet Nam",
+    "pop": 94600643,
+    "pct_pop_elec_HREA": 76.82,
+    "pct_pop_elec_HREA_low": 73.27,
+    "pct_pop_elec_HREA_high": 79.37
+  },
+  {
+    "year": 2018,
+    "country": "Viet Nam",
+    "pop": 95545959,
+    "pct_pop_elec_HREA": 78.54,
+    "pct_pop_elec_HREA_low": 75.21,
+    "pct_pop_elec_HREA_high": 81
+  },
+  {
+    "year": 2019,
+    "country": "Viet Nam",
+    "pop": 96462108,
+    "pct_pop_elec_HREA": 82.74,
+    "pct_pop_elec_HREA_low": 79.93,
+    "pct_pop_elec_HREA_high": 84.81
+  },
+  {
+    "year": 2020,
+    "country": "Viet Nam",
+    "pop": 97338583,
+    "pct_pop_elec_HREA": 83.54,
+    "pct_pop_elec_HREA_low": 80.86,
+    "pct_pop_elec_HREA_high": 85.55
+  },
+  {
+    "year": 2013,
+    "country": "Zambia",
+    "pop": 14926551,
+    "pct_pop_elec_HREA": 41.6,
+    "pct_pop_elec_HREA_low": 40.07,
+    "pct_pop_elec_HREA_high": 43.03
+  },
+  {
+    "year": 2014,
+    "country": "Zambia",
+    "pop": 15399793,
+    "pct_pop_elec_HREA": 41.76,
+    "pct_pop_elec_HREA_low": 40.12,
+    "pct_pop_elec_HREA_high": 43.25
+  },
+  {
+    "year": 2015,
+    "country": "Zambia",
+    "pop": 15879370,
+    "pct_pop_elec_HREA": 41.72,
+    "pct_pop_elec_HREA_low": 40.14,
+    "pct_pop_elec_HREA_high": 43.21
+  },
+  {
+    "year": 2016,
+    "country": "Zambia",
+    "pop": 16363449,
+    "pct_pop_elec_HREA": 42.53,
+    "pct_pop_elec_HREA_low": 40.9,
+    "pct_pop_elec_HREA_high": 43.95
+  },
+  {
+    "year": 2017,
+    "country": "Zambia",
+    "pop": 16853608,
+    "pct_pop_elec_HREA": 42.78,
+    "pct_pop_elec_HREA_low": 41.31,
+    "pct_pop_elec_HREA_high": 44.18
+  },
+  {
+    "year": 2018,
+    "country": "Zambia",
+    "pop": 17351714,
+    "pct_pop_elec_HREA": 42.11,
+    "pct_pop_elec_HREA_low": 40.79,
+    "pct_pop_elec_HREA_high": 43.44
+  },
+  {
+    "year": 2019,
+    "country": "Zambia",
+    "pop": 17861034,
+    "pct_pop_elec_HREA": 41.63,
+    "pct_pop_elec_HREA_low": 40.26,
+    "pct_pop_elec_HREA_high": 42.95
+  },
+  {
+    "year": 2020,
+    "country": "Zambia",
+    "pop": 18383956,
+    "pct_pop_elec_HREA": 41.88,
+    "pct_pop_elec_HREA_low": 40.53,
+    "pct_pop_elec_HREA_high": 43.18
+  },
+  {
+    "year": 2013,
+    "country": "Zimbabwe",
+    "pop": 13350378,
+    "pct_pop_elec_HREA": 40.71,
+    "pct_pop_elec_HREA_low": 39.46,
+    "pct_pop_elec_HREA_high": 41.89
+  },
+  {
+    "year": 2014,
+    "country": "Zimbabwe",
+    "pop": 13586710,
+    "pct_pop_elec_HREA": 40.58,
+    "pct_pop_elec_HREA_low": 39.22,
+    "pct_pop_elec_HREA_high": 41.86
+  },
+  {
+    "year": 2015,
+    "country": "Zimbabwe",
+    "pop": 13814642,
+    "pct_pop_elec_HREA": 39.9,
+    "pct_pop_elec_HREA_low": 38.66,
+    "pct_pop_elec_HREA_high": 41.06
+  },
+  {
+    "year": 2016,
+    "country": "Zimbabwe",
+    "pop": 14030338,
+    "pct_pop_elec_HREA": 40.14,
+    "pct_pop_elec_HREA_low": 38.85,
+    "pct_pop_elec_HREA_high": 41.32
+  },
+  {
+    "year": 2017,
+    "country": "Zimbabwe",
+    "pop": 14236599,
+    "pct_pop_elec_HREA": 39.44,
+    "pct_pop_elec_HREA_low": 38.26,
+    "pct_pop_elec_HREA_high": 40.55
+  },
+  {
+    "year": 2018,
+    "country": "Zimbabwe",
+    "pop": 14438812,
+    "pct_pop_elec_HREA": 38.77,
+    "pct_pop_elec_HREA_low": 37.62,
+    "pct_pop_elec_HREA_high": 39.82
+  },
+  {
+    "year": 2019,
+    "country": "Zimbabwe",
+    "pop": 14645473,
+    "pct_pop_elec_HREA": 38.57,
+    "pct_pop_elec_HREA_low": 37.53,
+    "pct_pop_elec_HREA_high": 39.55
+  },
+  {
+    "year": 2020,
+    "country": "Zimbabwe",
+    "pop": 14862927,
+    "pct_pop_elec_HREA": 38.26,
+    "pct_pop_elec_HREA_low": 37.21,
+    "pct_pop_elec_HREA_high": 39.1
+  }
+]
