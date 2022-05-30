@@ -1,24 +1,28 @@
 import { useEffect, useRef, useState } from 'react';
 import maplibregl from 'maplibre-gl';
-import { scaleLinear } from 'd3-scale';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import styled from 'styled-components';
+import { format } from 'd3-format';
 import CountryTaxonomy from '../Data/country-taxonomy.json';
-import { EAKey, PopDenKey, RWIKey } from '../Keys';
+import CountryData from '../Data/timeSeriesData.json';
+import { Tooltip } from './Tooltip';
+import {
+  COLOR_SCALE, LINEAR_SCALE, PCT_RANGE, POP_RANGE,
+} from '../Constants';
 
 interface Props {
-    mapShapeHighRes: any;
-    countryShapeHighRes: any;
+    districtShapes: any;
+    countryShapes: any;
     setCountry: (_d?: string) => void;
 }
-
-const COLORS = ['#d73027', '#ffffbf', '#1a9850'];
-
-const DOMAIN = [0, 0.5, 1];
-const POPDEN_DOMAIN = [0, 500];
-const POPDEN_COLOR = ['#ffffbf', '#d73027'];
-const RWI_COLOR = ['#d73027', '#ffffbf', '#1a9850'];
-const RWI_DOMAIN = [-0.75, 0, 0.75];
+interface HoverDataProps {
+  city?: string;
+  country: string;
+  pctValue?: number;
+  popValue?: number;
+  xPosition: number;
+  yPosition: number;
+}
 
 const LayerSelectorEl = styled.div`
   padding: 0;
@@ -77,40 +81,31 @@ const KeyEl = styled.div`
   border-radius: 0.4rem;
   box-shadow: var(--shadow);
   background-color: var(--white-opacity);
+  div {
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
 `;
-
-const getPopDenEAColor = (popDen: number, ea: number) => {
-  if (ea > 0.1) return 'rgba(0, 0, 0, 0)';
-  const popDenIndxScale = scaleLinear<number, string>().domain(POPDEN_DOMAIN).range(POPDEN_COLOR as any);
-  return popDenIndxScale(popDen);
-};
-
-const getRWIEAColor = (rwi: number, ea: number) => {
-  if (ea > 0.1) return 'rgba(0, 0, 0, 0)';
-  const rwiColorScale = scaleLinear<number, string>().domain(RWI_DOMAIN).range(RWI_COLOR as any);
-  return rwiColorScale(rwi);
-};
 
 export function MapEl(props: Props) {
   const {
-    mapShapeHighRes, countryShapeHighRes, setCountry,
+    districtShapes, countryShapes, setCountry,
   } = props;
-  const colorScale = scaleLinear<number, string>().domain(DOMAIN).range(COLORS as any);
-  const mapShapeHighResWithColor = mapShapeHighRes.map((d:any) => ({
-    geometry: d.geometry,
-    type: d.type,
-    properties: {
-      ...d.properties, rwi_ea_color: getRWIEAColor(d.properties.rwi, d.properties.ea), ea_color: colorScale(d.properties.ea), ea_popDen_color: getPopDenEAColor(d.properties.popden, d.properties.ea),
-    },
-  }));
-  const mapShapeGeoJsonHighRes = { type: 'FeatureCollection', features: mapShapeHighResWithColor };
-  const countryShapeGeoJsonHighRes = { type: 'FeatureCollection', features: countryShapeHighRes };
+
+  const keyBarWid = 40;
+  const [hoverData, setHoverData] = useState<null | HoverDataProps>(null);
+  const districtShapesGeoJson = { type: 'FeatureCollection', features: districtShapes };
+  const countryShapesGeoJson = { type: 'FeatureCollection', features: countryShapes };
   const mapContainer = useRef<HTMLDivElement>(null);
   const map = useRef<HTMLDivElement>(null);
   const zoom = 2;
   useEffect(() => {
     if (map.current) return;
     let hoveredStateId: string | null = null;
+    let districtHoveredStateId: string | null = null;
+
+    // initiate map and add base layer
     (map as any).current = new maplibregl.Map({
       container: mapContainer.current as any,
       style: {
@@ -137,49 +132,50 @@ export function MapEl(props: Props) {
       zoom,
     });
 
+    // add district layer with colors
     (map as any).current.on('load', () => {
-      (map as any).current.addSource('district-layer', {
+      (map as any).current.addSource('district-layer-data', {
         type: 'geojson',
-        data: mapShapeGeoJsonHighRes,
+        data: districtShapesGeoJson,
       });
       (map as any).current.addLayer({
-        id: 'district-layer-ea',
+        id: 'district-layer',
         type: 'fill',
-        source: 'district-layer',
+        source: 'district-layer-data',
         layout: { visibility: 'visible' },
         paint: {
-          'fill-color': ['get', 'ea_color'],
+          'fill-color': ['get', 'eaAccessPctColor'],
           'fill-opacity': 1,
         },
       });
       (map as any).current.addLayer({
-        id: 'district-layer-popDen',
+        id: 'district-layer-pop',
         type: 'fill',
-        source: 'district-layer',
+        source: 'district-layer-data',
         layout: { visibility: 'none' },
         paint: {
-          'fill-color': ['get', 'ea_popDen_color'],
+          'fill-color': ['get', 'eaNoAccessColor'],
           'fill-opacity': 1,
         },
       });
+
       (map as any).current.addLayer({
-        id: 'district-layer-rwi',
-        type: 'fill',
-        source: 'district-layer',
-        layout: { visibility: 'none' },
+        id: 'district-layer-outline',
+        type: 'line',
+        source: 'district-layer-data',
+        layout: { visibility: 'visible' },
         paint: {
-          'fill-color': ['get', 'rwi_ea_color'],
-          'fill-opacity': 1,
+          'line-color': '#FFF',
+          'line-width': 1,
+          'line-opacity': 0.2,
         },
       });
-      (map as any).current.addSource('country-layer', {
-        type: 'geojson',
-        data: countryShapeGeoJsonHighRes,
-      });
+
+      // add district layer for mouseover
       (map as any).current.addLayer({
-        id: 'country-layer-fill',
+        id: 'district-layer-overlay',
         type: 'fill',
-        source: 'country-layer',
+        source: 'district-layer-data',
         layout: { visibility: 'visible' },
         paint: {
           'fill-color': '#000',
@@ -190,11 +186,38 @@ export function MapEl(props: Props) {
             0,
           ],
         },
+        minzoom: 4,
       });
+
+      // country layer data
+      (map as any).current.addSource('country-layer-data', {
+        type: 'geojson',
+        data: countryShapesGeoJson,
+      });
+
+      // add country layer for mouse over
+      (map as any).current.addLayer({
+        id: 'country-layer-overlay',
+        type: 'fill',
+        source: 'country-layer-data',
+        layout: { visibility: 'visible' },
+        paint: {
+          'fill-color': '#000',
+          'fill-opacity': [
+            'case',
+            ['boolean', ['feature-state', 'hover'], false],
+            0.25,
+            0,
+          ],
+        },
+        maxzoom: 4,
+      });
+
+      // add country border
       (map as any).current.addLayer({
         id: 'country-layer-outline',
         type: 'line',
-        source: 'country-layer',
+        source: 'country-layer-data',
         layout: {
           'line-join': 'round',
           'line-cap': 'round',
@@ -202,9 +225,11 @@ export function MapEl(props: Props) {
         },
         paint: {
           'line-color': '#FFF',
-          'line-width': 2,
+          'line-width': 1,
         },
       });
+
+      // add label from raster
       (map as any).current.addSource('raster-labels', {
         type: 'raster',
         tiles: ['https://basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}{r}.png'],
@@ -217,63 +242,111 @@ export function MapEl(props: Props) {
           source: 'raster-labels',
         },
       );
-      (map as any).current.on('mousemove', 'country-layer-fill', (e:any) => {
+
+      // Create a popup, but don't add it to the map yet.
+    });
+    (map as any).current.on('load', () => {
+      // mouse over effect on district layer
+      (map as any).current.on('mousemove', 'district-layer-overlay', (e:any) => {
         (map as any).current.getCanvas().style.cursor = 'pointer';
         if (e.features.length > 0) {
-          if (hoveredStateId) {
+          const indx = CountryTaxonomy.findIndex((d) => d['Alpha-3 code-1'] === e.features[0].properties.iso_3);
+          setHoverData({
+            city: e.features[0].properties.adm2_name !== ' ' && e.features[0].properties.adm2_name !== '' && e.features[0].properties.adm2_name ? e.features[0].properties.adm2_name : e.features[0].properties.adm1_name,
+            country: CountryTaxonomy[indx]['Country or Area'],
+            pctValue: e.features[0].properties.eaAccessPct,
+            popValue: e.features[0].properties.eaNoAccessPop,
+            xPosition: e.point.x,
+            yPosition: e.point.y,
+          });
+          if (districtHoveredStateId) {
             (map as any).current.setFeatureState(
-              { source: 'country-layer', id: hoveredStateId },
+              { source: 'district-layer-data', id: districtHoveredStateId },
               { hover: false },
             );
           }
-          hoveredStateId = e.features[0].id;
+          districtHoveredStateId = e.features[0].id;
           (map as any).current.setFeatureState(
-            { source: 'country-layer', id: hoveredStateId },
+            { source: 'district-layer-data', id: districtHoveredStateId },
             { hover: true },
           );
         }
       });
 
-      (map as any).current.on('mouseleave', 'country-layer-fill', () => {
+      (map as any).current.on('mouseleave', 'district-layer-overlay', () => {
+        (map as any).current.getCanvas().style.cursor = 'default';
+        if (districtHoveredStateId) {
+          (map as any).current.setFeatureState(
+            { source: 'district-layer-data', id: districtHoveredStateId },
+            { hover: false },
+          );
+        }
+        districtHoveredStateId = null;
+        setHoverData(null);
+      });
+
+      // mouse over effect on country layer
+      (map as any).current.on('mousemove', 'country-layer-overlay', (e:any) => {
+        (map as any).current.getCanvas().style.cursor = 'pointer';
+        if (e.features.length > 0) {
+          const indx = CountryTaxonomy.findIndex((d) => d['Alpha-3 code-1'] === e.features[0].properties.iso_3);
+          const countrDataIndx = CountryData.findIndex((d) => d.country === CountryTaxonomy[indx]['Country or Area'] && d.year === 2020);
+          setHoverData({
+            city: undefined,
+            country: CountryTaxonomy[indx]['Country or Area'],
+            pctValue: countrDataIndx !== -1 ? CountryData[countrDataIndx].pct_pop_elec_HREA : undefined,
+            popValue: countrDataIndx !== -1 ? ((100 - CountryData[countrDataIndx].pct_pop_elec_HREA) * CountryData[countrDataIndx].pop) / 100 : undefined,
+            xPosition: e.point.x,
+            yPosition: e.point.y,
+          });
+          if (hoveredStateId) {
+            (map as any).current.setFeatureState(
+              { source: 'country-layer-data', id: hoveredStateId },
+              { hover: false },
+            );
+          }
+          hoveredStateId = e.features[0].id;
+          (map as any).current.setFeatureState(
+            { source: 'country-layer-data', id: hoveredStateId },
+            { hover: true },
+          );
+        }
+      });
+
+      (map as any).current.on('mouseleave', 'country-layer-overlay', () => {
         (map as any).current.getCanvas().style.cursor = 'default';
         if (hoveredStateId) {
           (map as any).current.setFeatureState(
-            { source: 'country-layer', id: hoveredStateId },
+            { source: 'country-layer-data', id: hoveredStateId },
             { hover: false },
           );
         }
         hoveredStateId = null;
+        setHoverData(null);
       });
-      (map as any).current.on('click', 'country-layer-fill', (e: any) => {
-        const indx = CountryTaxonomy.findIndex((d) => d['Alpha-3 code-1'] === e.features[0].properties['iso-code']);
+
+      // click effect on map
+      (map as any).current.on('click', 'country-layer-overlay', (e: any) => {
+        const indx = CountryTaxonomy.findIndex((d) => d['Alpha-3 code-1'] === e.features[0].properties.iso_3);
         (map as any).current.flyTo({
           center: [CountryTaxonomy[indx]['Longitude (average)'], CountryTaxonomy[indx]['Latitude (average)']],
-          zoom: 4,
+          zoom: 6,
         });
         setCountry(CountryTaxonomy[indx]['Country or Area']);
       });
     });
     (map as any).current.on('idle', () => {
-      if ((map as any).current.getLayer('district-layer-ea') && (map as any).current.getLayer('district-layer-popDen') && (map as any).current.getLayer('district-layer-rwi')) {
+      if ((map as any).current.getLayer('district-layer') && (map as any).current.getLayer('district-layer-pop')) {
         if (document.getElementById('layer1') !== null) {
           (document.getElementById('layer1') as any).onclick = () => {
-            (map as any).current.setLayoutProperty('district-layer-ea', 'visibility', 'visible');
-            (map as any).current.setLayoutProperty('district-layer-popDen', 'visibility', 'none');
-            (map as any).current.setLayoutProperty('district-layer-rwi', 'visibility', 'none');
+            (map as any).current.setLayoutProperty('district-layer', 'visibility', 'visible');
+            (map as any).current.setLayoutProperty('district-layer-pop', 'visibility', 'none');
           };
         }
         if (document.getElementById('layer2') !== null) {
           (document.getElementById('layer2') as any).onclick = () => {
-            (map as any).current.setLayoutProperty('district-layer-ea', 'visibility', 'none');
-            (map as any).current.setLayoutProperty('district-layer-popDen', 'visibility', 'visible');
-            (map as any).current.setLayoutProperty('district-layer-rwi', 'visibility', 'none');
-          };
-        }
-        if (document.getElementById('layer3') !== null) {
-          (document.getElementById('layer3') as any).onclick = () => {
-            (map as any).current.setLayoutProperty('district-layer-ea', 'visibility', 'none');
-            (map as any).current.setLayoutProperty('district-layer-popDen', 'visibility', 'none');
-            (map as any).current.setLayoutProperty('district-layer-rwi', 'visibility', 'visible');
+            (map as any).current.setLayoutProperty('district-layer', 'visibility', 'none');
+            (map as any).current.setLayoutProperty('district-layer-pop', 'visibility', 'visible');
           };
         }
       }
@@ -298,22 +371,81 @@ export function MapEl(props: Props) {
           <RadioIconDiv>
             {layer === 2 ? <RadioSelectedEl /> : <RadioNotSelectedEl /> }
           </RadioIconDiv>
-          Population Density for places with no or low electricity access (Admin Level)
-        </LayerSelection>
-        <LayerSelection id='layer3' onClick={() => { setLayer(3); }}>
-          <RadioIconDiv>
-            {layer === 3 ? <RadioSelectedEl /> : <RadioNotSelectedEl /> }
-          </RadioIconDiv>
-          Relative Wealth Index for places with no or low electricity access (Admin Level)
+          Population Without Elec. (Admin Level)
         </LayerSelection>
       </LayerSelectorEl>
       <KeyEl>
+        <div>{ layer === 1 ? '%age Electricity Access' : 'Population Without Elec.'}</div>
         {
-          layer === 1 ? <EAKey />
-            : layer === 2 ? <PopDenKey />
-              : <RWIKey />
+          layer === 1
+            ? (
+              <svg height={25} width={COLOR_SCALE.length * keyBarWid}>
+                {
+                  COLOR_SCALE.map((d: string, i: number) => (
+                    <rect
+                      key={i}
+                      x={i * keyBarWid}
+                      height={10}
+                      y={0}
+                      width={keyBarWid}
+                      fill={d}
+                    />
+                  ))
+                }
+                {
+                  PCT_RANGE.map((d: number, i: number) => (
+                    <text
+                      key={i}
+                      x={(i + 1) * keyBarWid}
+                      y={23}
+                      textAnchor='middle'
+                      fontSize={10}
+                    >
+                      {d}
+                      %
+                    </text>
+                  ))
+                }
+              </svg>
+            )
+            : (
+              <svg height={25} width={LINEAR_SCALE.length * keyBarWid}>
+                {
+                  LINEAR_SCALE.map((d: string, i: number) => (
+                    <rect
+                      key={i}
+                      x={i * keyBarWid}
+                      height={10}
+                      y={0}
+                      width={keyBarWid}
+                      fill={d}
+                    />
+                  ))
+                }
+                {
+                  POP_RANGE.map((d: number, i: number) => (
+                    <text
+                      key={i}
+                      x={(i + 1) * keyBarWid}
+                      y={23}
+                      textAnchor='middle'
+                      fontSize={10}
+                    >
+                      {
+                        d < 1000
+                          ? format(',')(d).replace(',', ' ')
+                          : format('.1s')(d).replace('G', 'B')
+                      }
+                    </text>
+                  ))
+                }
+              </svg>
+            )
         }
       </KeyEl>
+      {
+        hoverData ? <Tooltip city={hoverData.city} country={hoverData.country} popValue={hoverData.popValue} pctValue={hoverData.pctValue} xPosition={hoverData.xPosition} yPosition={hoverData.yPosition} /> : null
+      }
     </>
   );
 }

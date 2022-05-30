@@ -1,12 +1,18 @@
 import * as topojson from 'topojson';
-import uniqBy from 'lodash.uniqby';
+// import uniqBy from 'lodash.uniqby';
 import styled from 'styled-components';
 import { useState } from 'react';
 import { format } from 'd3-format';
-import Admin2 from '../Data/admin2.json';
+import { scaleThreshold } from 'd3-scale';
+import AccessData from '../Data/accessData.json';
+import DistrictMap from '../Data/DistrictShape.json';
+import CountryMap from '../Data/CountryShape.json';
 import TimeSeriesData from '../Data/timeSeriesData.json';
 import { MapEl } from './Map';
 import { LineChart } from './LineChart';
+import {
+  COLOR_SCALE, LINEAR_SCALE, POP_RANGE, PCT_RANGE,
+} from '../Constants';
 
 const SideBar = styled.div`
   padding: 2rem 0 0 0;
@@ -63,14 +69,30 @@ const BackEl = styled.span`
 
 export function MapContainer() {
   const [selectedCountry, setSelectedCountry] = useState<undefined | string>(undefined);
-  const mapDataAdmin2: any = (topojson.feature(Admin2 as any, (Admin2 as any).objects.combined_v3) as any).features as any;
-  const countryList = uniqBy(mapDataAdmin2, (d: any) => d.properties.iso_code).map((d: any) => d.properties.iso_code);
-  const countryMapHighRes = countryList.map((country: string, i: number) => (
+  const pctColorScale = scaleThreshold<string | number, string>().domain(PCT_RANGE).range(COLOR_SCALE).unknown('#FAFAFA');
+  const peopleNoAccessColorScale = scaleThreshold<string | number, string>().domain(POP_RANGE).range(LINEAR_SCALE).unknown('#FAFAFA');
+  const districtShapes: any = ((topojson.feature(DistrictMap as any, (DistrictMap as any).objects.combined_polygon_vlight) as any).features as any).map((district: any, i: number) => {
+    const indx = AccessData.findIndex((d) => d['ea.adm2_id'] === district.properties.adm2_id);
+    const eaAccessPct = indx === -1 ? undefined : AccessData[indx]['ea.pctea'];
+    const eaAccessPctColor = indx === -1 ? '#FaFaFa' : pctColorScale(AccessData[indx]['ea.pctea']);
+    const eaAccessPop = indx === -1 ? undefined : AccessData[indx]['ea.SUM'];
+    const eaNoAccessPop = indx === -1 ? undefined : AccessData[indx]['pop.SUM'] - AccessData[indx]['ea.SUM'];
+    const eaNoAccessColor = indx === -1 ? '#FaFaFa' : peopleNoAccessColorScale(AccessData[indx]['pop.SUM'] - AccessData[indx]['ea.SUM']);
+    const totalPop = indx === -1 ? undefined : AccessData[indx]['pop.SUM'];
+    return (
+      {
+        geometry: district.geometry,
+        type: district.type,
+        properties: {
+          ...district.properties, eaAccessPct, eaAccessPctColor, eaAccessPop, eaNoAccessColor, totalPop, eaNoAccessPop,
+        },
+        id: i + 1000,
+      });
+  });
+  const countryShapes: any = ((topojson.feature(CountryMap as any, (CountryMap as any).objects.combined_polygon_vlight) as any).features as any).map((country: any, i: number) => (
     {
-      type: 'Feature',
-      properties: { 'iso-code': country },
-      id: i,
-      geometry: topojson.merge(Admin2 as any, (Admin2 as any).objects.combined_v3.geometries.filter((d: any) => d.properties.iso_code === country)),
+      ...country,
+      id: i + 1,
     }));
   return (
     <>
@@ -95,7 +117,7 @@ export function MapContainer() {
                 <BodyEl>
                   Data is calculated for
                   {' '}
-                  {countryMapHighRes.length}
+                  {countryShapes.length}
                   {' '}
                   countries.
                   {' '}
@@ -162,7 +184,7 @@ export function MapContainer() {
           ) : null
         }
       </SideBar>
-      <MapEl mapShapeHighRes={mapDataAdmin2} countryShapeHighRes={countryMapHighRes} setCountry={setSelectedCountry} />
+      <MapEl districtShapes={districtShapes} countryShapes={countryShapes} setCountry={setSelectedCountry} />
     </>
   );
 }
