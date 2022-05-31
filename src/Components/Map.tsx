@@ -43,7 +43,7 @@ const LayerSelection = styled.div`
   align-items: flex-start;
   font-size: 1.2rem;
   line-height: 2rem;
-  margin: 2rem 0;
+  margin: 1rem 0;
   padding: 0 2rem;
 `;
 
@@ -95,6 +95,8 @@ export function MapEl(props: Props) {
 
   const keyBarWid = 40;
   const [hoverData, setHoverData] = useState<null | HoverDataProps>(null);
+  const [layer, setLayer] = useState(1);
+  const [showOverlay, setShowOverlay] = useState<boolean>(false);
   const districtShapesGeoJson = { type: 'FeatureCollection', features: districtShapes };
   const countryShapesGeoJson = { type: 'FeatureCollection', features: countryShapes };
   const mapContainer = useRef<HTMLDivElement>(null);
@@ -156,6 +158,16 @@ export function MapEl(props: Props) {
         paint: {
           'fill-color': ['get', 'eaNoAccessColor'],
           'fill-opacity': 1,
+        },
+      });
+      (map as any).current.addLayer({
+        id: 'district-layer-highlight',
+        type: 'fill',
+        source: 'district-layer-data',
+        layout: { visibility: 'none' },
+        paint: {
+          'fill-color': '#fff',
+          'fill-opacity': ['get', 'ea50PctOverlay'],
         },
       });
 
@@ -335,25 +347,27 @@ export function MapEl(props: Props) {
         setCountry(CountryTaxonomy[indx]['Country or Area']);
       });
     });
-    (map as any).current.on('idle', () => {
-      if ((map as any).current.getLayer('district-layer') && (map as any).current.getLayer('district-layer-pop')) {
-        if (document.getElementById('layer1') !== null) {
-          (document.getElementById('layer1') as any).onclick = () => {
+  });
+  useEffect(() => {
+    if (map.current) {
+      (map as any).current.on('idle', () => {
+        if ((map as any).current.getLayer('district-layer') && (map as any).current.getLayer('district-layer-pop') && (map as any).current.getLayer('district-layer-highlight')) {
+          if (showOverlay) {
+            (map as any).current.setLayoutProperty('district-layer-highlight', 'visibility', 'visible');
+          } else {
+            (map as any).current.setLayoutProperty('district-layer-highlight', 'visibility', 'none');
+          }
+          if (layer === 1) {
             (map as any).current.setLayoutProperty('district-layer', 'visibility', 'visible');
             (map as any).current.setLayoutProperty('district-layer-pop', 'visibility', 'none');
-          };
-        }
-        if (document.getElementById('layer2') !== null) {
-          (document.getElementById('layer2') as any).onclick = () => {
+          } else {
             (map as any).current.setLayoutProperty('district-layer', 'visibility', 'none');
             (map as any).current.setLayoutProperty('district-layer-pop', 'visibility', 'visible');
-          };
+          }
         }
-      }
-    });
-  });
-
-  const [layer, setLayer] = useState(1);
+      });
+    }
+  }, [map, showOverlay, layer]);
 
   return (
     <>
@@ -372,6 +386,12 @@ export function MapEl(props: Props) {
             {layer === 2 ? <RadioSelectedEl /> : <RadioNotSelectedEl /> }
           </RadioIconDiv>
           Population Without Elec. (Admin Level)
+        </LayerSelection>
+        <LayerSelection id='overlayLayer' onClick={() => { setShowOverlay(!showOverlay); }} className={showOverlay ? 'selected' : 'notSelected'}>
+          <RadioIconDiv>
+            {showOverlay ? <RadioSelectedEl /> : <RadioNotSelectedEl /> }
+          </RadioIconDiv>
+          {'Highlight Region with < 50% Access'}
         </LayerSelection>
       </LayerSelectorEl>
       <KeyEl>

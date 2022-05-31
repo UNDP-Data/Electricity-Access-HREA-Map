@@ -126,7 +126,7 @@ export function Tooltip(props: Props) {
         <RowEl>
           <FlexRow>
             <RowTitleEl>
-              Percent Elextricity Access
+              Percent Electricity Access
             </RowTitleEl>
             <RowValue>
               {

@@ -78,13 +78,14 @@ export function MapContainer() {
     const eaAccessPop = indx === -1 ? undefined : AccessData[indx]['ea.SUM'];
     const eaNoAccessPop = indx === -1 ? undefined : AccessData[indx]['pop.SUM'] - AccessData[indx]['ea.SUM'];
     const eaNoAccessColor = indx === -1 ? '#FaFaFa' : peopleNoAccessColorScale(AccessData[indx]['pop.SUM'] - AccessData[indx]['ea.SUM']);
+    const ea50PctOverlay = indx === -1 ? 0.9 : AccessData[indx]['ea.pctea'] < 50 ? 0 : 0.9;
     const totalPop = indx === -1 ? undefined : AccessData[indx]['pop.SUM'];
     return (
       {
         geometry: district.geometry,
         type: district.type,
         properties: {
-          ...district.properties, eaAccessPct, eaAccessPctColor, eaAccessPop, eaNoAccessColor, totalPop, eaNoAccessPop,
+          ...district.properties, eaAccessPct, eaAccessPctColor, eaAccessPop, eaNoAccessColor, totalPop, eaNoAccessPop, ea50PctOverlay,
         },
         id: i + 1000,
       });
