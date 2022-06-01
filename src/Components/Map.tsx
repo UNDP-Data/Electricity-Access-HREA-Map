@@ -3,6 +3,10 @@ import maplibregl from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import styled from 'styled-components';
 import { format } from 'd3-format';
+import {
+  Radio, Space, RadioChangeEvent, Checkbox, Divider,
+} from 'antd';
+import 'antd/dist/antd.css';
 import CountryTaxonomy from '../Data/country-taxonomy.json';
 import CountryData from '../Data/timeSeriesData.json';
 import { Tooltip } from './Tooltip';
@@ -13,7 +17,9 @@ import {
 interface Props {
     districtShapes: any;
     countryShapes: any;
-    setCountry: (_d?: string) => void;
+    projectData: any;
+    setSelectedCountry: (_d?: string) => void;
+    setSelectedDistrict: (_d?: string) => void;
 }
 interface HoverDataProps {
   city?: string;
@@ -25,51 +31,16 @@ interface HoverDataProps {
 }
 
 const LayerSelectorEl = styled.div`
-  padding: 0;
+  padding: 0 1rem 1rem 1rem;
   position: fixed;
   z-index: 1000;
   top: 12rem;
   right: 4rem;
   border-radius: 0.4rem;
   box-shadow: var(--shadow);
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   background-color: var(--white-opacity);
-  width: 32rem;
   color: var(--black-700);
-`;
-
-const LayerSelection = styled.div`
-  display: flex;
-  align-items: flex-start;
-  font-size: 1.2rem;
-  line-height: 2rem;
-  margin: 1rem 0;
-  padding: 0 2rem;
-`;
-
-const RadioIconDiv = styled.div`
-  width: 1.2rem;
-  height: 1.2rem;
-  margin-right: 0.5rem;
-  margin-top: 0.3rem;
-  border-radius: 1.2rem;
-  border: 1px solid var(--black-600);
-`;
-
-const RadioSelectedEl = styled.div`
-  width: 0.8rem;
-  height: 0.8rem;
-  margin: 0.2rem;
-  border-radius: 0.8rem;
-  background-color: var(--black-600);
-`;
-
-const RadioNotSelectedEl = styled.div`
-  width: 0.8rem;
-  height: 0.8rem;
-  margin: 0.2rem;
-  border-radius: 0.8rem;
-  background-color: var(--white);
 `;
 
 const KeyEl = styled.div`
@@ -88,17 +59,27 @@ const KeyEl = styled.div`
   }
 `;
 
+const TitleEl = styled.div`
+  margin: 1rem 0;
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-transform: uppercase;
+`;
+
 export function MapEl(props: Props) {
   const {
-    districtShapes, countryShapes, setCountry,
+    districtShapes, countryShapes, setSelectedCountry, setSelectedDistrict, projectData,
   } = props;
 
   const keyBarWid = 40;
   const [hoverData, setHoverData] = useState<null | HoverDataProps>(null);
   const [layer, setLayer] = useState(1);
   const [showOverlay, setShowOverlay] = useState<boolean>(false);
+  const [showProjects, setShowProjects] = useState<boolean>(false);
+  const [hideLabels, setHideLabels] = useState<boolean>(false);
   const districtShapesGeoJson = { type: 'FeatureCollection', features: districtShapes };
   const countryShapesGeoJson = { type: 'FeatureCollection', features: countryShapes };
+  const projectDataGeoJson = { type: 'FeatureCollection', features: projectData };
   const mapContainer = useRef<HTMLDivElement>(null);
   const map = useRef<HTMLDivElement>(null);
   const zoom = 2;
@@ -130,7 +111,7 @@ export function MapEl(props: Props) {
           },
         ],
       },
-      center: [0, 0],
+      center: [25, 15],
       zoom,
     });
 
@@ -198,7 +179,7 @@ export function MapEl(props: Props) {
             0,
           ],
         },
-        minzoom: 4,
+        minzoom: 3,
       });
 
       // country layer data
@@ -222,7 +203,7 @@ export function MapEl(props: Props) {
             0,
           ],
         },
-        maxzoom: 4,
+        maxzoom: 3,
       });
 
       // add country border
@@ -255,6 +236,28 @@ export function MapEl(props: Props) {
         },
       );
 
+      // add layer for projects
+      (map as any).current.addSource('projectData', {
+        type: 'geojson',
+        data: projectDataGeoJson,
+      });
+
+      (map as any).current.addLayer({
+        id: 'projectData-circles',
+        type: 'circle',
+        source: 'projectData',
+        layout: {
+          visibility: 'none',
+        },
+        paint: {
+          'circle-color': '#fff',
+          'circle-opacity': 1,
+          'circle-radius': 5,
+          'circle-stroke-color': '#006EB5',
+          'circle-stroke-width': 1,
+        },
+      });
+
       // Create a popup, but don't add it to the map yet.
     });
     (map as any).current.on('load', () => {
@@ -267,7 +270,7 @@ export function MapEl(props: Props) {
             city: e.features[0].properties.adm2_name !== ' ' && e.features[0].properties.adm2_name !== '' && e.features[0].properties.adm2_name ? e.features[0].properties.adm2_name : e.features[0].properties.adm1_name,
             country: CountryTaxonomy[indx]['Country or Area'],
             pctValue: e.features[0].properties.eaAccessPct,
-            popValue: e.features[0].properties.eaNoAccessPop,
+            popValue: Math.round(e.features[0].properties.eaNoAccessPop),
             xPosition: e.point.x,
             yPosition: e.point.y,
           });
@@ -342,20 +345,43 @@ export function MapEl(props: Props) {
         const indx = CountryTaxonomy.findIndex((d) => d['Alpha-3 code-1'] === e.features[0].properties.iso_3);
         (map as any).current.flyTo({
           center: [CountryTaxonomy[indx]['Longitude (average)'], CountryTaxonomy[indx]['Latitude (average)']],
+        });
+        (map as any).current.fitBounds([
+          [JSON.parse(e.features[0].properties.boundingBox).xMin, JSON.parse(e.features[0].properties.boundingBox).yMax], // southwestern corner of the bounds
+          [JSON.parse(e.features[0].properties.boundingBox).xMax, JSON.parse(e.features[0].properties.boundingBox).yMin], // northeastern corner of the bounds
+        ]);
+        setSelectedDistrict(undefined);
+        setSelectedCountry(CountryTaxonomy[indx]['Country or Area']);
+      });
+      (map as any).current.on('click', 'district-layer-overlay', (e: any) => {
+        const indx = CountryTaxonomy.findIndex((d) => d['Alpha-3 code-1'] === e.features[0].properties.iso_3);
+        (map as any).current.flyTo({
+          center: [CountryTaxonomy[indx]['Longitude (average)'], CountryTaxonomy[indx]['Latitude (average)']],
           zoom: 6,
         });
-        setCountry(CountryTaxonomy[indx]['Country or Area']);
+        setSelectedCountry(CountryTaxonomy[CountryTaxonomy.findIndex((d) => d['Alpha-3 code-1'] === e.features[0].properties.iso_3)]['Country or Area']);
+        setSelectedDistrict(e.features[0].properties.adm2_id);
       });
     });
   });
   useEffect(() => {
     if (map.current) {
       (map as any).current.on('idle', () => {
-        if ((map as any).current.getLayer('district-layer') && (map as any).current.getLayer('district-layer-pop') && (map as any).current.getLayer('district-layer-highlight')) {
+        if ((map as any).current.getLayer('district-layer') && (map as any).current.getLayer('district-layer-pop') && (map as any).current.getLayer('district-layer-highlight') && (map as any).current.getLayer('projectData-circles')) {
           if (showOverlay) {
             (map as any).current.setLayoutProperty('district-layer-highlight', 'visibility', 'visible');
           } else {
             (map as any).current.setLayoutProperty('district-layer-highlight', 'visibility', 'none');
+          }
+          if (showProjects) {
+            (map as any).current.setLayoutProperty('projectData-circles', 'visibility', 'visible');
+          } else {
+            (map as any).current.setLayoutProperty('projectData-circles', 'visibility', 'none');
+          }
+          if (hideLabels) {
+            (map as any).current.setLayoutProperty('raster-labels', 'visibility', 'none');
+          } else {
+            (map as any).current.setLayoutProperty('raster-labels', 'visibility', 'visible');
           }
           if (layer === 1) {
             (map as any).current.setLayoutProperty('district-layer', 'visibility', 'visible');
@@ -367,7 +393,7 @@ export function MapEl(props: Props) {
         }
       });
     }
-  }, [map, showOverlay, layer]);
+  }, [map, showOverlay, layer, showProjects, hideLabels]);
 
   return (
     <>
@@ -375,24 +401,20 @@ export function MapEl(props: Props) {
         <div style={{ position: 'absolute', width: '100%', height: '100%' }} ref={mapContainer} />
       </div>
       <LayerSelectorEl>
-        <LayerSelection onClick={() => { setLayer(1); }} id='layer1'>
-          <RadioIconDiv>
-            {layer === 1 ? <RadioSelectedEl /> : <RadioNotSelectedEl /> }
-          </RadioIconDiv>
-          Electricity Access (Admin Level)
-        </LayerSelection>
-        <LayerSelection id='layer2' onClick={() => { setLayer(2); }}>
-          <RadioIconDiv>
-            {layer === 2 ? <RadioSelectedEl /> : <RadioNotSelectedEl /> }
-          </RadioIconDiv>
-          Population Without Elec. (Admin Level)
-        </LayerSelection>
-        <LayerSelection id='overlayLayer' onClick={() => { setShowOverlay(!showOverlay); }} className={showOverlay ? 'selected' : 'notSelected'}>
-          <RadioIconDiv>
-            {showOverlay ? <RadioSelectedEl /> : <RadioNotSelectedEl /> }
-          </RadioIconDiv>
-          {'Highlight Region with < 50% Access'}
-        </LayerSelection>
+        <TitleEl>Select A Layer</TitleEl>
+        <Radio.Group onChange={(e: RadioChangeEvent) => { setLayer(e.target.value); }} value={layer}>
+          <Space direction='vertical'>
+            <Radio value={1}>Electricity Access</Radio>
+            <Radio value={2}>No. of People Without Elec.</Radio>
+          </Space>
+        </Radio.Group>
+        <Divider />
+        <TitleEl>Settings</TitleEl>
+        <Space direction='vertical'>
+          <Checkbox onChange={(e) => { setShowOverlay(e.target.checked); }}>{'Highlight Region with < 50% Access'}</Checkbox>
+          <Checkbox onChange={(e) => { setShowProjects(e.target.checked); }}>Show UNDP Projects</Checkbox>
+          <Checkbox onChange={(e) => { setHideLabels(e.target.checked); }}>Hide Labels</Checkbox>
+        </Space>
       </LayerSelectorEl>
       <KeyEl>
         <div>{ layer === 1 ? '%age Electricity Access' : 'Population Without Elec.'}</div>
@@ -426,6 +448,22 @@ export function MapEl(props: Props) {
                     </text>
                   ))
                 }
+                <text
+                  x={440}
+                  y={23}
+                  textAnchor='end'
+                  fontSize={10}
+                >
+                  100%
+                </text>
+                <text
+                  x={0}
+                  y={23}
+                  textAnchor='start'
+                  fontSize={10}
+                >
+                  0%
+                </text>
               </svg>
             )
             : (

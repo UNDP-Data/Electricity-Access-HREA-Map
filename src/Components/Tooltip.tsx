@@ -130,7 +130,7 @@ export function Tooltip(props: Props) {
             </RowTitleEl>
             <RowValue>
               {
-                pctValue ? `${pctValue} %` : 'NA'
+                pctValue !== undefined ? `${pctValue.toFixed(1)} %` : 'NA'
               }
             </RowValue>
           </FlexRow>
@@ -143,9 +143,7 @@ export function Tooltip(props: Props) {
             <RowValue>
               {
                 popValue
-                  ? popValue < 1000000
-                    ? format(',')(popValue).replace(',', ' ')
-                    : format('.3s')(popValue).replace('G', 'B')
+                  ? format('.3s')(popValue).replace('G', 'B')
                   : 'NA'
               }
             </RowValue>

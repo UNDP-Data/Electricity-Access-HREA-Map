@@ -106,8 +106,8 @@ export function LineChart(props: Props) {
             <path d={lineShape(data as any) as string} fill='none' stroke='#E26B8D' strokeWidth={2} />
           </g>
           {
-            data.map((d) => (
-              <g transform={`translate(${x(d.year)},${y1(d.pct_pop_elec_HREA)})`}>
+            data.map((d, i) => (
+              <g transform={`translate(${x(d.year)},${y1(d.pct_pop_elec_HREA)})`} key={i}>
                 <circle
                   cx={0}
                   cy={0}
