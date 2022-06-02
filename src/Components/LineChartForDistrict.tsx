@@ -4,16 +4,26 @@ import { scaleLinear } from 'd3-scale';
 
 interface DataType {
   adm2_id: string;
-  AREA: number;
+  Areakm2: number;
   TotPopulation: number;
-  PopAccess2020: number | null;
-  PopNoAccess2020: number | null;
-  PopAccess2019: number | null;
-  PopNoAccess2019: number | null;
-  PopNoAccess2018: number | null;
-  PopAccess2018: number | null;
-  PopAccess2017: number | null;
-  PopNoAccess2017: number | null;
+  PopAccess2020: number;
+  PopNoAccess2020: number;
+  PopAccess2019: number;
+  PopNoAccess2019: number;
+  PopNoAccess2018: number;
+  PopAccess2018: number;
+  PopAccess2017: number;
+  PopNoAccess2017: number;
+  PopAccess2016: number;
+  PopNoAccess2016: number;
+  PopAccess2015: number;
+  PopNoAccess2015: number;
+  PopNoAccess2014: number;
+  PopAccess2014: number;
+  PopAccess2013: number;
+  PopNoAccess2013: number;
+  PopAccess2012: number;
+  PopNoAccess2012: number;
   adm2_name: string;
 }
 
@@ -40,14 +50,14 @@ export function LineChartForDistrict(props: Props) {
   };
   const graphWidth = svgWidth - margin.left - margin.right;
   const graphHeight = svgHeight - margin.top - margin.bottom;
-  const x = scaleLinear().domain([2017, 2020]).range([0, graphWidth]);
+  const x = scaleLinear().domain([2013, 2020]).range([0, graphWidth]);
   const y1 = scaleLinear().domain([0, 100]).range([graphHeight, 0]).nice();
 
-  const dataFormatted = [2017, 2018, 2019, 2020].map((d) => ({
+  const dataFormatted = [2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020].map((d) => ({
     year: d,
     city: data.adm2_name,
     pop: data.TotPopulation,
-    pct_pop_elec_HREA: data[`PopAccess${d as 2017 | 2018 | 2019 | 2020}`] !== null ? ((data[`PopAccess${d as 2017 | 2018 | 2019 | 2020}`] as number) * 100) / data.TotPopulation : 0,
+    pct_pop_elec_HREA: data[`PopAccess${d as 2013 | 2014 | 2015 | 2016 | 2017 | 2018 | 2019 | 2020}`] !== null ? ((data[`PopAccess${d as 2013 | 2014 | 2015 | 2016 | 2017 | 2018 | 2019 | 2020}`] as number) * 100) / data.TotPopulation : 0,
   }));
   const lineShape = line()
     .defined((d: any) => d.pct_pop_elec_HREA !== undefined)

@@ -18,6 +18,8 @@ interface Props {
     districtShapes: any;
     countryShapes: any;
     projectData: any;
+    selectedCountry?: string;
+    selectedDistrict?: string;
     setSelectedCountry: (_d?: string) => void;
     setSelectedDistrict: (_d?: string) => void;
 }
@@ -68,7 +70,13 @@ const TitleEl = styled.div`
 
 export function MapEl(props: Props) {
   const {
-    districtShapes, countryShapes, setSelectedCountry, setSelectedDistrict, projectData,
+    districtShapes,
+    countryShapes,
+    setSelectedCountry,
+    setSelectedDistrict,
+    projectData,
+    selectedCountry,
+    selectedDistrict,
   } = props;
 
   const keyBarWid = 40;
@@ -343,22 +351,10 @@ export function MapEl(props: Props) {
       // click effect on map
       (map as any).current.on('click', 'country-layer-overlay', (e: any) => {
         const indx = CountryTaxonomy.findIndex((d) => d['Alpha-3 code-1'] === e.features[0].properties.iso_3);
-        (map as any).current.flyTo({
-          center: [CountryTaxonomy[indx]['Longitude (average)'], CountryTaxonomy[indx]['Latitude (average)']],
-        });
-        (map as any).current.fitBounds([
-          [JSON.parse(e.features[0].properties.boundingBox).xMin, JSON.parse(e.features[0].properties.boundingBox).yMax], // southwestern corner of the bounds
-          [JSON.parse(e.features[0].properties.boundingBox).xMax, JSON.parse(e.features[0].properties.boundingBox).yMin], // northeastern corner of the bounds
-        ]);
         setSelectedDistrict(undefined);
         setSelectedCountry(CountryTaxonomy[indx]['Country or Area']);
       });
       (map as any).current.on('click', 'district-layer-overlay', (e: any) => {
-        const indx = CountryTaxonomy.findIndex((d) => d['Alpha-3 code-1'] === e.features[0].properties.iso_3);
-        (map as any).current.flyTo({
-          center: [CountryTaxonomy[indx]['Longitude (average)'], CountryTaxonomy[indx]['Latitude (average)']],
-          zoom: 6,
-        });
         setSelectedCountry(CountryTaxonomy[CountryTaxonomy.findIndex((d) => d['Alpha-3 code-1'] === e.features[0].properties.iso_3)]['Country or Area']);
         setSelectedDistrict(e.features[0].properties.adm2_id);
       });
@@ -366,34 +362,78 @@ export function MapEl(props: Props) {
   });
   useEffect(() => {
     if (map.current) {
-      (map as any).current.on('idle', () => {
-        if ((map as any).current.getLayer('district-layer') && (map as any).current.getLayer('district-layer-pop') && (map as any).current.getLayer('district-layer-highlight') && (map as any).current.getLayer('projectData-circles')) {
-          if (showOverlay) {
-            (map as any).current.setLayoutProperty('district-layer-highlight', 'visibility', 'visible');
-          } else {
-            (map as any).current.setLayoutProperty('district-layer-highlight', 'visibility', 'none');
-          }
-          if (showProjects) {
-            (map as any).current.setLayoutProperty('projectData-circles', 'visibility', 'visible');
-          } else {
-            (map as any).current.setLayoutProperty('projectData-circles', 'visibility', 'none');
-          }
-          if (hideLabels) {
-            (map as any).current.setLayoutProperty('raster-labels', 'visibility', 'none');
-          } else {
-            (map as any).current.setLayoutProperty('raster-labels', 'visibility', 'visible');
-          }
-          if (layer === 1) {
-            (map as any).current.setLayoutProperty('district-layer', 'visibility', 'visible');
-            (map as any).current.setLayoutProperty('district-layer-pop', 'visibility', 'none');
-          } else {
-            (map as any).current.setLayoutProperty('district-layer', 'visibility', 'none');
-            (map as any).current.setLayoutProperty('district-layer-pop', 'visibility', 'visible');
-          }
+      if (!selectedDistrict) {
+        if (selectedCountry) {
+          const indx = CountryTaxonomy.findIndex((d) => d['Country or Area'] === selectedCountry);
+          const featureIndx = countryShapesGeoJson.features.findIndex((d: any) => CountryTaxonomy[indx]['Alpha-3 code-1'] === d.properties.iso_3);
+          (map as any).current.flyTo({
+            center: [CountryTaxonomy[indx]['Longitude (average)'], CountryTaxonomy[indx]['Latitude (average)']],
+          });
+          (map as any).current.fitBounds([
+            [countryShapesGeoJson.features[featureIndx].properties.boundingBox.xMin, countryShapesGeoJson.features[featureIndx].properties.boundingBox.yMax], // southwestern corner of the bounds
+            [countryShapesGeoJson.features[featureIndx].properties.boundingBox.xMax, countryShapesGeoJson.features[featureIndx].properties.boundingBox.yMin], // northeastern corner of the bounds
+          ]);
+        } else {
+          (map as any).current.flyTo({
+            center: [25, 15],
+            zoom: 2,
+          });
         }
-      });
+      } else {
+        const indx = districtShapes.findIndex((d: any) => d.properties.adm2_id === selectedDistrict);
+        (map as any).current.flyTo({
+          center: [districtShapes[indx].properties.Long_Center, districtShapes[indx].properties.Lat_Center],
+          zoom: 6,
+        });
+      }
     }
-  }, [map, showOverlay, layer, showProjects, hideLabels]);
+  }, [selectedCountry, selectedDistrict]);
+  useEffect(() => {
+    if (map.current) {
+      if ((map as any).current.getLayer('district-layer') && (map as any).current.getLayer('district-layer-pop') && (map as any).current.getLayer('district-layer-highlight') && (map as any).current.getLayer('projectData-circles')) {
+        if (showOverlay) {
+          (map as any).current.setLayoutProperty('district-layer-highlight', 'visibility', 'visible');
+        } else {
+          (map as any).current.setLayoutProperty('district-layer-highlight', 'visibility', 'none');
+        }
+      }
+    }
+  }, [showOverlay]);
+  useEffect(() => {
+    if (map.current) {
+      if ((map as any).current.getLayer('district-layer') && (map as any).current.getLayer('district-layer-pop') && (map as any).current.getLayer('district-layer-highlight') && (map as any).current.getLayer('projectData-circles')) {
+        if (layer === 1) {
+          (map as any).current.setLayoutProperty('district-layer', 'visibility', 'visible');
+          (map as any).current.setLayoutProperty('district-layer-pop', 'visibility', 'none');
+        } else {
+          (map as any).current.setLayoutProperty('district-layer', 'visibility', 'none');
+          (map as any).current.setLayoutProperty('district-layer-pop', 'visibility', 'visible');
+        }
+      }
+    }
+  }, [layer]);
+  useEffect(() => {
+    if (map.current) {
+      if ((map as any).current.getLayer('district-layer') && (map as any).current.getLayer('district-layer-pop') && (map as any).current.getLayer('district-layer-highlight') && (map as any).current.getLayer('projectData-circles')) {
+        if (showProjects) {
+          (map as any).current.setLayoutProperty('projectData-circles', 'visibility', 'visible');
+        } else {
+          (map as any).current.setLayoutProperty('projectData-circles', 'visibility', 'none');
+        }
+      }
+    }
+  }, [showProjects]);
+  useEffect(() => {
+    if (map.current) {
+      if ((map as any).current.getLayer('district-layer') && (map as any).current.getLayer('district-layer-pop') && (map as any).current.getLayer('district-layer-highlight') && (map as any).current.getLayer('projectData-circles')) {
+        if (hideLabels) {
+          (map as any).current.setLayoutProperty('raster-labels', 'visibility', 'none');
+        } else {
+          (map as any).current.setLayoutProperty('raster-labels', 'visibility', 'visible');
+        }
+      }
+    }
+  }, [hideLabels]);
 
   return (
     <>

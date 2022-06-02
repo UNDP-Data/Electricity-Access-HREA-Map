@@ -138,7 +138,7 @@ export function Tooltip(props: Props) {
         <RowEl>
           <FlexRow>
             <RowTitleEl>
-              No. Of People Withou Electricity
+              No. Of People W/O Electricity
             </RowTitleEl>
             <RowValue>
               {
