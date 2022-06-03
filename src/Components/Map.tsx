@@ -4,7 +4,7 @@ import 'maplibre-gl/dist/maplibre-gl.css';
 import styled from 'styled-components';
 import { format } from 'd3-format';
 import {
-  Radio, Space, RadioChangeEvent, Checkbox, Divider,
+  Radio, Space, RadioChangeEvent, Checkbox, Divider, Slider,
 } from 'antd';
 import 'antd/dist/antd.css';
 import CountryTaxonomy from '../Data/country-taxonomy.json';
@@ -82,9 +82,9 @@ export function MapEl(props: Props) {
   const keyBarWid = 40;
   const [hoverData, setHoverData] = useState<null | HoverDataProps>(null);
   const [layer, setLayer] = useState(1);
-  const [showOverlay, setShowOverlay] = useState<boolean>(false);
   const [showProjects, setShowProjects] = useState<boolean>(false);
   const [hideLabels, setHideLabels] = useState<boolean>(false);
+  const [highlightThreshold, setHighlightThreshold] = useState(100);
   const districtShapesGeoJson = { type: 'FeatureCollection', features: districtShapes };
   const countryShapesGeoJson = { type: 'FeatureCollection', features: countryShapes };
   const projectDataGeoJson = { type: 'FeatureCollection', features: projectData };
@@ -153,11 +153,12 @@ export function MapEl(props: Props) {
         id: 'district-layer-highlight',
         type: 'fill',
         source: 'district-layer-data',
-        layout: { visibility: 'none' },
+        layout: { visibility: 'visible' },
         paint: {
           'fill-color': '#fff',
-          'fill-opacity': ['get', 'ea50PctOverlay'],
+          'fill-opacity': 1,
         },
+        filter: ['>=', 'eaAccessPct', highlightThreshold],
       });
 
       (map as any).current.addLayer({
@@ -391,17 +392,6 @@ export function MapEl(props: Props) {
   useEffect(() => {
     if (map.current) {
       if ((map as any).current.getLayer('district-layer') && (map as any).current.getLayer('district-layer-pop') && (map as any).current.getLayer('district-layer-highlight') && (map as any).current.getLayer('projectData-circles')) {
-        if (showOverlay) {
-          (map as any).current.setLayoutProperty('district-layer-highlight', 'visibility', 'visible');
-        } else {
-          (map as any).current.setLayoutProperty('district-layer-highlight', 'visibility', 'none');
-        }
-      }
-    }
-  }, [showOverlay]);
-  useEffect(() => {
-    if (map.current) {
-      if ((map as any).current.getLayer('district-layer') && (map as any).current.getLayer('district-layer-pop') && (map as any).current.getLayer('district-layer-highlight') && (map as any).current.getLayer('projectData-circles')) {
         if (layer === 1) {
           (map as any).current.setLayoutProperty('district-layer', 'visibility', 'visible');
           (map as any).current.setLayoutProperty('district-layer-pop', 'visibility', 'none');
@@ -435,6 +425,14 @@ export function MapEl(props: Props) {
     }
   }, [hideLabels]);
 
+  useEffect(() => {
+    if (map.current) {
+      if ((map as any).current.getLayer('district-layer') && (map as any).current.getLayer('district-layer-pop') && (map as any).current.getLayer('district-layer-highlight') && (map as any).current.getLayer('projectData-circles')) {
+        (map as any).current.setFilter('district-layer-highlight', ['>=', 'eaAccessPct', highlightThreshold]);
+      }
+    }
+  }, [highlightThreshold]);
+
   return (
     <>
       <div style={{ position: 'relative', width: '100%', height: 'calc(100vh - 76px)' }}>
@@ -450,8 +448,15 @@ export function MapEl(props: Props) {
         </Radio.Group>
         <Divider />
         <TitleEl>Settings</TitleEl>
+        <>
+          {'Highlight Region with Access <= '}
+          <span className='bold'>
+            {highlightThreshold}
+            %
+          </span>
+          <Slider defaultValue={100} min={1} max={100} onAfterChange={(d) => { setHighlightThreshold(d); }} />
+        </>
         <Space direction='vertical'>
-          <Checkbox onChange={(e) => { setShowOverlay(e.target.checked); }}>{'Highlight Region with < 50% Access'}</Checkbox>
           <Checkbox onChange={(e) => { setShowProjects(e.target.checked); }}>Show UNDP Projects</Checkbox>
           <Checkbox onChange={(e) => { setHideLabels(e.target.checked); }}>Hide Labels</Checkbox>
         </Space>
