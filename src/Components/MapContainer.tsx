@@ -136,10 +136,10 @@ export function MapContainer() {
     const districtShapes: any = ((topojson.feature(DistrictMap as any, (DistrictMap as any).objects.combined_polygon_vlight) as any).features as any).map((district: any, i: number) => {
       const indx = (AccessDataForDistricts as any).findIndex((d: any) => d.adm2_id === district.properties.adm2_id);
       const disData = (AccessDataForDistricts as any)[indx];
-      const eaAccessPct = indx === -1 ? undefined : !disData.PopAccess2020 ? 0 : (disData.PopAccess2020 * 100) / disData.TotPopulation;
+      const eaAccessPct = indx === -1 ? undefined : (disData.PopAccess2020 * 100) / disData.TotPopulation;
       const eaAccessPctColor = eaAccessPct === undefined ? '#FaFaFa' : pctColorScale(eaAccessPct);
-      const eaAccessPop = indx === -1 ? undefined : !disData.PopAccess2020 ? 0 : disData.PopAccess2020;
-      const eaNoAccessPop = indx === -1 ? undefined : !disData.PopAccess2020 || !disData.PopNoAccess2020 ? disData.TotPopulation : disData.PopNoAccess2020;
+      const eaAccessPop = indx === -1 ? undefined : disData.PopAccess2020;
+      const eaNoAccessPop = indx === -1 ? undefined : disData.PopNoAccess2020;
       const eaNoAccessColor = eaNoAccessPop === undefined ? '#FaFaFa' : peopleNoAccessColorScale(eaNoAccessPop);
       const ea50PctOverlay = eaAccessPct === undefined ? 0.9 : eaAccessPct < 50 ? 0 : 0.9;
       const totalPop = indx === -1 ? undefined : disData.TotPopulation;

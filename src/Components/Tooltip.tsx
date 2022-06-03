@@ -144,7 +144,7 @@ export function Tooltip(props: Props) {
               {
                 popValue
                   ? format('.3s')(popValue).replace('G', 'B')
-                  : 'NA'
+                  : popValue === 0 ? 0 : 'NA'
               }
             </RowValue>
           </FlexRow>

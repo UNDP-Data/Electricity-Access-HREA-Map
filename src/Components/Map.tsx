@@ -158,7 +158,7 @@ export function MapEl(props: Props) {
           'fill-color': '#fff',
           'fill-opacity': 1,
         },
-        filter: ['>=', 'eaAccessPct', highlightThreshold],
+        filter: ['>=', 'eaAccessPct', highlightThreshold + 0.001],
       });
 
       (map as any).current.addLayer({
@@ -428,7 +428,7 @@ export function MapEl(props: Props) {
   useEffect(() => {
     if (map.current) {
       if ((map as any).current.getLayer('district-layer') && (map as any).current.getLayer('district-layer-pop') && (map as any).current.getLayer('district-layer-highlight') && (map as any).current.getLayer('projectData-circles')) {
-        (map as any).current.setFilter('district-layer-highlight', ['>=', 'eaAccessPct', highlightThreshold]);
+        (map as any).current.setFilter('district-layer-highlight', ['>=', 'eaAccessPct', highlightThreshold + 0.001]);
       }
     }
   }, [highlightThreshold]);
