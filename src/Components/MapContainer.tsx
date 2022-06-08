@@ -3,9 +3,12 @@ import styled from 'styled-components';
 import { useEffect, useState } from 'react';
 import { format } from 'd3-format';
 import { scaleThreshold } from 'd3-scale';
-import { Spin, Select } from 'antd';
+import {
+  Spin, Select, Radio, Space, Slider, Checkbox, Divider,
+} from 'antd';
 import uniqBy from 'lodash.uniqby';
 import sumBy from 'lodash.sumby';
+import 'antd/dist/antd.css';
 import DistrictMap from '../Data/DistrictShape.json';
 import CountryMap from '../Data/CountryShape.json';
 import ProjectData from '../Data/projectData.json';
@@ -22,10 +25,9 @@ import { AccessDataType, CountryAccessDataType, ProjectDataType } from '../Types
 
 const SideBar = styled.div`
   padding: 2rem 0 0 0;
-  position: fixed;
+  position: absolute;
   z-index: 1000;
-  top: 9rem;
-  left: 2rem;
+  margin: 2rem 0 0 2rem;
   border-radius: 0.4rem;
   box-shadow: var(--shadow);
   font-size: 1.6rem;
@@ -34,6 +36,21 @@ const SideBar = styled.div`
   color: var(--black-700);
 `;
 
+const KeyEl = styled.div`
+  padding: 1rem;
+  position: absolute;
+  z-index: 1000;
+  bottom: 0;
+  margin: 0 0 2rem 2rem;
+  border-radius: 0.4rem;
+  box-shadow: var(--shadow);
+  background-color: var(--white-opacity);
+  div {
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+`;
 const HeadingEl = styled.div`
   font-size: 2.4rem;
   line-height: 3.2rem;
@@ -111,12 +128,15 @@ const getBoundingBox = (data: any) => {
   }
   return bounds;
 };
+interface ElProps {
+  fixedHeight: boolean;
+}
 
-const LoadingEl = styled.div`
+const LoadingEl = styled.div<ElProps>`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - 70px);
+  height: ${(props) => (props.fixedHeight ? '72rem' : 'calc(100vh - 70px)')};
 `;
 
 const DropdownEl = styled.div`
@@ -151,15 +171,47 @@ const RowValue = styled.div`
   font-size: 1.8rem;
 `;
 
+const El = styled.div<ElProps>`
+  background-color: var(--blue-very-light);
+  position: relative;
+  height: ${(props) => (props.fixedHeight ? '72rem' : 'calc(100vh - 70px)')};
+`;
+
+const LayerSelectorEl = styled.div`
+  padding: 0 1rem 1rem 1rem;
+  position: absolute;
+  right: 0;
+  margin: 2rem 2rem 0 0;
+  z-index: 1000;
+  border-radius: 0.4rem;
+  box-shadow: var(--shadow);
+  font-size: 1.4rem;
+  background-color: var(--white-opacity);
+  color: var(--black-700);
+  float: right;
+`;
+
+const TitleEl = styled.div`
+  margin: 1rem 0;
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-transform: uppercase;
+`;
+
 export function MapContainer() {
   const [selectedCountry, setSelectedCountry] = useState<undefined | string>(undefined);
   const [selectedDistrict, setSelectedDistrict] = useState<undefined | string>(undefined);
   const [districtShapeData, setDistrictShapeData] = useState<any>(undefined);
   const [countryShapeData, setCountryShapeData] = useState<any>(undefined);
   const [projectDataShape, setProjectShapeData] = useState<any>(undefined);
+  const [layer, setLayer] = useState<1 | 2 | 3 >(1);
+  const [showProjects, setShowProjects] = useState<boolean>(false);
+  const [hideLabels, setHideLabels] = useState<boolean>(false);
+  const [highlightThreshold, setHighlightThreshold] = useState(100);
   const [countryAccessData, setCountryAccessData] = useState<CountryAccessDataType[] | undefined>(undefined);
   const pctColorScale = scaleThreshold<string | number, string>().domain(PCT_RANGE).range(COLOR_SCALE).unknown('#FAFAFA');
   const peopleNoAccessColorScale = scaleThreshold<string | number, string>().domain(POP_RANGE).range(LINEAR_SCALE).unknown('#FAFAFA');
+  const keyBarWid = 40;
   useEffect(() => {
     // eslint-disable-next-line no-sequences
     const countryList = uniqBy(AccessDataForDistricts as AccessDataType[], (d) => d.adm2_id.substring(0, 3)).map((d) => d.adm2_id.substring(0, 3));
@@ -247,7 +299,7 @@ export function MapContainer() {
   }, []);
 
   return (
-    <>
+    <El fixedHeight={!!window.location.href.includes('data.undp.org')}>
       {
         countryShapeData && projectDataShape && districtShapeData && countryAccessData
           ? (
@@ -475,6 +527,34 @@ export function MapContainer() {
       {
         countryShapeData && projectDataShape && districtShapeData && countryAccessData
           ? (
+            <LayerSelectorEl>
+              <TitleEl>Select A Layer</TitleEl>
+              <Radio.Group onChange={(e) => { setLayer(e.target.value); }} value={layer}>
+                <Space direction='vertical'>
+                  <Radio value={1}>Electricity Access</Radio>
+                  <Radio value={2}>No. of People Without Elec.</Radio>
+                </Space>
+              </Radio.Group>
+              <Divider />
+              <TitleEl>Settings</TitleEl>
+              <>
+                {'Highlight Region with Access <= '}
+                <span className='bold'>
+                  {highlightThreshold}
+                  %
+                </span>
+                <Slider defaultValue={100} min={1} max={100} onAfterChange={(d) => { setHighlightThreshold(d); }} />
+              </>
+              <Space direction='vertical'>
+                <Checkbox onChange={(e) => { setShowProjects(e.target.checked); }}>Show UNDP Projects</Checkbox>
+                <Checkbox onChange={(e) => { setHideLabels(e.target.checked); }}>Hide Labels</Checkbox>
+              </Space>
+            </LayerSelectorEl>
+          ) : null
+      }
+      {
+        countryShapeData && projectDataShape && districtShapeData && countryAccessData
+          ? (
             <MapEl
               districtShapes={districtShapeData}
               countryAccessData={countryAccessData}
@@ -484,14 +564,109 @@ export function MapContainer() {
               setSelectedCountry={setSelectedCountry}
               setSelectedDistrict={setSelectedDistrict}
               selectedCountry={selectedCountry}
+              layer={layer}
+              showProjects={showProjects}
+              hideLabels={hideLabels}
+              highlightThreshold={highlightThreshold}
+
             />
           )
           : (
-            <LoadingEl>
+            <LoadingEl fixedHeight={!!window.location.href.includes('data.undp.org')}>
               <Spin size='large' />
             </LoadingEl>
           )
       }
-    </>
+      {
+        countryShapeData && projectDataShape && districtShapeData && countryAccessData
+          ? (
+            <KeyEl>
+              <div>{ layer === 1 ? '%age Electricity Access' : 'Population Without Elec.'}</div>
+              {
+              layer === 1
+                ? (
+                  <svg height={25} width={COLOR_SCALE.length * keyBarWid}>
+                    {
+                      COLOR_SCALE.map((d: string, i: number) => (
+                        <rect
+                          key={i}
+                          x={i * keyBarWid}
+                          height={10}
+                          y={0}
+                          width={keyBarWid}
+                          fill={d}
+                        />
+                      ))
+                    }
+                    {
+                      PCT_RANGE.map((d: number, i: number) => (
+                        <text
+                          key={i}
+                          x={(i + 1) * keyBarWid}
+                          y={23}
+                          textAnchor='middle'
+                          fontSize={10}
+                        >
+                          {d}
+                          %
+                        </text>
+                      ))
+                    }
+                    <text
+                      x={440}
+                      y={23}
+                      textAnchor='end'
+                      fontSize={10}
+                    >
+                      100%
+                    </text>
+                    <text
+                      x={0}
+                      y={23}
+                      textAnchor='start'
+                      fontSize={10}
+                    >
+                      0%
+                    </text>
+                  </svg>
+                )
+                : (
+                  <svg height={25} width={LINEAR_SCALE.length * keyBarWid}>
+                    {
+                      LINEAR_SCALE.map((d: string, i: number) => (
+                        <rect
+                          key={i}
+                          x={i * keyBarWid}
+                          height={10}
+                          y={0}
+                          width={keyBarWid}
+                          fill={d}
+                        />
+                      ))
+                    }
+                    {
+                      POP_RANGE.map((d: number, i: number) => (
+                        <text
+                          key={i}
+                          x={(i + 1) * keyBarWid}
+                          y={23}
+                          textAnchor='middle'
+                          fontSize={10}
+                        >
+                          {
+                            d < 1000
+                              ? format(',')(d).replace(',', ' ')
+                              : format('.1s')(d).replace('G', 'B')
+                          }
+                        </text>
+                      ))
+                    }
+                  </svg>
+                )
+            }
+            </KeyEl>
+          ) : null
+      }
+    </El>
   );
 }

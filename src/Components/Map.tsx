@@ -1,17 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import maplibregl from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
-import styled from 'styled-components';
-import { format } from 'd3-format';
-import {
-  Radio, Space, RadioChangeEvent, Checkbox, Divider, Slider,
-} from 'antd';
-import 'antd/dist/antd.css';
 import CountryTaxonomy from '../Data/country-taxonomy.json';
 import { Tooltip } from './Tooltip';
-import {
-  COLOR_SCALE, LINEAR_SCALE, PCT_RANGE, POP_RANGE,
-} from '../Constants';
 import { CountryAccessDataType } from '../Types';
 
 interface Props {
@@ -23,6 +14,10 @@ interface Props {
   countryAccessData: CountryAccessDataType[];
   setSelectedCountry: (_d?: string) => void;
   setSelectedDistrict: (_d?: string) => void;
+  layer: 1 | 2 | 3;
+  showProjects: boolean;
+  hideLabels: boolean;
+  highlightThreshold: number;
 }
 interface HoverDataProps {
   city?: string;
@@ -32,42 +27,6 @@ interface HoverDataProps {
   xPosition: number;
   yPosition: number;
 }
-
-const LayerSelectorEl = styled.div`
-  padding: 0 1rem 1rem 1rem;
-  position: fixed;
-  z-index: 1000;
-  top: 9rem;
-  right: 2rem;
-  border-radius: 0.4rem;
-  box-shadow: var(--shadow);
-  font-size: 1.4rem;
-  background-color: var(--white-opacity);
-  color: var(--black-700);
-`;
-
-const KeyEl = styled.div`
-  padding: 1rem;
-  position: fixed;
-  z-index: 1000;
-  bottom: 2rem;
-  left: 2rem;
-  border-radius: 0.4rem;
-  box-shadow: var(--shadow);
-  background-color: var(--white-opacity);
-  div {
-    font-size: 1.6rem;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-  }
-`;
-
-const TitleEl = styled.div`
-  margin: 1rem 0;
-  font-size: 1.4rem;
-  font-weight: bold;
-  text-transform: uppercase;
-`;
 
 export function MapEl(props: Props) {
   const {
@@ -79,14 +38,13 @@ export function MapEl(props: Props) {
     selectedCountry,
     selectedDistrict,
     countryAccessData,
+    layer,
+    showProjects,
+    hideLabels,
+    highlightThreshold,
   } = props;
 
-  const keyBarWid = 40;
   const [hoverData, setHoverData] = useState<null | HoverDataProps>(null);
-  const [layer, setLayer] = useState(1);
-  const [showProjects, setShowProjects] = useState<boolean>(false);
-  const [hideLabels, setHideLabels] = useState<boolean>(false);
-  const [highlightThreshold, setHighlightThreshold] = useState(100);
   const districtShapesGeoJson = { type: 'FeatureCollection', features: districtShapes };
   const countryShapesGeoJson = { type: 'FeatureCollection', features: countryShapes };
   const projectDataGeoJson = { type: 'FeatureCollection', features: projectData };
@@ -453,117 +411,7 @@ export function MapEl(props: Props) {
 
   return (
     <>
-      <div style={{ position: 'relative', width: '100%', height: 'calc(100vh - 70px)' }}>
-        <div style={{ position: 'absolute', width: '100%', height: '100%' }} ref={mapContainer} />
-      </div>
-      <LayerSelectorEl>
-        <TitleEl>Select A Layer</TitleEl>
-        <Radio.Group onChange={(e: RadioChangeEvent) => { setLayer(e.target.value); }} value={layer}>
-          <Space direction='vertical'>
-            <Radio value={1}>Electricity Access</Radio>
-            <Radio value={2}>No. of People Without Elec.</Radio>
-          </Space>
-        </Radio.Group>
-        <Divider />
-        <TitleEl>Settings</TitleEl>
-        <>
-          {'Highlight Region with Access <= '}
-          <span className='bold'>
-            {highlightThreshold}
-            %
-          </span>
-          <Slider defaultValue={100} min={1} max={100} onAfterChange={(d) => { setHighlightThreshold(d); }} />
-        </>
-        <Space direction='vertical'>
-          <Checkbox onChange={(e) => { setShowProjects(e.target.checked); }}>Show UNDP Projects</Checkbox>
-          <Checkbox onChange={(e) => { setHideLabels(e.target.checked); }}>Hide Labels</Checkbox>
-        </Space>
-      </LayerSelectorEl>
-      <KeyEl>
-        <div>{ layer === 1 ? '%age Electricity Access' : 'Population Without Elec.'}</div>
-        {
-          layer === 1
-            ? (
-              <svg height={25} width={COLOR_SCALE.length * keyBarWid}>
-                {
-                  COLOR_SCALE.map((d: string, i: number) => (
-                    <rect
-                      key={i}
-                      x={i * keyBarWid}
-                      height={10}
-                      y={0}
-                      width={keyBarWid}
-                      fill={d}
-                    />
-                  ))
-                }
-                {
-                  PCT_RANGE.map((d: number, i: number) => (
-                    <text
-                      key={i}
-                      x={(i + 1) * keyBarWid}
-                      y={23}
-                      textAnchor='middle'
-                      fontSize={10}
-                    >
-                      {d}
-                      %
-                    </text>
-                  ))
-                }
-                <text
-                  x={440}
-                  y={23}
-                  textAnchor='end'
-                  fontSize={10}
-                >
-                  100%
-                </text>
-                <text
-                  x={0}
-                  y={23}
-                  textAnchor='start'
-                  fontSize={10}
-                >
-                  0%
-                </text>
-              </svg>
-            )
-            : (
-              <svg height={25} width={LINEAR_SCALE.length * keyBarWid}>
-                {
-                  LINEAR_SCALE.map((d: string, i: number) => (
-                    <rect
-                      key={i}
-                      x={i * keyBarWid}
-                      height={10}
-                      y={0}
-                      width={keyBarWid}
-                      fill={d}
-                    />
-                  ))
-                }
-                {
-                  POP_RANGE.map((d: number, i: number) => (
-                    <text
-                      key={i}
-                      x={(i + 1) * keyBarWid}
-                      y={23}
-                      textAnchor='middle'
-                      fontSize={10}
-                    >
-                      {
-                        d < 1000
-                          ? format(',')(d).replace(',', ' ')
-                          : format('.1s')(d).replace('G', 'B')
-                      }
-                    </text>
-                  ))
-                }
-              </svg>
-            )
-        }
-      </KeyEl>
+      <div style={{ position: 'absolute', width: '100%', height: '100%' }} ref={mapContainer} />
       {
         hoverData ? <Tooltip city={hoverData.city} country={hoverData.country} popValue={hoverData.popValue} pctValue={hoverData.pctValue} xPosition={hoverData.xPosition} yPosition={hoverData.yPosition} /> : null
       }

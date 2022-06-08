@@ -7,6 +7,7 @@ const HeaderEl = styled.div`
   text-align: center;
   display: flex;
   justify-content: space-between;
+  background-color: var(--blue-very-light);
   border-bottom: 1px solid var(--black-500);
   font-size: 1.6rem;
   line-height: 1.6;

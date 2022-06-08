@@ -129,7 +129,9 @@ function App() {
   return (
     <>
       <GlobalStyle />
-      <Header />
+      {
+        window.location.href.includes('data.undp.org') ? null : <Header />
+      }
       <MapContainer />
     </>
   );
