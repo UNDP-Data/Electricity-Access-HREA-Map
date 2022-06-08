@@ -41,7 +41,8 @@ const KeyEl = styled.div`
   position: absolute;
   z-index: 1000;
   bottom: 0;
-  margin: 0 0 2rem 2rem;
+  right: 0;
+  margin: 0 2rem 2rem 0;
   border-radius: 0.4rem;
   box-shadow: var(--shadow);
   background-color: var(--white-opacity);
