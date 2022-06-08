@@ -76,8 +76,16 @@ const BodyEl = styled.div`
 
 const BodyHead = styled.div`
   font-size: 1.8rem;
-  line-height: 2.4rem;
+  margin-top: 0.3rem;
+  line-height: 2rem;
   font-weight: bold;
+`;
+
+const SubNote = styled.span`
+  font-size: 1.4rem;
+  line-height: 2rem;
+  font-weight: normal;
+  color: var(--black-550);
 `;
 
 const SubNoteEl = styled.span`
@@ -86,7 +94,7 @@ const SubNoteEl = styled.span`
 `;
 
 const RowEl = styled.div`
-  margin: 1.5rem 0;
+  margin: 1.5rem 0 2rem 0;
 `;
 
 const BackEl = styled.div`
@@ -216,8 +224,13 @@ export function MapContainer() {
   useEffect(() => {
     // eslint-disable-next-line no-sequences
     const countryList = uniqBy(AccessDataForDistricts as AccessDataType[], (d) => d.adm2_id.substring(0, 3)).map((d) => d.adm2_id.substring(0, 3));
+    const AccessDataForDistrictWithRWI = (AccessDataForDistricts as AccessDataType[]).map((d) => ({
+      ...d,
+      RWI: (DistrictMap as any).objects.combined_polygon_vlight.geometries.findIndex((el: any) => el.properties.adm2_id === d.adm2_id) !== -1 ? (DistrictMap as any).objects.combined_polygon_vlight.geometries[(DistrictMap as any).objects.combined_polygon_vlight.geometries.findIndex((el: any) => el.properties.adm2_id === d.adm2_id)].properties.RWI_AVG : null,
+    }));
     const countryTimeSeriesData = countryList.map((country) => {
-      const countryFilteredData = (AccessDataForDistricts as AccessDataType[]).filter((d) => d.adm2_id.substring(0, 3) === country);
+      const countryFilteredData = AccessDataForDistrictWithRWI.filter((d) => d.adm2_id.substring(0, 3) === country);
+      const countrFilteredDatLowRWI = AccessDataForDistrictWithRWI.filter((d) => d.adm2_id.substring(0, 3) === country && d.RWI && d.RWI < 0);
       return {
         countryID: country,
         name: CountryTaxonomy[CountryTaxonomy.findIndex((c) => c['Alpha-3 code-1'] === country)]['Country or Area'],
@@ -240,6 +253,15 @@ export function MapContainer() {
         PopNoAccess2013: sumBy(countryFilteredData, 'PopNoAccess2013'),
         PopAccess2012: sumBy(countryFilteredData, 'PopAccess2012'),
         PopNoAccess2012: sumBy(countryFilteredData, 'PopNoAccess2012'),
+        PopNoAccess2020LowRWI: sumBy(countrFilteredDatLowRWI, 'PopNoAccess2020'),
+        PopNoAccess2019LowRWI: sumBy(countrFilteredDatLowRWI, 'PopNoAccess2019'),
+        PopNoAccess2018LowRWI: sumBy(countrFilteredDatLowRWI, 'PopNoAccess2018'),
+        PopNoAccess2017LowRWI: sumBy(countrFilteredDatLowRWI, 'PopNoAccess2017'),
+        PopNoAccess2016LowRWI: sumBy(countrFilteredDatLowRWI, 'PopNoAccess2016'),
+        PopNoAccess2015LowRWI: sumBy(countrFilteredDatLowRWI, 'PopNoAccess2015'),
+        PopNoAccess2014LowRWI: sumBy(countrFilteredDatLowRWI, 'PopNoAccess2014'),
+        PopNoAccess2013LowRWI: sumBy(countrFilteredDatLowRWI, 'PopNoAccess2013'),
+        PopNoAccess2012LowRWI: sumBy(countrFilteredDatLowRWI, 'PopNoAccess2012'),
       };
     });
     const districtShapes: any = ((topojson.feature(DistrictMap as any, (DistrictMap as any).objects.combined_polygon_vlight) as any).features as any).map((district: any, i: number) => {
@@ -413,6 +435,22 @@ export function MapContainer() {
                         {
                           format(',')(Math.round((countryAccessData[countryAccessData.findIndex((d) => d.name === selectedCountry)].PopNoAccess2020))).replaceAll(',', ' ')
                         }
+                        {' '}
+                        <SubNote>
+                          (
+                          <span className='bold'>
+                            {
+                              format(',')(Math.round((countryAccessData[countryAccessData.findIndex((d) => d.name === selectedCountry)].PopNoAccess2020LowRWI))).replaceAll(',', ' ')
+                            }
+                            {' '}
+                            (
+                            {Math.round((countryAccessData[countryAccessData.findIndex((d) => d.name === selectedCountry)].PopNoAccess2020LowRWI * 100) / countryAccessData[countryAccessData.findIndex((d) => d.name === selectedCountry)].PopNoAccess2020)}
+                            %
+                            )
+                          </span>
+                          {' '}
+                          belong to poor regions)
+                        </SubNote>
                       </BodyHead>
                     </RowEl>
                     <RowEl>

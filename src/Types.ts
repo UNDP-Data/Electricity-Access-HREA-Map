@@ -22,6 +22,9 @@ export interface AccessDataType {
   adm2_name: string;
   Areakm2: number;
 }
+export interface AccessDataWithRWIDataType extends AccessDataType {
+  RWI?: number;
+}
 
 export interface CountryAccessDataType {
   TotPopulation: number;
@@ -43,6 +46,15 @@ export interface CountryAccessDataType {
   PopNoAccess2013: number;
   PopAccess2012: number;
   PopNoAccess2012: number;
+  PopNoAccess2020LowRWI: number;
+  PopNoAccess2019LowRWI: number;
+  PopNoAccess2018LowRWI: number;
+  PopNoAccess2017LowRWI: number;
+  PopNoAccess2016LowRWI: number;
+  PopNoAccess2015LowRWI: number;
+  PopNoAccess2014LowRWI: number;
+  PopNoAccess2013LowRWI: number;
+  PopNoAccess2012LowRWI: number;
   countryID: string;
   name: string;
   }
