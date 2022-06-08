@@ -212,6 +212,7 @@ export function MapContainer() {
   const [districtShapeData, setDistrictShapeData] = useState<any>(undefined);
   const [countryShapeData, setCountryShapeData] = useState<any>(undefined);
   const [projectDataShape, setProjectShapeData] = useState<any>(undefined);
+  const [worldData, setWorldData] = useState<CountryAccessDataType | undefined>(undefined);
   const [layer, setLayer] = useState<1 | 2 | 3 >(1);
   const [showProjects, setShowProjects] = useState<boolean>(false);
   const [hideLabels, setHideLabels] = useState<boolean>(false);
@@ -228,6 +229,39 @@ export function MapContainer() {
       ...d,
       RWI: (DistrictMap as any).objects.combined_polygon_vlight.geometries.findIndex((el: any) => el.properties.adm2_id === d.adm2_id) !== -1 ? (DistrictMap as any).objects.combined_polygon_vlight.geometries[(DistrictMap as any).objects.combined_polygon_vlight.geometries.findIndex((el: any) => el.properties.adm2_id === d.adm2_id)].properties.RWI_AVG : null,
     }));
+    const AllDatLowRWI = AccessDataForDistrictWithRWI.filter((d) => d.RWI && d.RWI < 0);
+    const WorldDataCalculated = {
+      countryID: 'XXX',
+      name: 'World',
+      TotPopulation: sumBy(AccessDataForDistrictWithRWI, 'TotPopulation'),
+      PopAccess2020: sumBy(AccessDataForDistrictWithRWI, 'PopAccess2020'),
+      PopNoAccess2020: sumBy(AccessDataForDistrictWithRWI, 'PopNoAccess2020'),
+      PopAccess2019: sumBy(AccessDataForDistrictWithRWI, 'PopAccess2019'),
+      PopNoAccess2019: sumBy(AccessDataForDistrictWithRWI, 'PopNoAccess2019'),
+      PopAccess2018: sumBy(AccessDataForDistrictWithRWI, 'PopAccess2018'),
+      PopNoAccess2018: sumBy(AccessDataForDistrictWithRWI, 'PopNoAccess2018'),
+      PopAccess2017: sumBy(AccessDataForDistrictWithRWI, 'PopAccess2017'),
+      PopNoAccess2017: sumBy(AccessDataForDistrictWithRWI, 'PopNoAccess2017'),
+      PopAccess2016: sumBy(AccessDataForDistrictWithRWI, 'PopAccess2016'),
+      PopNoAccess2016: sumBy(AccessDataForDistrictWithRWI, 'PopNoAccess2016'),
+      PopAccess2015: sumBy(AccessDataForDistrictWithRWI, 'PopAccess2015'),
+      PopNoAccess2015: sumBy(AccessDataForDistrictWithRWI, 'PopNoAccess2015'),
+      PopAccess2014: sumBy(AccessDataForDistrictWithRWI, 'PopAccess2014'),
+      PopNoAccess2014: sumBy(AccessDataForDistrictWithRWI, 'PopNoAccess2014'),
+      PopAccess2013: sumBy(AccessDataForDistrictWithRWI, 'PopAccess2013'),
+      PopNoAccess2013: sumBy(AccessDataForDistrictWithRWI, 'PopNoAccess2013'),
+      PopAccess2012: sumBy(AccessDataForDistrictWithRWI, 'PopAccess2012'),
+      PopNoAccess2012: sumBy(AccessDataForDistrictWithRWI, 'PopNoAccess2012'),
+      PopNoAccess2020LowRWI: sumBy(AllDatLowRWI, 'PopNoAccess2020'),
+      PopNoAccess2019LowRWI: sumBy(AllDatLowRWI, 'PopNoAccess2019'),
+      PopNoAccess2018LowRWI: sumBy(AllDatLowRWI, 'PopNoAccess2018'),
+      PopNoAccess2017LowRWI: sumBy(AllDatLowRWI, 'PopNoAccess2017'),
+      PopNoAccess2016LowRWI: sumBy(AllDatLowRWI, 'PopNoAccess2016'),
+      PopNoAccess2015LowRWI: sumBy(AllDatLowRWI, 'PopNoAccess2015'),
+      PopNoAccess2014LowRWI: sumBy(AllDatLowRWI, 'PopNoAccess2014'),
+      PopNoAccess2013LowRWI: sumBy(AllDatLowRWI, 'PopNoAccess2013'),
+      PopNoAccess2012LowRWI: sumBy(AllDatLowRWI, 'PopNoAccess2012'),
+    };
     const countryTimeSeriesData = countryList.map((country) => {
       const countryFilteredData = AccessDataForDistrictWithRWI.filter((d) => d.adm2_id.substring(0, 3) === country);
       const countrFilteredDatLowRWI = AccessDataForDistrictWithRWI.filter((d) => d.adm2_id.substring(0, 3) === country && d.RWI && d.RWI < 0);
@@ -318,12 +352,13 @@ export function MapContainer() {
     setCountryShapeData(countryShapes);
     setProjectShapeData(projectDataGeoJson);
     setCountryAccessData(countryTimeSeriesData);
+    setWorldData(WorldDataCalculated);
   }, []);
 
   return (
     <El fixedHeight={!!window.location.href.includes('data.undp.org')}>
       {
-        countryShapeData && projectDataShape && districtShapeData && countryAccessData
+        countryShapeData && projectDataShape && districtShapeData && countryAccessData && worldData
           ? (
             <SideBar>
               <HeadingEl>
@@ -390,6 +425,54 @@ export function MapContainer() {
                           Click on a country to explore data for the country
                         </SubNoteEl>
                       </BodyEl>
+                    </RowEl>
+                    <RowEl>
+                      <BodyEl>
+                        Percent Electrcity Access
+                        {' '}
+                        <SubNoteEl>(2020)</SubNoteEl>
+                      </BodyEl>
+                      <BodyHead>
+                        {
+                          `${((worldData.PopAccess2020 * 100) / worldData.TotPopulation).toFixed(2)}%`
+                        }
+                      </BodyHead>
+                    </RowEl>
+                    <RowEl>
+                      <BodyEl>
+                        No. Of People Without Electricity
+                        {' '}
+                        <SubNoteEl>(2020)</SubNoteEl>
+                      </BodyEl>
+                      <BodyHead>
+                        {
+                          format(',')(Math.round((worldData.PopNoAccess2020))).replaceAll(',', ' ')
+                        }
+                        {' '}
+                        <SubNote>
+                          (
+                          <span className='bold'>
+                            {
+                              format(',')(Math.round((worldData.PopNoAccess2020LowRWI))).replaceAll(',', ' ')
+                            }
+                            {' '}
+                            (
+                            {Math.round((worldData.PopNoAccess2020LowRWI * 100) / worldData.PopNoAccess2020)}
+                            %
+                            )
+                          </span>
+                          {' '}
+                          belong to poor regions)
+                        </SubNote>
+                      </BodyHead>
+                    </RowEl>
+                    <RowEl>
+                      <BodyEl>
+                        TimeSeries Data
+                      </BodyEl>
+                      <BodyHead>
+                        <LineChartForCountry data={worldData} />
+                      </BodyHead>
                     </RowEl>
                   </BodyContainer>
                 ) : null
@@ -563,7 +646,7 @@ export function MapContainer() {
           ) : null
       }
       {
-        countryShapeData && projectDataShape && districtShapeData && countryAccessData
+        countryShapeData && projectDataShape && districtShapeData && countryAccessData && worldData
           ? (
             <LayerSelectorEl>
               <TitleEl>Select A Layer</TitleEl>
@@ -592,7 +675,7 @@ export function MapContainer() {
           ) : null
       }
       {
-        countryShapeData && projectDataShape && districtShapeData && countryAccessData
+        countryShapeData && projectDataShape && districtShapeData && countryAccessData && worldData
           ? (
             <MapEl
               districtShapes={districtShapeData}
@@ -617,7 +700,7 @@ export function MapContainer() {
           )
       }
       {
-        countryShapeData && projectDataShape && districtShapeData && countryAccessData
+        countryShapeData && projectDataShape && districtShapeData && countryAccessData && worldData
           ? (
             <KeyEl>
               <div>{ layer === 1 ? '%age Electricity Access' : 'Population Without Elec.'}</div>
