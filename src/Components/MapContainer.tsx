@@ -207,6 +207,7 @@ export function MapContainer() {
   const [layer, setLayer] = useState<1 | 2 | 3 >(1);
   const [showProjects, setShowProjects] = useState<boolean>(false);
   const [hideLabels, setHideLabels] = useState<boolean>(false);
+  const [showPoorRegions, setShowPoorRegions] = useState<boolean>(false);
   const [highlightThreshold, setHighlightThreshold] = useState(100);
   const [countryAccessData, setCountryAccessData] = useState<CountryAccessDataType[] | undefined>(undefined);
   const pctColorScale = scaleThreshold<string | number, string>().domain(PCT_RANGE).range(COLOR_SCALE).unknown('#FAFAFA');
@@ -249,7 +250,6 @@ export function MapContainer() {
       const eaAccessPop = indx === -1 ? undefined : disData.PopAccess2020;
       const eaNoAccessPop = indx === -1 ? undefined : disData.PopNoAccess2020;
       const eaNoAccessColor = eaNoAccessPop === undefined ? '#FaFaFa' : peopleNoAccessColorScale(eaNoAccessPop);
-      const ea50PctOverlay = eaAccessPct === undefined ? 0.9 : eaAccessPct < 50 ? 0 : 0.9;
       const totalPop = indx === -1 ? undefined : disData.TotPopulation;
       // eslint-disable-next-line camelcase
       const adm2_name = indx === -1 ? district.properties.adm2_name : disData.adm2_name;
@@ -260,7 +260,7 @@ export function MapContainer() {
           type: district.type,
           properties: {
             // eslint-disable-next-line camelcase
-            ...district.properties, eaAccessPct, eaAccessPctColor, eaAccessPop, eaNoAccessColor, totalPop, eaNoAccessPop, ea50PctOverlay, adm2_name, countryISO,
+            ...district.properties, eaAccessPct, eaAccessPctColor, eaAccessPop, eaNoAccessColor, totalPop, eaNoAccessPop, adm2_name, countryISO,
           },
           id: i + 1000,
         });
@@ -538,7 +538,7 @@ export function MapContainer() {
               <Divider />
               <TitleEl>Settings</TitleEl>
               <>
-                {'Highlight Region with Access <= '}
+                {'Showing Region with Access <= '}
                 <span className='bold'>
                   {highlightThreshold}
                   %
@@ -546,6 +546,7 @@ export function MapContainer() {
                 <Slider defaultValue={100} min={1} max={100} onAfterChange={(d) => { setHighlightThreshold(d); }} />
               </>
               <Space direction='vertical'>
+                <Checkbox onChange={(e) => { setShowPoorRegions(e.target.checked); }}>Only Show Poor Regions</Checkbox>
                 <Checkbox onChange={(e) => { setShowProjects(e.target.checked); }}>Show UNDP Projects</Checkbox>
                 <Checkbox onChange={(e) => { setHideLabels(e.target.checked); }}>Hide Labels</Checkbox>
               </Space>
@@ -568,7 +569,7 @@ export function MapContainer() {
               showProjects={showProjects}
               hideLabels={hideLabels}
               highlightThreshold={highlightThreshold}
-
+              showPoorRegions={showPoorRegions}
             />
           )
           : (

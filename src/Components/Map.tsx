@@ -17,6 +17,7 @@ interface Props {
   layer: 1 | 2 | 3;
   showProjects: boolean;
   hideLabels: boolean;
+  showPoorRegions: boolean;
   highlightThreshold: number;
 }
 interface HoverDataProps {
@@ -42,6 +43,7 @@ export function MapEl(props: Props) {
     showProjects,
     hideLabels,
     highlightThreshold,
+    showPoorRegions,
   } = props;
 
   const [hoverData, setHoverData] = useState<null | HoverDataProps>(null);
@@ -119,6 +121,21 @@ export function MapEl(props: Props) {
           'fill-opacity': 1,
         },
         filter: ['>=', 'eaAccessPct', highlightThreshold + 0.001],
+      });
+      (map as any).current.addLayer({
+        id: 'district-layer-poor-region-highlight',
+        type: 'fill',
+        source: 'district-layer-data',
+        layout: { visibility: 'none' },
+        paint: {
+          'fill-color': '#fff',
+          'fill-opacity': [
+            'case',
+            ['<', ['get', 'RWI_AVG'], 0],
+            0,
+            1,
+          ],
+        },
       });
       (map as any).current.addLayer({
         id: 'district-layer-highlight-selected',
@@ -334,7 +351,7 @@ export function MapEl(props: Props) {
   });
   useEffect(() => {
     if (map.current) {
-      if ((map as any).current.getLayer('district-layer') && (map as any).current.getLayer('district-layer-pop') && (map as any).current.getLayer('district-layer-highlight') && (map as any).current.getLayer('district-layer-highlight-selected') && (map as any).current.getLayer('projectData-circles')) {
+      if ((map as any).current.getLayer('district-layer') && (map as any).current.getLayer('district-layer-pop') && (map as any).current.getLayer('district-layer-highlight') && (map as any).current.getLayer('district-layer-highlight-selected') && (map as any).current.getLayer('projectData-circles') && (map as any).current.getLayer('district-layer-poor-region-highlight')) {
         if (!selectedDistrict) {
           if (selectedCountry) {
             const indx = CountryTaxonomy.findIndex((d) => d['Country or Area'] === selectedCountry);
@@ -367,7 +384,7 @@ export function MapEl(props: Props) {
   }, [selectedCountry, selectedDistrict]);
   useEffect(() => {
     if (map.current) {
-      if ((map as any).current.getLayer('district-layer') && (map as any).current.getLayer('district-layer-pop') && (map as any).current.getLayer('district-layer-highlight') && (map as any).current.getLayer('district-layer-highlight-selected') && (map as any).current.getLayer('projectData-circles')) {
+      if ((map as any).current.getLayer('district-layer') && (map as any).current.getLayer('district-layer-pop') && (map as any).current.getLayer('district-layer-highlight') && (map as any).current.getLayer('district-layer-highlight-selected') && (map as any).current.getLayer('projectData-circles') && (map as any).current.getLayer('district-layer-poor-region-highlight')) {
         if (layer === 1) {
           (map as any).current.setLayoutProperty('district-layer', 'visibility', 'visible');
           (map as any).current.setLayoutProperty('district-layer-pop', 'visibility', 'none');
@@ -380,7 +397,7 @@ export function MapEl(props: Props) {
   }, [layer]);
   useEffect(() => {
     if (map.current) {
-      if ((map as any).current.getLayer('district-layer') && (map as any).current.getLayer('district-layer-pop') && (map as any).current.getLayer('district-layer-highlight') && (map as any).current.getLayer('district-layer-highlight-selected') && (map as any).current.getLayer('projectData-circles')) {
+      if ((map as any).current.getLayer('district-layer') && (map as any).current.getLayer('district-layer-pop') && (map as any).current.getLayer('district-layer-highlight') && (map as any).current.getLayer('district-layer-highlight-selected') && (map as any).current.getLayer('projectData-circles') && (map as any).current.getLayer('district-layer-poor-region-highlight')) {
         if (showProjects) {
           (map as any).current.setLayoutProperty('projectData-circles', 'visibility', 'visible');
         } else {
@@ -391,7 +408,7 @@ export function MapEl(props: Props) {
   }, [showProjects]);
   useEffect(() => {
     if (map.current) {
-      if ((map as any).current.getLayer('district-layer') && (map as any).current.getLayer('district-layer-pop') && (map as any).current.getLayer('district-layer-highlight') && (map as any).current.getLayer('district-layer-highlight-selected') && (map as any).current.getLayer('projectData-circles')) {
+      if ((map as any).current.getLayer('district-layer') && (map as any).current.getLayer('district-layer-pop') && (map as any).current.getLayer('district-layer-highlight') && (map as any).current.getLayer('district-layer-highlight-selected') && (map as any).current.getLayer('projectData-circles') && (map as any).current.getLayer('district-layer-poor-region-highlight')) {
         if (hideLabels) {
           (map as any).current.setLayoutProperty('raster-labels', 'visibility', 'none');
         } else {
@@ -403,11 +420,23 @@ export function MapEl(props: Props) {
 
   useEffect(() => {
     if (map.current) {
-      if ((map as any).current.getLayer('district-layer') && (map as any).current.getLayer('district-layer-pop') && (map as any).current.getLayer('district-layer-highlight') && (map as any).current.getLayer('district-layer-highlight-selected') && (map as any).current.getLayer('projectData-circles')) {
+      if ((map as any).current.getLayer('district-layer') && (map as any).current.getLayer('district-layer-pop') && (map as any).current.getLayer('district-layer-highlight') && (map as any).current.getLayer('district-layer-highlight-selected') && (map as any).current.getLayer('projectData-circles') && (map as any).current.getLayer('district-layer-poor-region-highlight')) {
         (map as any).current.setFilter('district-layer-highlight', ['>=', 'eaAccessPct', highlightThreshold + 0.001]);
       }
     }
   }, [highlightThreshold]);
+
+  useEffect(() => {
+    if (map.current) {
+      if ((map as any).current.getLayer('district-layer') && (map as any).current.getLayer('district-layer-pop') && (map as any).current.getLayer('district-layer-highlight') && (map as any).current.getLayer('district-layer-highlight-selected') && (map as any).current.getLayer('projectData-circles') && (map as any).current.getLayer('district-layer-poor-region-highlight')) {
+        if (showPoorRegions) {
+          (map as any).current.setLayoutProperty('district-layer-poor-region-highlight', 'visibility', 'visible');
+        } else {
+          (map as any).current.setLayoutProperty('district-layer-poor-region-highlight', 'visibility', 'none');
+        }
+      }
+    }
+  }, [showPoorRegions]);
 
   return (
     <>
