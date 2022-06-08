@@ -92,7 +92,7 @@ export function MapEl(props: Props) {
   const projectDataGeoJson = { type: 'FeatureCollection', features: projectData };
   const mapContainer = useRef<HTMLDivElement>(null);
   const map = useRef<HTMLDivElement>(null);
-  const zoom = 2;
+  const zoom = 1.25;
   useEffect(() => {
     if (map.current) return;
     let hoveredStateId: string | null = null;
@@ -121,7 +121,7 @@ export function MapEl(props: Props) {
           },
         ],
       },
-      center: [25, 15],
+      center: [25, 5],
       zoom,
     });
 
@@ -391,8 +391,8 @@ export function MapEl(props: Props) {
             (map as any).current.setFilter('district-layer-highlight-selected', ['!=', 'countryISO', CountryTaxonomy[indx]['Alpha-3 code-1']]);
           } else {
             (map as any).current.flyTo({
-              center: [25, 15],
-              zoom: 2,
+              center: [25, 5],
+              zoom,
             });
             (map as any).current.setFilter('district-layer-highlight-selected', ['==', 'adm2_id', '']);
           }

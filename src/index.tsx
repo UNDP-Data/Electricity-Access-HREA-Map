@@ -4,8 +4,21 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+const getEl = (embedSelector: string) => {
+  if (typeof embedSelector === 'string') {
+    const el = document.querySelector(embedSelector);
+    if (!el) {
+      // eslint-disable-next-line no-console
+      console.error(`No div matching selector "${embedSelector}"`);
+      return null;
+    }
+    return el;
+  }
+  return embedSelector;
+};
+
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement,
+  getEl('[data-map-embed]') as HTMLElement,
 );
 root.render(
   <React.StrictMode>
