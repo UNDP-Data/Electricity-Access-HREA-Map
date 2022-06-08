@@ -37,8 +37,8 @@ const LayerSelectorEl = styled.div`
   padding: 0 1rem 1rem 1rem;
   position: fixed;
   z-index: 1000;
-  top: 12rem;
-  right: 4rem;
+  top: 9rem;
+  right: 2rem;
   border-radius: 0.4rem;
   box-shadow: var(--shadow);
   font-size: 1.4rem;
@@ -51,7 +51,7 @@ const KeyEl = styled.div`
   position: fixed;
   z-index: 1000;
   bottom: 2rem;
-  left: 4rem;
+  left: 2rem;
   border-radius: 0.4rem;
   box-shadow: var(--shadow);
   background-color: var(--white-opacity);

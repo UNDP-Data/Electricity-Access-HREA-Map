@@ -24,8 +24,8 @@ const SideBar = styled.div`
   padding: 2rem 0 0 0;
   position: fixed;
   z-index: 1000;
-  top: 12rem;
-  left: 4rem;
+  top: 9rem;
+  left: 2rem;
   border-radius: 0.4rem;
   box-shadow: var(--shadow);
   font-size: 1.6rem;
