@@ -1,34 +1,10 @@
 import styled from 'styled-components';
 import { line, curveMonotoneX } from 'd3-shape';
 import { scaleLinear } from 'd3-scale';
-
-interface DataType {
-  adm2_id: string;
-  Areakm2: number;
-  TotPopulation: number;
-  PopAccess2020: number;
-  PopNoAccess2020: number;
-  PopAccess2019: number;
-  PopNoAccess2019: number;
-  PopNoAccess2018: number;
-  PopAccess2018: number;
-  PopAccess2017: number;
-  PopNoAccess2017: number;
-  PopAccess2016: number;
-  PopNoAccess2016: number;
-  PopAccess2015: number;
-  PopNoAccess2015: number;
-  PopNoAccess2014: number;
-  PopAccess2014: number;
-  PopAccess2013: number;
-  PopNoAccess2013: number;
-  PopAccess2012: number;
-  PopNoAccess2012: number;
-  adm2_name: string;
-}
+import { AccessDataType } from '../Types';
 
 interface Props {
-  data: DataType;
+  data: AccessDataType;
 }
 
 const El = styled.div`

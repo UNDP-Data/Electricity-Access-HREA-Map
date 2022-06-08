@@ -1,25 +1,51 @@
+import { Modal } from 'antd';
+import { useState } from 'react';
 import styled from 'styled-components';
 
 const HeaderEl = styled.div`
-  padding: 20px 0;
+  padding: 2rem;
   text-align: center;
-  box-shadow: 0 10px 13px -3px rgb(9 105 250 / 5%);
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--black-500);
+  font-size: 1.6rem;
+  line-height: 1.6;
+  align-items: baseline;
   h1 {
-    font-size: 30px;
-    margin: 0 0 10px 0;
-  }
-  h2 {
-    font-size: 18px;
+    font-size: 2.4rem;
+    line-height: 2.4rem;
+    font-weight: bold;
+    color: var(--black-600);
     margin: 0;
+  }
+  button {
+    background: transparent;
+    border: 0;
+    font-size: 1.6rem;
+    line-height: 1.6;
   }
 `;
 
 export function Header() {
+  const [isModalVisible, setIsModalVisible] = useState(false);
   return (
-    <HeaderEl>
-      <h1>
-        Electricity Access Map
-      </h1>
-    </HeaderEl>
+    <>
+      <HeaderEl>
+        <h1>
+          Electricity Access Map
+        </h1>
+        <button type='button' onClick={() => { setIsModalVisible(true); }}>
+          Methodology
+        </button>
+      </HeaderEl>
+      <Modal
+        title='Methodology'
+        visible={isModalVisible}
+        onCancel={() => { setIsModalVisible(false); }}
+        footer={[]}
+      >
+        <p>Lorem Ipsum Dolor Site Amet</p>
+      </Modal>
+    </>
   );
 }

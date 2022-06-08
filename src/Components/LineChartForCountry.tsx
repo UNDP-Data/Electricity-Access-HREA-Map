@@ -1,18 +1,10 @@
 import styled from 'styled-components';
 import { line, curveMonotoneX } from 'd3-shape';
 import { scaleLinear } from 'd3-scale';
-
-interface DataType {
-  year: number;
-  country: string;
-  pop: number;
-  'pct_pop_elec_HREA': number;
-  'pct_pop_elec_HREA_low': number;
-  'pct_pop_elec_HREA_high': number;
-}
+import { CountryAccessDataType } from '../Types';
 
 interface Props {
-  data: DataType[];
+  data: CountryAccessDataType;
 }
 
 const El = styled.div`
@@ -20,7 +12,7 @@ const El = styled.div`
   overflow-y: hidden;
 `;
 
-export function LineChart(props: Props) {
+export function LineChartForCountry(props: Props) {
   const {
     data,
   } = props;
@@ -34,16 +26,22 @@ export function LineChart(props: Props) {
   };
   const graphWidth = svgWidth - margin.left - margin.right;
   const graphHeight = svgHeight - margin.top - margin.bottom;
-  const x = scaleLinear().domain([data[0].year, data[data.length - 1].year]).range([0, graphWidth]);
+  const x = scaleLinear().domain([2013, 2020]).range([0, graphWidth]);
   const y1 = scaleLinear().domain([0, 100]).range([graphHeight, 0]).nice();
 
+  const dataFormatted = [2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020].map((d) => ({
+    year: d,
+    country: data.name,
+    pop: data.TotPopulation,
+    pct_pop_elec_HREA: data[`PopAccess${d as 2013 | 2014 | 2015 | 2016 | 2017 | 2018 | 2019 | 2020}`] !== null ? ((data[`PopAccess${d as 2013 | 2014 | 2015 | 2016 | 2017 | 2018 | 2019 | 2020}`] as number) * 100) / data.TotPopulation : 0,
+  }));
   const lineShape = line()
     .defined((d: any) => d.pct_pop_elec_HREA !== undefined)
     .x((d: any) => x(d.year))
     .y((d: any) => y1(d.pct_pop_elec_HREA))
     .curve(curveMonotoneX);
   const y1Ticks = y1.ticks(5);
-  const xTicks = x.ticks(data[data.length - 1].year - data[0].year);
+  const xTicks = x.ticks(dataFormatted[dataFormatted.length - 1].year - dataFormatted[0].year);
   return (
     <El>
       <svg width='100%' height='100%' viewBox={`0 0 ${svgWidth} ${svgHeight}`}>
@@ -103,10 +101,10 @@ export function LineChart(props: Props) {
             }
           </g>
           <g>
-            <path d={lineShape(data as any) as string} fill='none' stroke='#E26B8D' strokeWidth={2} />
+            <path d={lineShape(dataFormatted as any) as string} fill='none' stroke='#E26B8D' strokeWidth={2} />
           </g>
           {
-            data.map((d, i) => (
+            dataFormatted.map((d, i) => (
               <g transform={`translate(${x(d.year)},${y1(d.pct_pop_elec_HREA)})`} key={i}>
                 <circle
                   cx={0}

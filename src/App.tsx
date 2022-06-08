@@ -5,7 +5,7 @@ import { MapContainer } from './Components/MapContainer';
 const GlobalStyle = createGlobalStyle`
   :root {
     --white: #FFFFFF;
-    --white-opacity: rgba(255,255,255,0.75);
+    --white-opacity: rgba(255,255,255,0.95);
     --primary-blue: #006EB5;
     --blue-medium: #4F95DD;
     --blue-bg: #94C4F5;

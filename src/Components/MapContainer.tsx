@@ -4,18 +4,21 @@ import { useEffect, useState } from 'react';
 import { format } from 'd3-format';
 import { scaleThreshold } from 'd3-scale';
 import { Spin, Select } from 'antd';
+import uniqBy from 'lodash.uniqby';
+import sumBy from 'lodash.sumby';
 import DistrictMap from '../Data/DistrictShape.json';
 import CountryMap from '../Data/CountryShape.json';
 import ProjectData from '../Data/projectData.json';
-import TimeSeriesData from '../Data/timeSeriesData.json';
+import CountryProjectSummaryData from '../Data/countryProjectSummary.json';
 import AccessDataForDistricts from '../Data/accessDataDistrict.json';
 import CountryTaxonomy from '../Data/country-taxonomy.json';
 import { MapEl } from './Map';
-import { LineChart } from './LineChart';
+import { LineChartForCountry } from './LineChartForCountry';
 import { LineChartForDistrict } from './LineChartForDistrict';
 import {
   COLOR_SCALE, LINEAR_SCALE, POP_RANGE, PCT_RANGE,
 } from '../Constants';
+import { AccessDataType, CountryAccessDataType, ProjectDataType } from '../Types';
 
 const SideBar = styled.div`
   padding: 2rem 0 0 0;
@@ -35,8 +38,8 @@ const HeadingEl = styled.div`
   font-size: 2.4rem;
   line-height: 3.2rem;
   font-weight: bold;
-  padding: 0 2rem 2rem 2rem;
-  border-bottom: 1px solid var(--black-400);
+  padding: 0 2rem 1rem 2rem;
+  border-bottom: 1px solid var(--black-500);
   margin: 0;
 `;
 
@@ -50,23 +53,23 @@ const BodyContainer = styled.div`
 `;
 
 const BodyEl = styled.div`
-  font-size: 1.6rem;
-  line-height: 2.4rem;
+  font-size: 1.4rem;
+  line-height: 2rem;
 `;
 
 const BodyHead = styled.div`
-  font-size: 2rem;
+  font-size: 1.8rem;
   line-height: 2.4rem;
   font-weight: bold;
 `;
 
 const SubNoteEl = styled.span`
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-style: italic;
 `;
 
 const RowEl = styled.div`
-  margin: 2rem 0;
+  margin: 1.5rem 0;
 `;
 
 const BackEl = styled.div`
@@ -113,15 +116,39 @@ const LoadingEl = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - 76px);
+  height: calc(100vh - 70px);
 `;
 
 const DropdownEl = styled.div`
-  font-size: 1.4rem;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  margin-top: 1.5rem;
   font-weight: bold;
   .ant-select{
     width: 100%;
   }
+`;
+
+const ProjectDataEl = styled.div`
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--black-500);
+  h3 {
+    font-size: 1.4rem;
+    margin: 0;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+`;
+
+const TableRowEl = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  font-size: 1.4rem;
+`;
+
+const RowValue = styled.div`
+  font-size: 1.8rem;
 `;
 
 export function MapContainer() {
@@ -130,12 +157,41 @@ export function MapContainer() {
   const [districtShapeData, setDistrictShapeData] = useState<any>(undefined);
   const [countryShapeData, setCountryShapeData] = useState<any>(undefined);
   const [projectDataShape, setProjectShapeData] = useState<any>(undefined);
+  const [countryAccessData, setCountryAccessData] = useState<CountryAccessDataType[] | undefined>(undefined);
   const pctColorScale = scaleThreshold<string | number, string>().domain(PCT_RANGE).range(COLOR_SCALE).unknown('#FAFAFA');
   const peopleNoAccessColorScale = scaleThreshold<string | number, string>().domain(POP_RANGE).range(LINEAR_SCALE).unknown('#FAFAFA');
   useEffect(() => {
+    // eslint-disable-next-line no-sequences
+    const countryList = uniqBy(AccessDataForDistricts as AccessDataType[], (d) => d.adm2_id.substring(0, 3)).map((d) => d.adm2_id.substring(0, 3));
+    const countryTimeSeriesData = countryList.map((country) => {
+      const countryFilteredData = (AccessDataForDistricts as AccessDataType[]).filter((d) => d.adm2_id.substring(0, 3) === country);
+      return {
+        countryID: country,
+        name: CountryTaxonomy[CountryTaxonomy.findIndex((c) => c['Alpha-3 code-1'] === country)]['Country or Area'],
+        TotPopulation: sumBy(countryFilteredData, 'TotPopulation'),
+        PopAccess2020: sumBy(countryFilteredData, 'PopAccess2020'),
+        PopNoAccess2020: sumBy(countryFilteredData, 'PopNoAccess2020'),
+        PopAccess2019: sumBy(countryFilteredData, 'PopAccess2019'),
+        PopNoAccess2019: sumBy(countryFilteredData, 'PopNoAccess2019'),
+        PopAccess2018: sumBy(countryFilteredData, 'PopAccess2018'),
+        PopNoAccess2018: sumBy(countryFilteredData, 'PopNoAccess2018'),
+        PopAccess2017: sumBy(countryFilteredData, 'PopAccess2017'),
+        PopNoAccess2017: sumBy(countryFilteredData, 'PopNoAccess2017'),
+        PopAccess2016: sumBy(countryFilteredData, 'PopAccess2016'),
+        PopNoAccess2016: sumBy(countryFilteredData, 'PopNoAccess2016'),
+        PopAccess2015: sumBy(countryFilteredData, 'PopAccess2015'),
+        PopNoAccess2015: sumBy(countryFilteredData, 'PopNoAccess2015'),
+        PopAccess2014: sumBy(countryFilteredData, 'PopAccess2014'),
+        PopNoAccess2014: sumBy(countryFilteredData, 'PopNoAccess2014'),
+        PopAccess2013: sumBy(countryFilteredData, 'PopAccess2013'),
+        PopNoAccess2013: sumBy(countryFilteredData, 'PopNoAccess2013'),
+        PopAccess2012: sumBy(countryFilteredData, 'PopAccess2012'),
+        PopNoAccess2012: sumBy(countryFilteredData, 'PopNoAccess2012'),
+      };
+    });
     const districtShapes: any = ((topojson.feature(DistrictMap as any, (DistrictMap as any).objects.combined_polygon_vlight) as any).features as any).map((district: any, i: number) => {
-      const indx = (AccessDataForDistricts as any).findIndex((d: any) => d.adm2_id === district.properties.adm2_id);
-      const disData = (AccessDataForDistricts as any)[indx];
+      const indx = (AccessDataForDistricts as AccessDataType[]).findIndex((d) => d.adm2_id === district.properties.adm2_id);
+      const disData = (AccessDataForDistricts as AccessDataType[])[indx];
       const eaAccessPct = indx === -1 ? undefined : (disData.PopAccess2020 * 100) / disData.TotPopulation;
       const eaAccessPctColor = eaAccessPct === undefined ? '#FaFaFa' : pctColorScale(eaAccessPct);
       const eaAccessPop = indx === -1 ? undefined : disData.PopAccess2020;
@@ -145,13 +201,14 @@ export function MapContainer() {
       const totalPop = indx === -1 ? undefined : disData.TotPopulation;
       // eslint-disable-next-line camelcase
       const adm2_name = indx === -1 ? district.properties.adm2_name : disData.adm2_name;
+      const countryISO = district.properties.adm2_id.substring(0, 3);
       return (
         {
           geometry: district.geometry,
           type: district.type,
           properties: {
             // eslint-disable-next-line camelcase
-            ...district.properties, eaAccessPct, eaAccessPctColor, eaAccessPop, eaNoAccessColor, totalPop, eaNoAccessPop, ea50PctOverlay, adm2_name,
+            ...district.properties, eaAccessPct, eaAccessPctColor, eaAccessPop, eaNoAccessColor, totalPop, eaNoAccessPop, ea50PctOverlay, adm2_name, countryISO,
           },
           id: i + 1000,
         });
@@ -167,20 +224,14 @@ export function MapContainer() {
         id: i + 1,
       }
     ));
-    const projectDataGeoJson = ProjectData.map((project: any, i: number) => (
+    const projectDataGeoJson = ProjectData.map((project: ProjectDataType, i: number) => (
       {
         type: 'Feature',
         properties: {
-          'PIMS ID': 3523,
-          'Lead Country': 'Egypt',
-          Region: 'RBAS',
-          'Participating Countries': 'Egypt',
-          'Grant Amount': 6900000,
-          'GL Expenses': 6866297.68,
-          'Co-Financing': 100000,
-          'tonnes of CO2-eq emissions avoided or reduced': 660583,
-          'km of coast strengthened and/or better managed for climate change': '　',
-          status: 'Completed',
+          'PIMS ID': project['PIMS ID'],
+          'Lead Country': project['Lead Country'],
+          Region: project.Region,
+          status: project.status,
         },
         geometry: {
           type: 'Point',
@@ -192,12 +243,13 @@ export function MapContainer() {
     setDistrictShapeData(districtShapes);
     setCountryShapeData(countryShapes);
     setProjectShapeData(projectDataGeoJson);
+    setCountryAccessData(countryTimeSeriesData);
   }, []);
 
   return (
     <>
       {
-        countryShapeData && projectDataShape && districtShapeData
+        countryShapeData && projectDataShape && districtShapeData && countryAccessData
           ? (
             <SideBar>
               <HeadingEl>
@@ -223,7 +275,7 @@ export function MapContainer() {
                   selectedDistrict
                     ? (
                       <>
-                        {(AccessDataForDistricts as any)[(AccessDataForDistricts as any).findIndex((d: any) => d.adm2_id === selectedDistrict)]?.adm2_name}
+                        {(AccessDataForDistricts as AccessDataType[])[(AccessDataForDistricts as AccessDataType[]).findIndex((d) => d.adm2_id === selectedDistrict)]?.adm2_name}
                         {' '}
                         <SubNoteSpan>
                           (
@@ -248,7 +300,7 @@ export function MapContainer() {
                         onChange={(d) => { setSelectedCountry(d); }}
                       >
                         {
-                          countryShapeData.map((d: any, i: number) => <Select.Option key={i} value={CountryTaxonomy[CountryTaxonomy.findIndex((el) => el['Alpha-3 code-1'] === d.properties.iso_3)]['Country or Area']}>{CountryTaxonomy[CountryTaxonomy.findIndex((el) => el['Alpha-3 code-1'] === d.properties.iso_3)]['Country or Area']}</Select.Option>)
+                          countryAccessData.map((d, i) => <Select.Option key={i} value={d.name}>{d.name}</Select.Option>)
                         }
                       </Select>
                     </DropdownEl>
@@ -256,21 +308,13 @@ export function MapContainer() {
                       <BodyEl>
                         Data is calculated for
                         {' '}
-                        {countryShapeData ? countryShapeData.length : ''}
+                        {countryAccessData.length}
                         {' '}
                         countries.
                         {' '}
                         <SubNoteEl>
                           Click on a country to explore data for the country
                         </SubNoteEl>
-                      </BodyEl>
-                    </RowEl>
-                    <RowEl>
-                      <BodyEl className='bold'>
-                        Methodology
-                      </BodyEl>
-                      <BodyEl>
-                        Lorem Ipsum Dolor Sit Amet
                       </BodyEl>
                     </RowEl>
                   </BodyContainer>
@@ -289,9 +333,9 @@ export function MapContainer() {
                         onChange={(d) => { setSelectedDistrict(d.split(' | ')[0]); }}
                       >
                         {
-                          (AccessDataForDistricts as any)
-                            .filter((d: any) => d.adm2_id.substring(0, 3) === CountryTaxonomy[CountryTaxonomy.findIndex((el) => el['Country or Area'] === selectedCountry)]['Alpha-3 code-1'])
-                            .map((d: any, i: number) => <Select.Option key={i} value={`${d.adm2_id} | ${d.adm2_name}`}>{d.adm2_name}</Select.Option>)
+                          (AccessDataForDistricts as AccessDataType[])
+                            .filter((d) => d.adm2_id.substring(0, 3) === CountryTaxonomy[CountryTaxonomy.findIndex((el) => el['Country or Area'] === selectedCountry)]['Alpha-3 code-1'])
+                            .map((d, i) => <Select.Option key={i} value={`${d.adm2_id} | ${d.adm2_name}`}>{d.adm2_name}</Select.Option>)
                         }
                       </Select>
                     </DropdownEl>
@@ -303,9 +347,7 @@ export function MapContainer() {
                       </BodyEl>
                       <BodyHead>
                         {
-                          TimeSeriesData.findIndex((d) => d.country === selectedCountry && d.year === 2020) !== -1
-                            ? `${TimeSeriesData[TimeSeriesData.findIndex((d) => d.country === selectedCountry && d.year === 2020)].pct_pop_elec_HREA}%`
-                            : 'NA'
+                          `${((countryAccessData[countryAccessData.findIndex((d) => d.name === selectedCountry)].PopAccess2020 * 100) / countryAccessData[countryAccessData.findIndex((d) => d.name === selectedCountry)].TotPopulation).toFixed(2)}%`
                         }
                       </BodyHead>
                     </RowEl>
@@ -317,9 +359,7 @@ export function MapContainer() {
                       </BodyEl>
                       <BodyHead>
                         {
-                          TimeSeriesData.findIndex((d) => d.country === selectedCountry && d.year === 2020) !== -1
-                            ? format(',')(Math.round((TimeSeriesData[TimeSeriesData.findIndex((d) => d.country === selectedCountry && d.year === 2020)].pop * (100 - TimeSeriesData[TimeSeriesData.findIndex((d) => d.country === selectedCountry && d.year === 2020)].pct_pop_elec_HREA)) / 100)).replaceAll(',', ' ')
-                            : 'NA'
+                          format(',')(Math.round((countryAccessData[countryAccessData.findIndex((d) => d.name === selectedCountry)].PopNoAccess2020))).replaceAll(',', ' ')
                         }
                       </BodyHead>
                     </RowEl>
@@ -329,12 +369,49 @@ export function MapContainer() {
                       </BodyEl>
                       <BodyHead>
                         {
-                          TimeSeriesData.filter((d) => d.country === selectedCountry).length !== 0
-                            ? <LineChart data={TimeSeriesData.filter((d) => d.country === selectedCountry)} />
+                          countryAccessData.findIndex((d) => d.name === selectedCountry) !== -1
+                            ? <LineChartForCountry data={countryAccessData[countryAccessData.findIndex((d) => d.name === selectedCountry)]} />
                             : 'NA'
                         }
                       </BodyHead>
                     </RowEl>
+                    <ProjectDataEl>
+                      <h3>
+                        UNDP Projects Summary in
+                        {' '}
+                        {selectedCountry}
+                      </h3>
+                      <TableRowEl>
+                        <div>No. of Projects</div>
+                        <RowValue className='bold'>
+                          {
+                            CountryProjectSummaryData.findIndex((d) => d['Lead Country'] === selectedCountry) === -1
+                              ? 'NA'
+                              : CountryProjectSummaryData[CountryProjectSummaryData.findIndex((d) => d['Lead Country'] === selectedCountry)]['Number of projects']
+                          }
+                        </RowValue>
+                      </TableRowEl>
+                      <TableRowEl>
+                        <div>Grant Amount</div>
+                        <RowValue className='bold'>
+                          {
+                            CountryProjectSummaryData.findIndex((d) => d['Lead Country'] === selectedCountry) === -1
+                              ? 'NA'
+                              : `US$ ${format('.3s')(CountryProjectSummaryData[CountryProjectSummaryData.findIndex((d) => d['Lead Country'] === selectedCountry)]['Grant Amount']).replace('G', 'B')}`
+                          }
+                        </RowValue>
+                      </TableRowEl>
+                      <TableRowEl>
+                        <div>Expenses</div>
+                        <RowValue className='bold'>
+                          {
+                            CountryProjectSummaryData.findIndex((d) => d['Lead Country'] === selectedCountry) === -1
+                              ? 'NA'
+                              : `US$ ${format('.3s')(CountryProjectSummaryData[CountryProjectSummaryData.findIndex((d) => d['Lead Country'] === selectedCountry)].Expenses).replace('G', 'B')}`
+                          }
+                        </RowValue>
+                      </TableRowEl>
+                    </ProjectDataEl>
                   </BodyContainer>
                 ) : null
               }
@@ -349,10 +426,10 @@ export function MapContainer() {
                       </BodyEl>
                       <BodyHead>
                         {
-                          (AccessDataForDistricts as any).findIndex((d: any) => d.adm2_id === selectedDistrict) !== -1
+                          (AccessDataForDistricts as AccessDataType[]).findIndex((d: any) => d.adm2_id === selectedDistrict) !== -1
                             ? `${
-                              (AccessDataForDistricts as any)[(AccessDataForDistricts as any).findIndex((d: any) => d.adm2_id === selectedDistrict)].PopAccess2020
-                                ? (((AccessDataForDistricts as any)[(AccessDataForDistricts as any).findIndex((d: any) => d.adm2_id === selectedDistrict)].PopAccess2020 * 100) / (AccessDataForDistricts as any)[(AccessDataForDistricts as any).findIndex((d: any) => d.adm2_id === selectedDistrict)].TotPopulation).toFixed(1)
+                              (AccessDataForDistricts as AccessDataType[])[(AccessDataForDistricts as AccessDataType[]).findIndex((d) => d.adm2_id === selectedDistrict)].PopAccess2020
+                                ? (((AccessDataForDistricts as AccessDataType[])[(AccessDataForDistricts as AccessDataType[]).findIndex((d) => d.adm2_id === selectedDistrict)].PopAccess2020 * 100) / (AccessDataForDistricts as AccessDataType[])[(AccessDataForDistricts as AccessDataType[]).findIndex((d: any) => d.adm2_id === selectedDistrict)].TotPopulation).toFixed(1)
                                 : 0
                             } %`
                             : 'NA'
@@ -367,11 +444,11 @@ export function MapContainer() {
                       </BodyEl>
                       <BodyHead>
                         {
-                          (AccessDataForDistricts as any).findIndex((d: any) => d.adm2_id === selectedDistrict) !== -1
+                          (AccessDataForDistricts as AccessDataType[]).findIndex((d: any) => d.adm2_id === selectedDistrict) !== -1
                             ? `${
-                              (AccessDataForDistricts as any)[(AccessDataForDistricts as any).findIndex((d: any) => d.adm2_id === selectedDistrict)].PopAccess2020
-                                ? format(',')(Math.round((AccessDataForDistricts as any)[(AccessDataForDistricts as any).findIndex((d: any) => d.adm2_id === selectedDistrict)].PopNoAccess2020 as number)).replaceAll(',', ' ')
-                                : format(',')(Math.round((AccessDataForDistricts as any)[(AccessDataForDistricts as any).findIndex((d: any) => d.adm2_id === selectedDistrict)].TotPopulation as number)).replaceAll(',', ' ')
+                              (AccessDataForDistricts as AccessDataType[])[(AccessDataForDistricts as AccessDataType[]).findIndex((d) => d.adm2_id === selectedDistrict)].PopAccess2020
+                                ? format(',')(Math.round((AccessDataForDistricts as AccessDataType[])[(AccessDataForDistricts as AccessDataType[]).findIndex((d) => d.adm2_id === selectedDistrict)].PopNoAccess2020 as number)).replaceAll(',', ' ')
+                                : format(',')(Math.round((AccessDataForDistricts as AccessDataType[])[(AccessDataForDistricts as AccessDataType[]).findIndex((d) => d.adm2_id === selectedDistrict)].TotPopulation as number)).replaceAll(',', ' ')
                             }`
                             : 'NA'
                         }
@@ -383,8 +460,8 @@ export function MapContainer() {
                       </BodyEl>
                       <BodyHead>
                         {
-                          (AccessDataForDistricts as any).findIndex((d: any) => d.adm2_id === selectedDistrict) !== -1
-                            ? <LineChartForDistrict data={(AccessDataForDistricts as any)[(AccessDataForDistricts as any).findIndex((d: any) => d.adm2_id === selectedDistrict)]} />
+                          (AccessDataForDistricts as AccessDataType[]).findIndex((d) => d.adm2_id === selectedDistrict) !== -1
+                            ? <LineChartForDistrict data={(AccessDataForDistricts as AccessDataType[])[(AccessDataForDistricts as AccessDataType[]).findIndex((d) => d.adm2_id === selectedDistrict)]} />
                             : 'NA'
                         }
                       </BodyHead>
@@ -396,8 +473,19 @@ export function MapContainer() {
           ) : null
       }
       {
-        countryShapeData && projectDataShape && districtShapeData
-          ? <MapEl districtShapes={districtShapeData} selectedDistrict={selectedDistrict} countryShapes={countryShapeData} projectData={projectDataShape} setSelectedCountry={setSelectedCountry} setSelectedDistrict={setSelectedDistrict} selectedCountry={selectedCountry} />
+        countryShapeData && projectDataShape && districtShapeData && countryAccessData
+          ? (
+            <MapEl
+              districtShapes={districtShapeData}
+              countryAccessData={countryAccessData}
+              selectedDistrict={selectedDistrict}
+              countryShapes={countryShapeData}
+              projectData={projectDataShape}
+              setSelectedCountry={setSelectedCountry}
+              setSelectedDistrict={setSelectedDistrict}
+              selectedCountry={selectedCountry}
+            />
+          )
           : (
             <LoadingEl>
               <Spin size='large' />
