@@ -7,7 +7,7 @@ const HeaderEl = styled.div`
   text-align: center;
   display: flex;
   justify-content: space-between;
-  background-color: var(--blue-very-light);
+  background-color: #f7f7f7;
   border-bottom: 1px solid var(--black-500);
   font-size: 1.6rem;
   line-height: 1.6;
@@ -16,14 +16,16 @@ const HeaderEl = styled.div`
     font-size: 2.4rem;
     line-height: 2.4rem;
     font-weight: bold;
-    color: var(--black-600);
+    color: var(--primary-blue);
     margin: 0;
   }
   button {
     background: transparent;
     border: 0;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     line-height: 1.6;
+    text-transform: uppercase;
+    cursor: pointer;
   }
 `;
 

@@ -12,6 +12,7 @@ import 'antd/dist/antd.css';
 import DistrictMap from '../Data/DistrictShape.json';
 import CountryMap from '../Data/CountryShape.json';
 import ProjectData from '../Data/projectData.json';
+import RWIData from '../Data/RWIData.json';
 import CountryProjectSummaryData from '../Data/countryProjectSummary.json';
 import AccessDataForDistricts from '../Data/accessDataDistrict.json';
 import CountryTaxonomy from '../Data/country-taxonomy.json';
@@ -145,7 +146,7 @@ const LoadingEl = styled.div<ElProps>`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: ${(props) => (props.fixedHeight ? '72rem' : 'calc(100vh - 70px)')};
+  height: ${(props) => (props.fixedHeight ? '80rem' : 'calc(100vh - 70px)')};
 `;
 
 const DropdownEl = styled.div`
@@ -183,7 +184,7 @@ const RowValue = styled.div`
 const El = styled.div<ElProps>`
   background-color: var(--blue-very-light);
   position: relative;
-  height: ${(props) => (props.fixedHeight ? '72rem' : 'calc(100vh - 70px)')};
+  height: ${(props) => (props.fixedHeight ? '80rem' : 'calc(100vh - 70px)')};
 `;
 
 const LayerSelectorEl = styled.div`
@@ -228,7 +229,7 @@ export function MapContainer() {
     const countryList = uniqBy(AccessDataForDistricts as AccessDataType[], (d) => d.adm2_id.substring(0, 3)).map((d) => d.adm2_id.substring(0, 3));
     const AccessDataForDistrictWithRWI = (AccessDataForDistricts as AccessDataType[]).map((d) => ({
       ...d,
-      RWI: (DistrictMap as any).objects.combined_polygon_vlight.geometries.findIndex((el: any) => el.properties.adm2_id === d.adm2_id) !== -1 ? (DistrictMap as any).objects.combined_polygon_vlight.geometries[(DistrictMap as any).objects.combined_polygon_vlight.geometries.findIndex((el: any) => el.properties.adm2_id === d.adm2_id)].properties.RWI_AVG : null,
+      RWI: RWIData.findIndex((el) => el.adm2_id === d.adm2_id) !== -1 ? RWIData[RWIData.findIndex((el) => el.adm2_id === d.adm2_id)].RWI_AVG : null,
     }));
     const AllDatLowRWI = AccessDataForDistrictWithRWI.filter((d) => d.RWI && d.RWI < 0);
     const WorldDataCalculated = {
@@ -300,8 +301,8 @@ export function MapContainer() {
       };
     });
     const districtShapes: any = ((topojson.feature(DistrictMap as any, (DistrictMap as any).objects.combined_polygon_vlight) as any).features as any).map((district: any, i: number) => {
-      const indx = (AccessDataForDistricts as AccessDataType[]).findIndex((d) => d.adm2_id === district.properties.adm2_id);
-      const disData = (AccessDataForDistricts as AccessDataType[])[indx];
+      const indx = AccessDataForDistrictWithRWI.findIndex((d) => d.adm2_id === district.properties.adm2_id);
+      const disData = AccessDataForDistrictWithRWI[indx];
       const eaAccessPct = indx === -1 ? undefined : (disData.PopAccess2020 * 100) / disData.TotPopulation;
       const eaAccessPctColor = eaAccessPct === undefined ? '#FaFaFa' : pctColorScale(eaAccessPct);
       const eaAccessPop = indx === -1 ? undefined : disData.PopAccess2020;
@@ -311,13 +312,14 @@ export function MapContainer() {
       // eslint-disable-next-line camelcase
       const adm2_name = indx === -1 ? district.properties.adm2_name : disData.adm2_name;
       const countryISO = district.properties.adm2_id.substring(0, 3);
+      const RWI_AVG = indx === -1 ? null : disData.RWI;
       return (
         {
           geometry: district.geometry,
           type: district.type,
           properties: {
             // eslint-disable-next-line camelcase
-            ...district.properties, eaAccessPct, eaAccessPctColor, eaAccessPop, eaNoAccessColor, totalPop, eaNoAccessPop, adm2_name, countryISO,
+            ...district.properties, eaAccessPct, eaAccessPctColor, eaAccessPop, eaNoAccessColor, totalPop, eaNoAccessPop, adm2_name, countryISO, RWI_AVG,
           },
           id: i + 1000,
         });
