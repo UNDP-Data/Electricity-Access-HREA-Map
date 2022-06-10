@@ -12,7 +12,6 @@ import 'antd/dist/antd.css';
 import DistrictMap from '../Data/DistrictShape.json';
 import CountryMap from '../Data/CountryShape.json';
 import ProjectData from '../Data/projectData.json';
-import RWIData from '../Data/RWIData.json';
 import CountryProjectSummaryData from '../Data/countryProjectSummary.json';
 import AccessDataForDistricts from '../Data/accessDataDistrict.json';
 import CountryTaxonomy from '../Data/country-taxonomy.json';
@@ -22,7 +21,7 @@ import { LineChartForDistrict } from './LineChartForDistrict';
 import {
   COLOR_SCALE, LINEAR_SCALE, POP_RANGE, PCT_RANGE,
 } from '../Constants';
-import { AccessDataType, CountryAccessDataType, ProjectDataType } from '../Types';
+import { AccessDataType, CountryAccessDataType } from '../Types';
 
 const SideBar = styled.div`
   padding: 2rem 0 0 0;
@@ -227,91 +226,72 @@ export function MapContainer() {
   useEffect(() => {
     // eslint-disable-next-line no-sequences
     const countryList = uniqBy(AccessDataForDistricts as AccessDataType[], (d) => d.adm2_id.substring(0, 3)).map((d) => d.adm2_id.substring(0, 3));
-    const AccessDataForDistrictWithRWI = (AccessDataForDistricts as AccessDataType[]).map((d) => ({
-      ...d,
-      RWI: RWIData.findIndex((el) => el.adm2_id === d.adm2_id) !== -1 ? RWIData[RWIData.findIndex((el) => el.adm2_id === d.adm2_id)].RWI_AVG : null,
-    }));
-    const AllDatLowRWI = AccessDataForDistrictWithRWI.filter((d) => d.RWI && d.RWI < 0);
+    const AllDatLowRWI = (AccessDataForDistricts as AccessDataType[]).filter((d) => d.RWI && d.RWI < 0);
     const WorldDataCalculated = {
       countryID: 'XXX',
       name: 'World',
-      TotPopulation: sumBy(AccessDataForDistrictWithRWI, 'TotPopulation'),
-      PopAccess2020: sumBy(AccessDataForDistrictWithRWI, 'PopAccess2020'),
-      PopNoAccess2020: sumBy(AccessDataForDistrictWithRWI, 'PopNoAccess2020'),
-      PopAccess2019: sumBy(AccessDataForDistrictWithRWI, 'PopAccess2019'),
-      PopNoAccess2019: sumBy(AccessDataForDistrictWithRWI, 'PopNoAccess2019'),
-      PopAccess2018: sumBy(AccessDataForDistrictWithRWI, 'PopAccess2018'),
-      PopNoAccess2018: sumBy(AccessDataForDistrictWithRWI, 'PopNoAccess2018'),
-      PopAccess2017: sumBy(AccessDataForDistrictWithRWI, 'PopAccess2017'),
-      PopNoAccess2017: sumBy(AccessDataForDistrictWithRWI, 'PopNoAccess2017'),
-      PopAccess2016: sumBy(AccessDataForDistrictWithRWI, 'PopAccess2016'),
-      PopNoAccess2016: sumBy(AccessDataForDistrictWithRWI, 'PopNoAccess2016'),
-      PopAccess2015: sumBy(AccessDataForDistrictWithRWI, 'PopAccess2015'),
-      PopNoAccess2015: sumBy(AccessDataForDistrictWithRWI, 'PopNoAccess2015'),
-      PopAccess2014: sumBy(AccessDataForDistrictWithRWI, 'PopAccess2014'),
-      PopNoAccess2014: sumBy(AccessDataForDistrictWithRWI, 'PopNoAccess2014'),
-      PopAccess2013: sumBy(AccessDataForDistrictWithRWI, 'PopAccess2013'),
-      PopNoAccess2013: sumBy(AccessDataForDistrictWithRWI, 'PopNoAccess2013'),
-      PopAccess2012: sumBy(AccessDataForDistrictWithRWI, 'PopAccess2012'),
-      PopNoAccess2012: sumBy(AccessDataForDistrictWithRWI, 'PopNoAccess2012'),
-      PopNoAccess2020LowRWI: sumBy(AllDatLowRWI, 'PopNoAccess2020'),
-      PopNoAccess2019LowRWI: sumBy(AllDatLowRWI, 'PopNoAccess2019'),
-      PopNoAccess2018LowRWI: sumBy(AllDatLowRWI, 'PopNoAccess2018'),
-      PopNoAccess2017LowRWI: sumBy(AllDatLowRWI, 'PopNoAccess2017'),
-      PopNoAccess2016LowRWI: sumBy(AllDatLowRWI, 'PopNoAccess2016'),
-      PopNoAccess2015LowRWI: sumBy(AllDatLowRWI, 'PopNoAccess2015'),
-      PopNoAccess2014LowRWI: sumBy(AllDatLowRWI, 'PopNoAccess2014'),
-      PopNoAccess2013LowRWI: sumBy(AllDatLowRWI, 'PopNoAccess2013'),
-      PopNoAccess2012LowRWI: sumBy(AllDatLowRWI, 'PopNoAccess2012'),
+      TotPopulation: sumBy((AccessDataForDistricts as AccessDataType[]), 'TotPopulation'),
+      PopAccess2020: sumBy((AccessDataForDistricts as AccessDataType[]), 'PopAccess2020'),
+      PopAccess2019: sumBy((AccessDataForDistricts as AccessDataType[]), 'PopAccess2019'),
+      PopAccess2018: sumBy((AccessDataForDistricts as AccessDataType[]), 'PopAccess2018'),
+      PopAccess2017: sumBy((AccessDataForDistricts as AccessDataType[]), 'PopAccess2017'),
+      PopAccess2016: sumBy((AccessDataForDistricts as AccessDataType[]), 'PopAccess2016'),
+      PopAccess2015: sumBy((AccessDataForDistricts as AccessDataType[]), 'PopAccess2015'),
+      PopAccess2014: sumBy((AccessDataForDistricts as AccessDataType[]), 'PopAccess2014'),
+      PopAccess2013: sumBy((AccessDataForDistricts as AccessDataType[]), 'PopAccess2013'),
+      PopAccess2012: sumBy((AccessDataForDistricts as AccessDataType[]), 'PopAccess2012'),
+      TotPopulationLowRWI: sumBy(AllDatLowRWI, 'TotPopulation'),
+      PopAccess2020LowRWI: sumBy(AllDatLowRWI, 'PopAccess2020'),
+      PopAccess2019LowRWI: sumBy(AllDatLowRWI, 'PopAccess2019'),
+      PopAccess2018LowRWI: sumBy(AllDatLowRWI, 'PopAccess2018'),
+      PopAccess2017LowRWI: sumBy(AllDatLowRWI, 'PopAccess2017'),
+      PopAccess2016LowRWI: sumBy(AllDatLowRWI, 'PopAccess2016'),
+      PopAccess2015LowRWI: sumBy(AllDatLowRWI, 'PopAccess2015'),
+      PopAccess2014LowRWI: sumBy(AllDatLowRWI, 'PopAccess2014'),
+      PopAccess2013LowRWI: sumBy(AllDatLowRWI, 'PopAccess2013'),
+      PopAccess2012LowRWI: sumBy(AllDatLowRWI, 'PopAccess2012'),
     };
     const countryTimeSeriesData = countryList.map((country) => {
-      const countryFilteredData = AccessDataForDistrictWithRWI.filter((d) => d.adm2_id.substring(0, 3) === country);
-      const countrFilteredDatLowRWI = AccessDataForDistrictWithRWI.filter((d) => d.adm2_id.substring(0, 3) === country && d.RWI && d.RWI < 0);
+      const countryFilteredData = (AccessDataForDistricts as AccessDataType[]).filter((d) => d.adm2_id.substring(0, 3) === country);
+      const countrFilteredDatLowRWI = (AccessDataForDistricts as AccessDataType[]).filter((d) => d.adm2_id.substring(0, 3) === country && d.RWI && d.RWI < 0);
       return {
         countryID: country,
         name: CountryTaxonomy[CountryTaxonomy.findIndex((c) => c['Alpha-3 code-1'] === country)]['Country or Area'],
         TotPopulation: sumBy(countryFilteredData, 'TotPopulation'),
         PopAccess2020: sumBy(countryFilteredData, 'PopAccess2020'),
-        PopNoAccess2020: sumBy(countryFilteredData, 'PopNoAccess2020'),
         PopAccess2019: sumBy(countryFilteredData, 'PopAccess2019'),
-        PopNoAccess2019: sumBy(countryFilteredData, 'PopNoAccess2019'),
         PopAccess2018: sumBy(countryFilteredData, 'PopAccess2018'),
-        PopNoAccess2018: sumBy(countryFilteredData, 'PopNoAccess2018'),
         PopAccess2017: sumBy(countryFilteredData, 'PopAccess2017'),
-        PopNoAccess2017: sumBy(countryFilteredData, 'PopNoAccess2017'),
         PopAccess2016: sumBy(countryFilteredData, 'PopAccess2016'),
-        PopNoAccess2016: sumBy(countryFilteredData, 'PopNoAccess2016'),
         PopAccess2015: sumBy(countryFilteredData, 'PopAccess2015'),
-        PopNoAccess2015: sumBy(countryFilteredData, 'PopNoAccess2015'),
         PopAccess2014: sumBy(countryFilteredData, 'PopAccess2014'),
-        PopNoAccess2014: sumBy(countryFilteredData, 'PopNoAccess2014'),
         PopAccess2013: sumBy(countryFilteredData, 'PopAccess2013'),
-        PopNoAccess2013: sumBy(countryFilteredData, 'PopNoAccess2013'),
         PopAccess2012: sumBy(countryFilteredData, 'PopAccess2012'),
-        PopNoAccess2012: sumBy(countryFilteredData, 'PopNoAccess2012'),
-        PopNoAccess2020LowRWI: sumBy(countrFilteredDatLowRWI, 'PopNoAccess2020'),
-        PopNoAccess2019LowRWI: sumBy(countrFilteredDatLowRWI, 'PopNoAccess2019'),
-        PopNoAccess2018LowRWI: sumBy(countrFilteredDatLowRWI, 'PopNoAccess2018'),
-        PopNoAccess2017LowRWI: sumBy(countrFilteredDatLowRWI, 'PopNoAccess2017'),
-        PopNoAccess2016LowRWI: sumBy(countrFilteredDatLowRWI, 'PopNoAccess2016'),
-        PopNoAccess2015LowRWI: sumBy(countrFilteredDatLowRWI, 'PopNoAccess2015'),
-        PopNoAccess2014LowRWI: sumBy(countrFilteredDatLowRWI, 'PopNoAccess2014'),
-        PopNoAccess2013LowRWI: sumBy(countrFilteredDatLowRWI, 'PopNoAccess2013'),
-        PopNoAccess2012LowRWI: sumBy(countrFilteredDatLowRWI, 'PopNoAccess2012'),
+        TotPopulationLowRWI: sumBy(countrFilteredDatLowRWI, 'TotPopulation'),
+        PopAccess2020LowRWI: sumBy(countrFilteredDatLowRWI, 'PopAccess2020'),
+        PopAccess2019LowRWI: sumBy(countrFilteredDatLowRWI, 'PopAccess2019'),
+        PopAccess2018LowRWI: sumBy(countrFilteredDatLowRWI, 'PopAccess2018'),
+        PopAccess2017LowRWI: sumBy(countrFilteredDatLowRWI, 'PopAccess2017'),
+        PopAccess2016LowRWI: sumBy(countrFilteredDatLowRWI, 'PopAccess2016'),
+        PopAccess2015LowRWI: sumBy(countrFilteredDatLowRWI, 'PopAccess2015'),
+        PopAccess2014LowRWI: sumBy(countrFilteredDatLowRWI, 'PopAccess2014'),
+        PopAccess2013LowRWI: sumBy(countrFilteredDatLowRWI, 'PopAccess2013'),
+        PopAccess2012LowRWI: sumBy(countrFilteredDatLowRWI, 'PopAccess2012'),
       };
     });
     const districtShapes: any = ((topojson.feature(DistrictMap as any, (DistrictMap as any).objects.combined_polygon_vlight) as any).features as any).map((district: any, i: number) => {
-      const indx = AccessDataForDistrictWithRWI.findIndex((d) => d.adm2_id === district.properties.adm2_id);
-      const disData = AccessDataForDistrictWithRWI[indx];
+      const indx = (AccessDataForDistricts as AccessDataType[]).findIndex((d) => d.adm2_id === district.properties.adm2_id);
+      const disData = (AccessDataForDistricts as AccessDataType[])[indx];
       const eaAccessPct = indx === -1 ? undefined : (disData.PopAccess2020 * 100) / disData.TotPopulation;
       const eaAccessPctColor = eaAccessPct === undefined ? '#FaFaFa' : pctColorScale(eaAccessPct);
       const eaAccessPop = indx === -1 ? undefined : disData.PopAccess2020;
-      const eaNoAccessPop = indx === -1 ? undefined : disData.PopNoAccess2020;
+      const eaNoAccessPop = indx === -1 ? undefined : disData.TotPopulation - disData.PopAccess2020;
       const eaNoAccessColor = eaNoAccessPop === undefined ? '#FaFaFa' : peopleNoAccessColorScale(eaNoAccessPop);
       const totalPop = indx === -1 ? undefined : disData.TotPopulation;
       // eslint-disable-next-line camelcase
       const adm2_name = indx === -1 ? district.properties.adm2_name : disData.adm2_name;
-      const countryISO = district.properties.adm2_id.substring(0, 3);
+      // eslint-disable-next-line camelcase
+      const iso_3 = district.properties.adm2_id.substring(0, 3);
       const RWI_AVG = indx === -1 ? null : disData.RWI;
       return (
         {
@@ -319,7 +299,7 @@ export function MapContainer() {
           type: district.type,
           properties: {
             // eslint-disable-next-line camelcase
-            ...district.properties, eaAccessPct, eaAccessPctColor, eaAccessPop, eaNoAccessColor, totalPop, eaNoAccessPop, adm2_name, countryISO, RWI_AVG,
+            ...district.properties, eaAccessPct, eaAccessPctColor, eaAccessPop, eaNoAccessColor, totalPop, eaNoAccessPop, adm2_name, iso_3, RWI_AVG,
           },
           id: i + 1000,
         });
@@ -335,14 +315,11 @@ export function MapContainer() {
         id: i + 1,
       }
     ));
-    const projectDataGeoJson = ProjectData.map((project: ProjectDataType, i: number) => (
+    const projectDataGeoJson = ProjectData.map((project: any, i: number) => (
       {
         type: 'Feature',
         properties: {
-          'PIMS ID': project['PIMS ID'],
           'Lead Country': project['Lead Country'],
-          Region: project.Region,
-          status: project.status,
         },
         geometry: {
           type: 'Point',
@@ -449,18 +426,18 @@ export function MapContainer() {
                       </BodyEl>
                       <BodyHead>
                         {
-                          format(',')(Math.round((worldData.PopNoAccess2020))).replaceAll(',', ' ')
+                          format(',')(Math.round((worldData.TotPopulation - worldData.PopAccess2020))).replaceAll(',', ' ')
                         }
                         {' '}
                         <SubNote>
                           (
                           <span className='bold'>
                             {
-                              format(',')(Math.round((worldData.PopNoAccess2020LowRWI))).replaceAll(',', ' ')
+                              format(',')(Math.round((worldData.TotPopulationLowRWI - worldData.PopAccess2020LowRWI))).replaceAll(',', ' ')
                             }
                             {' '}
                             (
-                            {Math.round((worldData.PopNoAccess2020LowRWI * 100) / worldData.PopNoAccess2020)}
+                            {(((worldData.TotPopulationLowRWI - worldData.PopAccess2020LowRWI) * 100) / (worldData.TotPopulation - worldData.PopAccess2020)).toFixed(1)}
                             %
                             )
                           </span>
@@ -519,18 +496,18 @@ export function MapContainer() {
                       </BodyEl>
                       <BodyHead>
                         {
-                          format(',')(Math.round((countryAccessData[countryAccessData.findIndex((d) => d.name === selectedCountry)].PopNoAccess2020))).replaceAll(',', ' ')
+                          format(',')(Math.round(countryAccessData[countryAccessData.findIndex((d) => d.name === selectedCountry)].TotPopulation - countryAccessData[countryAccessData.findIndex((d) => d.name === selectedCountry)].PopAccess2020)).replaceAll(',', ' ')
                         }
                         {' '}
                         <SubNote>
                           (
                           <span className='bold'>
                             {
-                              format(',')(Math.round((countryAccessData[countryAccessData.findIndex((d) => d.name === selectedCountry)].PopNoAccess2020LowRWI))).replaceAll(',', ' ')
+                              format(',')(Math.round(countryAccessData[countryAccessData.findIndex((d) => d.name === selectedCountry)].TotPopulationLowRWI - countryAccessData[countryAccessData.findIndex((d) => d.name === selectedCountry)].PopAccess2020LowRWI)).replaceAll(',', ' ')
                             }
                             {' '}
                             (
-                            {Math.round((countryAccessData[countryAccessData.findIndex((d) => d.name === selectedCountry)].PopNoAccess2020LowRWI * 100) / countryAccessData[countryAccessData.findIndex((d) => d.name === selectedCountry)].PopNoAccess2020)}
+                            {(((countryAccessData[countryAccessData.findIndex((d) => d.name === selectedCountry)].TotPopulationLowRWI - countryAccessData[countryAccessData.findIndex((d) => d.name === selectedCountry)].PopAccess2020LowRWI) * 100) / (countryAccessData[countryAccessData.findIndex((d) => d.name === selectedCountry)].TotPopulation - countryAccessData[countryAccessData.findIndex((d) => d.name === selectedCountry)].PopAccess2020)).toFixed(1)}
                             %
                             )
                           </span>
@@ -623,7 +600,7 @@ export function MapContainer() {
                           (AccessDataForDistricts as AccessDataType[]).findIndex((d: any) => d.adm2_id === selectedDistrict) !== -1
                             ? `${
                               (AccessDataForDistricts as AccessDataType[])[(AccessDataForDistricts as AccessDataType[]).findIndex((d) => d.adm2_id === selectedDistrict)].PopAccess2020
-                                ? format(',')(Math.round((AccessDataForDistricts as AccessDataType[])[(AccessDataForDistricts as AccessDataType[]).findIndex((d) => d.adm2_id === selectedDistrict)].PopNoAccess2020 as number)).replaceAll(',', ' ')
+                                ? format(',')(Math.round((AccessDataForDistricts as AccessDataType[])[(AccessDataForDistricts as AccessDataType[]).findIndex((d) => d.adm2_id === selectedDistrict)].TotPopulation - (AccessDataForDistricts as AccessDataType[])[(AccessDataForDistricts as AccessDataType[]).findIndex((d) => d.adm2_id === selectedDistrict)].PopAccess2020)).replaceAll(',', ' ')
                                 : format(',')(Math.round((AccessDataForDistricts as AccessDataType[])[(AccessDataForDistricts as AccessDataType[]).findIndex((d) => d.adm2_id === selectedDistrict)].TotPopulation as number)).replaceAll(',', ' ')
                             }`
                             : 'NA'

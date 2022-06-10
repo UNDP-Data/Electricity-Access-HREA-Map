@@ -307,7 +307,7 @@ export function MapEl(props: Props) {
             city: undefined,
             country: CountryTaxonomy[indx]['Country or Area'],
             pctValue: countryDataIndx !== -1 ? (countryAccessData[countryDataIndx].PopAccess2020 * 100) / countryAccessData[countryDataIndx].TotPopulation : undefined,
-            popValue: countryDataIndx !== -1 ? countryAccessData[countryDataIndx].PopNoAccess2020 : undefined,
+            popValue: countryDataIndx !== -1 ? Math.round(countryAccessData[countryDataIndx].TotPopulation - countryAccessData[countryDataIndx].PopAccess2020) : undefined,
             xPosition: e.point.x,
             yPosition: e.point.y,
           });
@@ -363,7 +363,7 @@ export function MapEl(props: Props) {
               [countryShapesGeoJson.features[featureIndx].properties.boundingBox.xMin, countryShapesGeoJson.features[featureIndx].properties.boundingBox.yMax], // southwestern corner of the bounds
               [countryShapesGeoJson.features[featureIndx].properties.boundingBox.xMax, countryShapesGeoJson.features[featureIndx].properties.boundingBox.yMin], // northeastern corner of the bounds
             ]);
-            (map as any).current.setFilter('district-layer-highlight-selected', ['!=', 'countryISO', CountryTaxonomy[indx]['Alpha-3 code-1']]);
+            (map as any).current.setFilter('district-layer-highlight-selected', ['!=', 'iso_3', CountryTaxonomy[indx]['Alpha-3 code-1']]);
           } else {
             (map as any).current.flyTo({
               center: [25, 5],
