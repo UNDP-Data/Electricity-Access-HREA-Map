@@ -292,14 +292,16 @@ export function MapContainer() {
       const adm2_name = indx === -1 ? district.properties.adm2_name : disData.adm2_name;
       // eslint-disable-next-line camelcase
       const iso_3 = district.properties.adm2_id.substring(0, 3);
-      const RWI_AVG = indx === -1 ? null : disData.RWI;
+      // eslint-disable-next-line camelcase
+      const countryName = CountryTaxonomy[CountryTaxonomy.findIndex((country) => country['Alpha-3 code-1'] === iso_3)]['Country or Area'];
+      const RWI_AVG = indx === -1 || disData.RWI === undefined ? 1000 : disData.RWI;
       return (
         {
           geometry: district.geometry,
           type: district.type,
           properties: {
             // eslint-disable-next-line camelcase
-            ...district.properties, eaAccessPct, eaAccessPctColor, eaAccessPop, eaNoAccessColor, totalPop, eaNoAccessPop, adm2_name, iso_3, RWI_AVG,
+            ...district.properties, eaAccessPct, eaAccessPctColor, eaAccessPop, eaNoAccessColor, totalPop, eaNoAccessPop, adm2_name, iso_3, countryName, RWI_AVG,
           },
           id: i + 1000,
         });
@@ -319,7 +321,7 @@ export function MapContainer() {
       {
         type: 'Feature',
         properties: {
-          'Lead Country': project['Lead Country'],
+          Title: project.Title,
         },
         geometry: {
           type: 'Point',
@@ -530,7 +532,7 @@ export function MapContainer() {
                     </RowEl>
                     <ProjectDataEl>
                       <h3>
-                        UNDP Projects Summary in
+                        UNDP Active Projects Summary in
                         {' '}
                         {selectedCountry}
                       </h3>
@@ -555,12 +557,14 @@ export function MapContainer() {
                         </RowValue>
                       </TableRowEl>
                       <TableRowEl>
-                        <div>Expenses</div>
+                        <div>No. of People Benefitting</div>
                         <RowValue className='bold'>
                           {
                             CountryProjectSummaryData.findIndex((d) => d['Lead Country'] === selectedCountry) === -1
                               ? 'NA'
-                              : `US$ ${format('.3s')(CountryProjectSummaryData[CountryProjectSummaryData.findIndex((d) => d['Lead Country'] === selectedCountry)].Expenses).replace('G', 'B')}`
+                              : !CountryProjectSummaryData[CountryProjectSummaryData.findIndex((d) => d['Lead Country'] === selectedCountry)]['People directly benefiting']
+                                ? 'NA'
+                                : `${format(',')(CountryProjectSummaryData[CountryProjectSummaryData.findIndex((d) => d['Lead Country'] === selectedCountry)]['People directly benefiting'] as number).replaceAll(',', ' ')}`
                           }
                         </RowValue>
                       </TableRowEl>
@@ -648,7 +652,7 @@ export function MapContainer() {
               </>
               <Space direction='vertical'>
                 <Checkbox onChange={(e) => { setShowPoorRegions(e.target.checked); }}>Only Show Poor Regions</Checkbox>
-                <Checkbox onChange={(e) => { setShowProjects(e.target.checked); }}>Show UNDP Projects</Checkbox>
+                <Checkbox onChange={(e) => { setShowProjects(e.target.checked); }}>Show Active UNDP Projects</Checkbox>
                 <Checkbox onChange={(e) => { setHideLabels(e.target.checked); }}>Hide Labels</Checkbox>
               </Space>
             </LayerSelectorEl>

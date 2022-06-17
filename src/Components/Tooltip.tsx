@@ -40,7 +40,7 @@ const SubNote = styled.span`
 const TooltipBody = styled.div`
   width: 100%;
   box-sizing: border-box;
-  padding: 2rem;
+  padding: 2rem 2rem 0 2rem;
 `;
 
 const RowEl = styled.div`
