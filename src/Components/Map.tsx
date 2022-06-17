@@ -4,6 +4,7 @@ import 'maplibre-gl/dist/maplibre-gl.css';
 import CountryTaxonomy from '../Data/country-taxonomy.json';
 import { Tooltip } from './Tooltip';
 import { CountryAccessDataType } from '../Types';
+import { ProjectTooltip } from './ProjectTooltip';
 
 interface Props {
   districtShapes: any;
@@ -28,6 +29,11 @@ interface HoverDataProps {
   xPosition: number;
   yPosition: number;
 }
+interface ProjectDataProps {
+  text: string;
+  xPosition: number;
+  yPosition: number;
+}
 
 export function MapEl(props: Props) {
   const {
@@ -47,6 +53,7 @@ export function MapEl(props: Props) {
   } = props;
 
   const [hoverData, setHoverData] = useState<null | HoverDataProps>(null);
+  const [projectHoverData, setProjectHoverData] = useState<null | ProjectDataProps>(null);
   const districtShapesGeoJson = { type: 'FeatureCollection', features: districtShapes };
   const countryShapesGeoJson = { type: 'FeatureCollection', features: countryShapes };
   const projectDataGeoJson = { type: 'FeatureCollection', features: projectData };
@@ -102,16 +109,6 @@ export function MapEl(props: Props) {
         },
       });
       (map as any).current.addLayer({
-        id: 'district-layer-pop',
-        type: 'fill',
-        source: 'district-layer-data',
-        layout: { visibility: 'none' },
-        paint: {
-          'fill-color': ['get', 'eaNoAccessColor'],
-          'fill-opacity': 1,
-        },
-      });
-      (map as any).current.addLayer({
         id: 'district-layer-highlight',
         type: 'fill',
         source: 'district-layer-data',
@@ -121,21 +118,6 @@ export function MapEl(props: Props) {
           'fill-opacity': 1,
         },
         filter: ['>=', 'eaAccessPct', highlightThreshold + 0.001],
-      });
-      (map as any).current.addLayer({
-        id: 'district-layer-poor-region-highlight',
-        type: 'fill',
-        source: 'district-layer-data',
-        layout: { visibility: 'none' },
-        paint: {
-          'fill-color': '#fff',
-          'fill-opacity': [
-            'case',
-            ['<', ['get', 'RWI_AVG'], 0],
-            0,
-            1,
-          ],
-        },
       });
       (map as any).current.addLayer({
         id: 'district-layer-highlight-selected',
@@ -176,7 +158,7 @@ export function MapEl(props: Props) {
             0,
           ],
         },
-        minzoom: 3,
+        filter: ['==', 'iso_3', !selectedCountry ? '' : CountryTaxonomy[CountryTaxonomy.findIndex((d) => d['Country or Area'] === selectedCountry)]['Alpha-3 code-1']],
       });
 
       // country layer data
@@ -200,7 +182,7 @@ export function MapEl(props: Props) {
             0,
           ],
         },
-        maxzoom: 3,
+        filter: ['!=', 'iso_3', !selectedCountry ? '' : CountryTaxonomy[CountryTaxonomy.findIndex((d) => d['Country or Area'] === selectedCountry)]['Alpha-3 code-1']],
       });
 
       // add country border
@@ -214,7 +196,7 @@ export function MapEl(props: Props) {
           visibility: 'visible',
         },
         paint: {
-          'line-color': '#FFF',
+          'line-color': '#AAA',
           'line-width': 1,
         },
       });
@@ -268,8 +250,8 @@ export function MapEl(props: Props) {
             country: CountryTaxonomy[indx]['Country or Area'],
             pctValue: e.features[0].properties.eaAccessPct,
             popValue: Math.round(e.features[0].properties.eaNoAccessPop),
-            xPosition: e.point.x,
-            yPosition: e.point.y,
+            xPosition: e.originalEvent.clientX,
+            yPosition: e.originalEvent.clientY,
           });
           if (districtHoveredStateId) {
             (map as any).current.setFeatureState(
@@ -308,8 +290,8 @@ export function MapEl(props: Props) {
             country: CountryTaxonomy[indx]['Country or Area'],
             pctValue: countryDataIndx !== -1 ? (countryAccessData[countryDataIndx].PopAccess2020 * 100) / countryAccessData[countryDataIndx].TotPopulation : undefined,
             popValue: countryDataIndx !== -1 ? Math.round(countryAccessData[countryDataIndx].TotPopulation - countryAccessData[countryDataIndx].PopAccess2020) : undefined,
-            xPosition: e.point.x,
-            yPosition: e.point.y,
+            xPosition: e.originalEvent.clientX,
+            yPosition: e.originalEvent.clientY,
           });
           if (hoveredStateId) {
             (map as any).current.setFeatureState(
@@ -337,6 +319,37 @@ export function MapEl(props: Props) {
         setHoverData(null);
       });
 
+      // mouseover on projects
+      (map as any).current.on('mousemove', 'projectData-circles', (e:any) => {
+        (map as any).current.getCanvas().style.cursor = 'pointer';
+        if (e.features.length > 0) {
+          setProjectHoverData({
+            text: e.features[0].properties.Title,
+            xPosition: e.originalEvent.clientX,
+            yPosition: e.originalEvent.clientY,
+          });
+          if (hoveredStateId) {
+            (map as any).current.setFeatureState(
+              { source: 'country-layer-data', id: hoveredStateId },
+              { hover: false },
+            );
+          }
+          if (districtHoveredStateId) {
+            (map as any).current.setFeatureState(
+              { source: 'district-layer-data', id: districtHoveredStateId },
+              { hover: false },
+            );
+          }
+          districtHoveredStateId = null;
+          hoveredStateId = null;
+          setHoverData(null);
+        }
+      });
+
+      (map as any).current.on('mouseleave', 'projectData-circles', () => {
+        (map as any).current.getCanvas().style.cursor = 'default';
+        setProjectHoverData(null);
+      });
       // click effect on map
       (map as any).current.on('click', 'country-layer-overlay', (e: any) => {
         const indx = CountryTaxonomy.findIndex((d) => d['Alpha-3 code-1'] === e.features[0].properties.iso_3);
@@ -351,7 +364,9 @@ export function MapEl(props: Props) {
   });
   useEffect(() => {
     if (map.current) {
-      if ((map as any).current.getLayer('district-layer') && (map as any).current.getLayer('district-layer-pop') && (map as any).current.getLayer('district-layer-highlight') && (map as any).current.getLayer('district-layer-highlight-selected') && (map as any).current.getLayer('projectData-circles') && (map as any).current.getLayer('district-layer-poor-region-highlight')) {
+      if ((map as any).current.getLayer('district-layer') && (map as any).current.getLayer('district-layer-highlight') && (map as any).current.getLayer('district-layer-highlight-selected') && (map as any).current.getLayer('projectData-circles')) {
+        (map as any).current.setFilter('country-layer-overlay', ['!=', 'iso_3', !selectedCountry ? '' : CountryTaxonomy[CountryTaxonomy.findIndex((d) => d['Country or Area'] === selectedCountry)]['Alpha-3 code-1']]);
+        (map as any).current.setFilter('district-layer-overlay', ['==', 'iso_3', !selectedCountry ? '' : CountryTaxonomy[CountryTaxonomy.findIndex((d) => d['Country or Area'] === selectedCountry)]['Alpha-3 code-1']]);
         if (!selectedDistrict) {
           if (selectedCountry) {
             const indx = CountryTaxonomy.findIndex((d) => d['Country or Area'] === selectedCountry);
@@ -384,20 +399,18 @@ export function MapEl(props: Props) {
   }, [selectedCountry, selectedDistrict]);
   useEffect(() => {
     if (map.current) {
-      if ((map as any).current.getLayer('district-layer') && (map as any).current.getLayer('district-layer-pop') && (map as any).current.getLayer('district-layer-highlight') && (map as any).current.getLayer('district-layer-highlight-selected') && (map as any).current.getLayer('projectData-circles') && (map as any).current.getLayer('district-layer-poor-region-highlight')) {
+      if ((map as any).current.getLayer('district-layer') && (map as any).current.getLayer('district-layer-highlight') && (map as any).current.getLayer('district-layer-highlight-selected') && (map as any).current.getLayer('projectData-circles')) {
         if (layer === 1) {
-          (map as any).current.setLayoutProperty('district-layer', 'visibility', 'visible');
-          (map as any).current.setLayoutProperty('district-layer-pop', 'visibility', 'none');
+          (map as any).current.setPaintProperty('district-layer', 'fill-color', ['get', 'eaAccessPctColor']);
         } else {
-          (map as any).current.setLayoutProperty('district-layer', 'visibility', 'none');
-          (map as any).current.setLayoutProperty('district-layer-pop', 'visibility', 'visible');
+          (map as any).current.setPaintProperty('district-layer', 'fill-color', ['get', 'eaNoAccessColor']);
         }
       }
     }
   }, [layer]);
   useEffect(() => {
     if (map.current) {
-      if ((map as any).current.getLayer('district-layer') && (map as any).current.getLayer('district-layer-pop') && (map as any).current.getLayer('district-layer-highlight') && (map as any).current.getLayer('district-layer-highlight-selected') && (map as any).current.getLayer('projectData-circles') && (map as any).current.getLayer('district-layer-poor-region-highlight')) {
+      if ((map as any).current.getLayer('district-layer') && (map as any).current.getLayer('district-layer-highlight') && (map as any).current.getLayer('district-layer-highlight-selected') && (map as any).current.getLayer('projectData-circles')) {
         if (showProjects) {
           (map as any).current.setLayoutProperty('projectData-circles', 'visibility', 'visible');
         } else {
@@ -408,7 +421,7 @@ export function MapEl(props: Props) {
   }, [showProjects]);
   useEffect(() => {
     if (map.current) {
-      if ((map as any).current.getLayer('district-layer') && (map as any).current.getLayer('district-layer-pop') && (map as any).current.getLayer('district-layer-highlight') && (map as any).current.getLayer('district-layer-highlight-selected') && (map as any).current.getLayer('projectData-circles') && (map as any).current.getLayer('district-layer-poor-region-highlight')) {
+      if ((map as any).current.getLayer('district-layer') && (map as any).current.getLayer('district-layer-highlight') && (map as any).current.getLayer('district-layer-highlight-selected') && (map as any).current.getLayer('projectData-circles')) {
         if (hideLabels) {
           (map as any).current.setLayoutProperty('raster-labels', 'visibility', 'none');
         } else {
@@ -420,29 +433,21 @@ export function MapEl(props: Props) {
 
   useEffect(() => {
     if (map.current) {
-      if ((map as any).current.getLayer('district-layer') && (map as any).current.getLayer('district-layer-pop') && (map as any).current.getLayer('district-layer-highlight') && (map as any).current.getLayer('district-layer-highlight-selected') && (map as any).current.getLayer('projectData-circles') && (map as any).current.getLayer('district-layer-poor-region-highlight')) {
-        (map as any).current.setFilter('district-layer-highlight', ['>=', 'eaAccessPct', highlightThreshold + 0.001]);
+      if ((map as any).current.getLayer('district-layer') && (map as any).current.getLayer('district-layer-highlight') && (map as any).current.getLayer('district-layer-highlight-selected') && (map as any).current.getLayer('projectData-circles')) {
+        if (showPoorRegions) (map as any).current.setFilter('district-layer', ['all', ['<', 'RWI_AVG', 0], ['<', 'eaAccessPct', highlightThreshold + 0.001]]);
+        else (map as any).current.setFilter('district-layer', ['<', 'eaAccessPct', highlightThreshold + 0.001]);
       }
     }
-  }, [highlightThreshold]);
-
-  useEffect(() => {
-    if (map.current) {
-      if ((map as any).current.getLayer('district-layer') && (map as any).current.getLayer('district-layer-pop') && (map as any).current.getLayer('district-layer-highlight') && (map as any).current.getLayer('district-layer-highlight-selected') && (map as any).current.getLayer('projectData-circles') && (map as any).current.getLayer('district-layer-poor-region-highlight')) {
-        if (showPoorRegions) {
-          (map as any).current.setLayoutProperty('district-layer-poor-region-highlight', 'visibility', 'visible');
-        } else {
-          (map as any).current.setLayoutProperty('district-layer-poor-region-highlight', 'visibility', 'none');
-        }
-      }
-    }
-  }, [showPoorRegions]);
+  }, [highlightThreshold, showPoorRegions]);
 
   return (
     <>
       <div style={{ position: 'absolute', width: '100%', height: '100%' }} ref={mapContainer} />
       {
         hoverData ? <Tooltip city={hoverData.city} country={hoverData.country} popValue={hoverData.popValue} pctValue={hoverData.pctValue} xPosition={hoverData.xPosition} yPosition={hoverData.yPosition} /> : null
+      }
+      {
+        projectHoverData ? <ProjectTooltip text={projectHoverData.text} xPosition={projectHoverData.xPosition} yPosition={projectHoverData.yPosition} /> : null
       }
     </>
   );
