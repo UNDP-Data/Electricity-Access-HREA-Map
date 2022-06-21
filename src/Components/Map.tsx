@@ -236,8 +236,6 @@ export function MapEl(props: Props) {
           'circle-stroke-width': 1,
         },
       });
-
-      // Create a popup, but don't add it to the map yet.
     });
     (map as any).current.on('load', () => {
       // mouse over effect on district layer
