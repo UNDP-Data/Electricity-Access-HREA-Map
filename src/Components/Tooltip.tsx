@@ -76,7 +76,7 @@ const TooltipHead = styled.div`
 const TooltipEl = styled.div<TooltipElProps>`
   display: block;
   position: fixed;
-  z-index: 10;
+  z-index: 1001;
   border-radius: 1rem;
   font-size: 1.4rem;
   background-color: var(--white);
@@ -126,7 +126,7 @@ export function Tooltip(props: Props) {
         <RowEl>
           <FlexRow>
             <RowTitleEl>
-              Percent Electricity Access
+              Percent Access to Relaible Energy Services
             </RowTitleEl>
             <RowValue>
               {
@@ -138,7 +138,7 @@ export function Tooltip(props: Props) {
         <RowEl>
           <FlexRow>
             <RowTitleEl>
-              No. Of People W/O Electricity
+              # People W/O Access to Relaible Energy Services
             </RowTitleEl>
             <RowValue>
               {

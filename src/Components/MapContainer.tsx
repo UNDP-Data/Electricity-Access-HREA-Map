@@ -410,7 +410,7 @@ export function MapContainer() {
                     </RowEl>
                     <RowEl>
                       <BodyEl>
-                        Percent Electrcity Access
+                        Percent access to relaible energy services
                         {' '}
                         <SubNoteEl>(2020)</SubNoteEl>
                       </BodyEl>
@@ -422,7 +422,7 @@ export function MapContainer() {
                     </RowEl>
                     <RowEl>
                       <BodyEl>
-                        No. Of People Without Electricity
+                        No. Of People Without Access to Relaible Energy Services
                         {' '}
                         <SubNoteEl>(2020)</SubNoteEl>
                       </BodyEl>
@@ -480,7 +480,7 @@ export function MapContainer() {
                     </DropdownEl>
                     <RowEl>
                       <BodyEl>
-                        Percent Electrcity Access
+                        Percent With Access to Relaible Electricity Services
                         {' '}
                         <SubNoteEl>(2020)</SubNoteEl>
                       </BodyEl>
@@ -492,7 +492,7 @@ export function MapContainer() {
                     </RowEl>
                     <RowEl>
                       <BodyEl>
-                        No. Of People Without Electricity
+                        No. Of People Without Access to Relaible Electricity Services
                         {' '}
                         <SubNoteEl>(2020)</SubNoteEl>
                       </BodyEl>
@@ -577,7 +577,7 @@ export function MapContainer() {
                   <BodyContainer>
                     <RowEl>
                       <BodyEl>
-                        Percent Electrcity Access
+                        Percent Access to Relaible Electricity Services
                         {' '}
                         <SubNoteEl>(2020)</SubNoteEl>
                       </BodyEl>
@@ -595,7 +595,7 @@ export function MapContainer() {
                     </RowEl>
                     <RowEl>
                       <BodyEl>
-                        No. Of People Without Electricity
+                        No. Of People Without Access to Relaible Energy Services
                         {' '}
                         <SubNoteEl>(2020)</SubNoteEl>
                       </BodyEl>
@@ -636,8 +636,8 @@ export function MapContainer() {
               <TitleEl>Select A Layer</TitleEl>
               <Radio.Group onChange={(e) => { setLayer(e.target.value); }} value={layer}>
                 <Space direction='vertical'>
-                  <Radio value={1}>Electricity Access</Radio>
-                  <Radio value={2}>No. of People Without Elec.</Radio>
+                  <Radio value={1}>Access to Relaible Energy Services</Radio>
+                  <Radio value={2}>No. of People Without Relaible Energy Services</Radio>
                 </Space>
               </Radio.Group>
               <Divider />
@@ -651,8 +651,14 @@ export function MapContainer() {
                 <Slider defaultValue={100} min={1} max={100} onAfterChange={(d) => { setHighlightThreshold(d); }} />
               </>
               <Space direction='vertical'>
-                <Checkbox onChange={(e) => { setShowPoorRegions(e.target.checked); }}>Only Show Poor Regions</Checkbox>
-                <Checkbox onChange={(e) => { setShowProjects(e.target.checked); }}>Show Active UNDP Projects</Checkbox>
+                <Checkbox onChange={(e) => { setShowPoorRegions(e.target.checked); }}>
+                  Only Show Poor Regions
+                  <sup>[1]</sup>
+                </Checkbox>
+                <Checkbox onChange={(e) => { setShowProjects(e.target.checked); }}>
+                  Show Active UNDP Projects
+                  <sup>[2]</sup>
+                </Checkbox>
                 <Checkbox onChange={(e) => { setHideLabels(e.target.checked); }}>Hide Labels</Checkbox>
               </Space>
             </LayerSelectorEl>
@@ -687,7 +693,7 @@ export function MapContainer() {
         countryShapeData && projectDataShape && districtShapeData && countryAccessData && worldData
           ? (
             <KeyEl>
-              <div>{ layer === 1 ? '%age Electricity Access' : 'Population Without Elec.'}</div>
+              <div>{ layer === 1 ? '%age Access to Relaible Electricity Services' : 'Population Without Access to Relaible Electricity Services'}</div>
               {
               layer === 1
                 ? (
