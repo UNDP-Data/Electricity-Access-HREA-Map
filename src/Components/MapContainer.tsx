@@ -4,11 +4,10 @@ import { useEffect, useState } from 'react';
 import { format } from 'd3-format';
 import { scaleThreshold } from 'd3-scale';
 import {
-  Spin, Select, Radio, Space, Slider, Checkbox, Divider,
+  Select, Radio, Space, Slider, Checkbox,
 } from 'antd';
 import uniqBy from 'lodash.uniqby';
 import sumBy from 'lodash.sumby';
-import 'antd/dist/antd.css';
 import DistrictMap from '../Data/DistrictShape.json';
 import CountryMap from '../Data/CountryShape.json';
 import ProjectData from '../Data/projectData.json';
@@ -24,85 +23,26 @@ import {
 import { AccessDataType, CountryAccessDataType } from '../Types';
 
 const SideBar = styled.div`
-  padding: 2rem 0 0 0;
   position: absolute;
-  z-index: 1000;
-  margin: 2rem 0 0 2rem;
-  border-radius: 0.4rem;
-  box-shadow: var(--shadow);
-  font-size: 1.6rem;
-  background-color: var(--white-opacity);
-  width: 32rem;
-  color: var(--black-700);
+  padding: 2rem;
+  z-index: 5;
+  margin: 1rem 0 0 1rem;
+  background-color: rgba(255,255,255,0.75);
+  width: 25rem;
 `;
 
 const KeyEl = styled.div`
   padding: 1rem;
   position: absolute;
-  z-index: 1000;
+  z-index: 5;
   bottom: 0;
   right: 0;
-  margin: 0 2rem 2rem 0;
-  border-radius: 0.4rem;
-  box-shadow: var(--shadow);
-  background-color: var(--white-opacity);
+  margin: 0 1rem 1rem 0;
+  background-color: rgba(255,255,255,0.75);
   div {
-    font-size: 1.6rem;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
   }
-`;
-const HeadingEl = styled.div`
-  font-size: 2.4rem;
-  line-height: 3.2rem;
-  font-weight: bold;
-  padding: 0 2rem 1rem 2rem;
-  border-bottom: 1px solid var(--black-500);
-  margin: 0;
-`;
-
-const SubNoteSpan = styled.span`
-  font-size: 1.4rem;
-  font-weight: normal;
-`;
-
-const BodyContainer = styled.div`
-  padding: 0 2rem;
-`;
-
-const BodyEl = styled.div`
-  font-size: 1.4rem;
-  line-height: 2rem;
-`;
-
-const BodyHead = styled.div`
-  font-size: 1.8rem;
-  margin-top: 0.3rem;
-  line-height: 2rem;
-  font-weight: bold;
-`;
-
-const SubNote = styled.span`
-  font-size: 1.4rem;
-  line-height: 2rem;
-  font-weight: normal;
-  color: var(--black-550);
-`;
-
-const SubNoteEl = styled.span`
-  font-size: 1.2rem;
-  font-style: italic;
-`;
-
-const RowEl = styled.div`
-  margin: 1.5rem 0 2rem 0;
-`;
-
-const BackEl = styled.div`
-  font-size: 1.4rem;
-  color: var(--primary-blue);
-  cursor: pointer;
-  marign-bottom: 1rem;
 `;
 
 const getBoundingBox = (data: any) => {
@@ -137,74 +77,15 @@ const getBoundingBox = (data: any) => {
   }
   return bounds;
 };
-interface ElProps {
-  fixedHeight: boolean;
-}
-
-const LoadingEl = styled.div<ElProps>`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: ${(props) => (props.fixedHeight ? '80rem' : 'calc(100vh - 70px)')};
-`;
-
-const DropdownEl = styled.div`
-  font-size: 1.2rem;
-  text-transform: uppercase;
-  margin-top: 1.5rem;
-  font-weight: bold;
-  .ant-select{
-    width: 100%;
-  }
-`;
-
-const ProjectDataEl = styled.div`
-  padding: 1.5rem 0;
-  border-top: 1px solid var(--black-500);
-  h3 {
-    font-size: 1.4rem;
-    margin: 0;
-    text-transform: uppercase;
-    font-weight: bold;
-  }
-`;
-
-const TableRowEl = styled.div`
-  display: flex;
-  justify-content: space-between;
-  padding: 0.5rem 0;
-  font-size: 1.4rem;
-`;
-
-const RowValue = styled.div`
-  font-size: 1.8rem;
-`;
-
-const El = styled.div<ElProps>`
-  background-color: var(--blue-very-light);
-  position: relative;
-  height: ${(props) => (props.fixedHeight ? '80rem' : 'calc(100vh - 70px)')};
-`;
 
 const LayerSelectorEl = styled.div`
-  padding: 0 1rem 1rem 1rem;
+  padding: 1rem;
   position: absolute;
   right: 0;
-  margin: 2rem 2rem 0 0;
-  z-index: 1000;
-  border-radius: 0.4rem;
-  box-shadow: var(--shadow);
-  font-size: 1.4rem;
-  background-color: var(--white-opacity);
-  color: var(--black-700);
+  margin: 1rem 1rem 0 0;
+  z-index: 5;
+  background-color: rgba(255, 255,255, 0.75);
   float: right;
-`;
-
-const TitleEl = styled.div`
-  margin: 1rem 0;
-  font-size: 1.4rem;
-  font-weight: bold;
-  text-transform: uppercase;
 `;
 
 export function MapContainer() {
@@ -338,227 +219,216 @@ export function MapContainer() {
   }, []);
 
   return (
-    <El fixedHeight={!!window.location.href.includes('data.undp.org')}>
+    <div style={{ height: window.location.href.includes('data.undp.org') ? '80rem' : 'calc(100vh - 80px)', position: 'relative' }}>
       {
         countryShapeData && projectDataShape && districtShapeData && countryAccessData && worldData
           ? (
             <SideBar>
-              <HeadingEl>
-                {
-                  selectedDistrict ? (
-                    <BackEl onClick={() => {
+              {
+                selectedDistrict ? (
+                  <button
+                    type='button'
+                    className='undp-button button-tertiary'
+                    onClick={() => {
                       setSelectedDistrict(undefined);
                     }}
-                    >
-                      {`← Back to ${selectedCountry}`}
-                    </BackEl>
-                  )
-                    : selectedCountry ? (
-                      <BackEl onClick={() => {
+                  >
+                    {`← Back to ${selectedCountry}`}
+                  </button>
+                )
+                  : selectedCountry ? (
+                    <button
+                      type='button'
+                      className='undp-button button-tertiary'
+                      onClick={() => {
                         setSelectedCountry(undefined);
                       }}
-                      >
-                        ← Back to Global View
-                      </BackEl>
-                    ) : null
-                }
+                    >
+                      ← Back to Global View
+                    </button>
+                  ) : null
+              }
+              <h3 className='undp-typography margin-bottom-04'>
                 {
                   selectedDistrict
                     ? (
                       <>
                         {(AccessDataForDistricts as AccessDataType[])[(AccessDataForDistricts as AccessDataType[]).findIndex((d) => d.adm2_id === selectedDistrict)]?.adm2_name}
                         {' '}
-                        <SubNoteSpan>
+                        <span className='small-font'>
                           (
                           {selectedCountry}
                           )
-                        </SubNoteSpan>
+                        </span>
                       </>
                     )
                     : selectedCountry || 'World'
                 }
-              </HeadingEl>
+              </h3>
               {
                 !selectedCountry && !selectedDistrict ? (
-                  <BodyContainer>
-                    <DropdownEl>
-                      <div>
-                        Select Country
-                      </div>
-                      <Select
-                        showSearch
-                        placeholder='Select a country'
-                        onChange={(d) => { setSelectedCountry(d); }}
-                      >
-                        {
-                          countryAccessData.map((d, i) => <Select.Option key={i} value={d.name}>{d.name}</Select.Option>)
-                        }
-                      </Select>
-                    </DropdownEl>
-                    <RowEl>
-                      <BodyEl>
-                        Data is calculated for
-                        {' '}
-                        {countryAccessData.length}
-                        {' '}
-                        countries.
-                        {' '}
-                        <SubNoteEl>
-                          Click on a country to explore data for the country
-                        </SubNoteEl>
-                      </BodyEl>
-                    </RowEl>
-                    <RowEl>
-                      <BodyEl>
-                        Percent access to relaible energy services
-                        {' '}
-                        <SubNoteEl>(2020)</SubNoteEl>
-                      </BodyEl>
-                      <BodyHead>
+                  <div>
+                    <p className='label'>
+                      Select Country
+                    </p>
+                    <Select
+                      showSearch
+                      placeholder='Select a country'
+                      className='undp-select'
+                      onChange={(d) => { setSelectedCountry(d); }}
+                    >
+                      {
+                        countryAccessData.map((d, i) => <Select.Option key={i} className='undp-select-option' value={d.name}>{d.name}</Select.Option>)
+                      }
+                    </Select>
+                    <hr className='undp-style margin-top-07 margin-bottom-07' />
+                    <p className='undp-typography margin-bottom-07' style={{ fontSize: '0.875rem' }}>
+                      Data is calculated for
+                      {' '}
+                      {countryAccessData.length}
+                      {' '}
+                      countries.
+                      {' '}
+                      <span className='italics'>
+                        Click on a country to explore data for the country
+                      </span>
+                    </p>
+                    <div className='margin-bottom-07'>
+                      <h6 className='undp-typography margin-bottom-03'>
+                        Percent access to relaible energy services (2020)
+                      </h6>
+                      <h4 className='undp-typography bold'>
                         {
                           `${((worldData.PopAccess2020 * 100) / worldData.TotPopulation).toFixed(2)}%`
                         }
-                      </BodyHead>
-                    </RowEl>
-                    <RowEl>
-                      <BodyEl>
-                        No. Of People Without Access to Relaible Energy Services
-                        {' '}
-                        <SubNoteEl>(2020)</SubNoteEl>
-                      </BodyEl>
-                      <BodyHead>
+                      </h4>
+                    </div>
+                    <div className='margin-bottom-07'>
+                      <h6 className='undp-typography margin-bottom-03'>
+                        No. Of People Without Access to Relaible Energy Services (2020)
+                      </h6>
+                      <h4 className='undp-typography bold margin-bottom-01'>
                         {
                           format(',')(Math.round((worldData.TotPopulation - worldData.PopAccess2020))).replaceAll(',', ' ')
                         }
-                        {' '}
-                        <SubNote>
-                          (
-                          <span className='bold'>
-                            {
-                              format(',')(Math.round((worldData.TotPopulationLowRWI - worldData.PopAccess2020LowRWI))).replaceAll(',', ' ')
-                            }
-                            {' '}
-                            (
-                            {(((worldData.TotPopulationLowRWI - worldData.PopAccess2020LowRWI) * 100) / (worldData.TotPopulation - worldData.PopAccess2020)).toFixed(1)}
-                            %
-                            )
-                          </span>
+                      </h4>
+                      <p className='undp-typography'>
+                        <span className='bold'>
+                          {
+                            format(',')(Math.round((worldData.TotPopulationLowRWI - worldData.PopAccess2020LowRWI))).replaceAll(',', ' ')
+                          }
                           {' '}
-                          belong to poor regions)
-                        </SubNote>
-                      </BodyHead>
-                    </RowEl>
-                    <RowEl>
-                      <BodyEl>
-                        TimeSeries Data
-                      </BodyEl>
-                      <BodyHead>
-                        <LineChartForCountry data={worldData} />
-                      </BodyHead>
-                    </RowEl>
-                  </BodyContainer>
+                          (
+                          {(((worldData.TotPopulationLowRWI - worldData.PopAccess2020LowRWI) * 100) / (worldData.TotPopulation - worldData.PopAccess2020)).toFixed(1)}
+                          %
+                          )
+                        </span>
+                        {' '}
+                        belong to poor regions
+                      </p>
+                    </div>
+                    <h6 className='undp-typography'>
+                      TimeSeries Data
+                    </h6>
+                    <LineChartForCountry data={worldData} />
+                  </div>
                 ) : null
               }
               {
                 selectedCountry && !selectedDistrict ? (
-                  <BodyContainer>
-                    <DropdownEl>
-                      <div>
-                        Select District
-                      </div>
-                      <Select
-                        showSearch
-                        placeholder='Select a District'
-                        onChange={(d) => { setSelectedDistrict(d.split(' | ')[0]); }}
-                      >
-                        {
-                          (AccessDataForDistricts as AccessDataType[])
-                            .filter((d) => d.adm2_id.substring(0, 3) === CountryTaxonomy[CountryTaxonomy.findIndex((el) => el['Country or Area'] === selectedCountry)]['Alpha-3 code-1'])
-                            .map((d, i) => <Select.Option key={i} value={`${d.adm2_id} | ${d.adm2_name}`}>{d.adm2_name}</Select.Option>)
-                        }
-                      </Select>
-                    </DropdownEl>
-                    <RowEl>
-                      <BodyEl>
-                        Percent With Access to Relaible Electricity Services
-                        {' '}
-                        <SubNoteEl>(2020)</SubNoteEl>
-                      </BodyEl>
-                      <BodyHead>
+                  <div>
+                    <p className='label'>
+                      Select District
+                    </p>
+                    <Select
+                      showSearch
+                      placeholder='Select a District'
+                      className='undp-select'
+                      onChange={(d) => { setSelectedDistrict(d.split(' | ')[0]); }}
+                    >
+                      {
+                        (AccessDataForDistricts as AccessDataType[])
+                          .filter((d) => d.adm2_id.substring(0, 3) === CountryTaxonomy[CountryTaxonomy.findIndex((el) => el['Country or Area'] === selectedCountry)]['Alpha-3 code-1'])
+                          .map((d, i) => <Select.Option key={i} className='undp-select-option' value={`${d.adm2_id} | ${d.adm2_name}`}>{d.adm2_name}</Select.Option>)
+                      }
+                    </Select>
+                    <hr className='undp-style margin-top-07 margin-bottom-07' />
+                    <div className='margin-bottom-07'>
+                      <h6 className='undp-typography margin-bottom-03'>
+                        Percent With Access to Relaible Electricity Services (2020)
+                      </h6>
+                      <h4 className='undp-typography bold'>
                         {
                           `${((countryAccessData[countryAccessData.findIndex((d) => d.name === selectedCountry)].PopAccess2020 * 100) / countryAccessData[countryAccessData.findIndex((d) => d.name === selectedCountry)].TotPopulation).toFixed(2)}%`
                         }
-                      </BodyHead>
-                    </RowEl>
-                    <RowEl>
-                      <BodyEl>
-                        No. Of People Without Access to Relaible Electricity Services
-                        {' '}
-                        <SubNoteEl>(2020)</SubNoteEl>
-                      </BodyEl>
-                      <BodyHead>
+                      </h4>
+                    </div>
+                    <div className='margin-bottom-07'>
+                      <h6 className='undp-typography margin-bottom-03'>
+                        No. Of People Without Access to Relaible Electricity Services (2020)
+                      </h6>
+                      <h4 className='undp-typography bold margin-bottom-01'>
                         {
                           format(',')(Math.round(countryAccessData[countryAccessData.findIndex((d) => d.name === selectedCountry)].TotPopulation - countryAccessData[countryAccessData.findIndex((d) => d.name === selectedCountry)].PopAccess2020)).replaceAll(',', ' ')
                         }
-                        {' '}
-                        <SubNote>
-                          (
-                          <span className='bold'>
-                            {
-                              format(',')(Math.round(countryAccessData[countryAccessData.findIndex((d) => d.name === selectedCountry)].TotPopulationLowRWI - countryAccessData[countryAccessData.findIndex((d) => d.name === selectedCountry)].PopAccess2020LowRWI)).replaceAll(',', ' ')
-                            }
-                            {' '}
-                            (
-                            {(((countryAccessData[countryAccessData.findIndex((d) => d.name === selectedCountry)].TotPopulationLowRWI - countryAccessData[countryAccessData.findIndex((d) => d.name === selectedCountry)].PopAccess2020LowRWI) * 100) / (countryAccessData[countryAccessData.findIndex((d) => d.name === selectedCountry)].TotPopulation - countryAccessData[countryAccessData.findIndex((d) => d.name === selectedCountry)].PopAccess2020)).toFixed(1)}
-                            %
-                            )
-                          </span>
+                      </h4>
+                      <p className='undp-typography'>
+                        <span className='bold'>
+                          {
+                            format(',')(Math.round(countryAccessData[countryAccessData.findIndex((d) => d.name === selectedCountry)].TotPopulationLowRWI - countryAccessData[countryAccessData.findIndex((d) => d.name === selectedCountry)].PopAccess2020LowRWI)).replaceAll(',', ' ')
+                          }
                           {' '}
-                          belong to poor regions)
-                        </SubNote>
-                      </BodyHead>
-                    </RowEl>
-                    <RowEl>
-                      <BodyEl>
+                          (
+                          {(((countryAccessData[countryAccessData.findIndex((d) => d.name === selectedCountry)].TotPopulationLowRWI - countryAccessData[countryAccessData.findIndex((d) => d.name === selectedCountry)].PopAccess2020LowRWI) * 100) / (countryAccessData[countryAccessData.findIndex((d) => d.name === selectedCountry)].TotPopulation - countryAccessData[countryAccessData.findIndex((d) => d.name === selectedCountry)].PopAccess2020)).toFixed(1)}
+                          %
+                          )
+                        </span>
+                        {' '}
+                        belong to poor regions
+                      </p>
+                    </div>
+                    <div className='margin-bottom-07'>
+                      <h6 className='undp-typography'>
                         TimeSeries Data
-                      </BodyEl>
-                      <BodyHead>
+                      </h6>
+                      <h4 className='undp-typography bold'>
                         {
                           countryAccessData.findIndex((d) => d.name === selectedCountry) !== -1
                             ? <LineChartForCountry data={countryAccessData[countryAccessData.findIndex((d) => d.name === selectedCountry)]} />
                             : 'NA'
                         }
-                      </BodyHead>
-                    </RowEl>
-                    <ProjectDataEl>
-                      <h3>
+                      </h4>
+                    </div>
+                    <div>
+                      <hr className='undp-style margin-bottom-07' />
+                      <h6 className='undp-typography'>
                         UNDP Active Projects Summary in
                         {' '}
                         {selectedCountry}
-                      </h3>
-                      <TableRowEl>
-                        <div>No. of Projects</div>
-                        <RowValue className='bold'>
+                      </h6>
+                      <div className='flex-div flex-space-between flex-vert-align-center'>
+                        <p className='undp-typography'>No. of Projects</p>
+                        <p className='undp-typography bold'>
                           {
                             CountryProjectSummaryData.findIndex((d) => d['Lead Country'] === selectedCountry) === -1
                               ? 'NA'
                               : CountryProjectSummaryData[CountryProjectSummaryData.findIndex((d) => d['Lead Country'] === selectedCountry)]['Number of projects']
                           }
-                        </RowValue>
-                      </TableRowEl>
-                      <TableRowEl>
-                        <div>Grant Amount</div>
-                        <RowValue className='bold'>
+                        </p>
+                      </div>
+                      <div className='flex-div flex-space-between flex-vert-align-center'>
+                        <p className='undp-typography'>Grant Amount</p>
+                        <p className='undp-typography bold'>
                           {
                             CountryProjectSummaryData.findIndex((d) => d['Lead Country'] === selectedCountry) === -1
                               ? 'NA'
                               : `US$ ${format('.3s')(CountryProjectSummaryData[CountryProjectSummaryData.findIndex((d) => d['Lead Country'] === selectedCountry)]['Grant Amount']).replace('G', 'B')}`
                           }
-                        </RowValue>
-                      </TableRowEl>
-                      <TableRowEl>
-                        <div>No. of People Benefitting</div>
-                        <RowValue className='bold'>
+                        </p>
+                      </div>
+                      <div className='flex-div flex-space-between flex-vert-align-center'>
+                        <p className='undp-typography'>No. of People Benefitting</p>
+                        <p className='undp-typography bold'>
                           {
                             CountryProjectSummaryData.findIndex((d) => d['Lead Country'] === selectedCountry) === -1
                               ? 'NA'
@@ -566,22 +436,21 @@ export function MapContainer() {
                                 ? 'NA'
                                 : `${format(',')(CountryProjectSummaryData[CountryProjectSummaryData.findIndex((d) => d['Lead Country'] === selectedCountry)]['People directly benefiting'] as number).replaceAll(',', ' ')}`
                           }
-                        </RowValue>
-                      </TableRowEl>
-                    </ProjectDataEl>
-                  </BodyContainer>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                 ) : null
               }
               {
                 selectedDistrict ? (
-                  <BodyContainer>
-                    <RowEl>
-                      <BodyEl>
-                        Percent Access to Relaible Electricity Services
-                        {' '}
-                        <SubNoteEl>(2020)</SubNoteEl>
-                      </BodyEl>
-                      <BodyHead>
+                  <div>
+                    <hr className='undp-style margin-top-07 margin-bottom-07' />
+                    <div className='margin-bottom-07'>
+                      <h6 className='undp-typography margin-bottom-03'>
+                        Percent Access to Relaible Electricity Services (2020)
+                      </h6>
+                      <h4 className='undp-typography bold'>
                         {
                           (AccessDataForDistricts as AccessDataType[]).findIndex((d: any) => d.adm2_id === selectedDistrict) !== -1
                             ? `${
@@ -591,15 +460,13 @@ export function MapContainer() {
                             } %`
                             : 'NA'
                         }
-                      </BodyHead>
-                    </RowEl>
-                    <RowEl>
-                      <BodyEl>
-                        No. Of People Without Access to Relaible Energy Services
-                        {' '}
-                        <SubNoteEl>(2020)</SubNoteEl>
-                      </BodyEl>
-                      <BodyHead>
+                      </h4>
+                    </div>
+                    <div className='margin-bottom-07'>
+                      <h6 className='undp-typography margin-bottom-03'>
+                        No. Of People Without Access to Relaible Energy Services (2020)
+                      </h6>
+                      <h4 className='undp-typography bold'>
                         {
                           (AccessDataForDistricts as AccessDataType[]).findIndex((d: any) => d.adm2_id === selectedDistrict) !== -1
                             ? `${
@@ -609,21 +476,19 @@ export function MapContainer() {
                             }`
                             : 'NA'
                         }
-                      </BodyHead>
-                    </RowEl>
-                    <RowEl>
-                      <BodyEl>
-                        TimeSeries Data
-                      </BodyEl>
-                      <BodyHead>
-                        {
-                          (AccessDataForDistricts as AccessDataType[]).findIndex((d) => d.adm2_id === selectedDistrict) !== -1
-                            ? <LineChartForDistrict data={(AccessDataForDistricts as AccessDataType[])[(AccessDataForDistricts as AccessDataType[]).findIndex((d) => d.adm2_id === selectedDistrict)]} />
-                            : 'NA'
-                        }
-                      </BodyHead>
-                    </RowEl>
-                  </BodyContainer>
+                      </h4>
+                    </div>
+                    <h6 className='undp-typography'>
+                      TimeSeries Data
+                    </h6>
+                    <h4 className='undp-typography bold'>
+                      {
+                        (AccessDataForDistricts as AccessDataType[]).findIndex((d) => d.adm2_id === selectedDistrict) !== -1
+                          ? <LineChartForDistrict data={(AccessDataForDistricts as AccessDataType[])[(AccessDataForDistricts as AccessDataType[]).findIndex((d) => d.adm2_id === selectedDistrict)]} />
+                          : 'NA'
+                      }
+                    </h4>
+                  </div>
                 ) : null
               }
             </SideBar>
@@ -633,33 +498,35 @@ export function MapContainer() {
         countryShapeData && projectDataShape && districtShapeData && countryAccessData && worldData
           ? (
             <LayerSelectorEl>
-              <TitleEl>Select A Layer</TitleEl>
+              <p className='label'>Select A Layer</p>
               <Radio.Group onChange={(e) => { setLayer(e.target.value); }} value={layer}>
                 <Space direction='vertical'>
-                  <Radio value={1}>Access to Relaible Energy Services</Radio>
-                  <Radio value={2}>No. of People Without Relaible Energy Services</Radio>
+                  <Radio className='undp-radio' value={1}>Access to Relaible Energy Services</Radio>
+                  <Radio className='undp-radio' value={2}>No. of People Without Relaible Energy Services</Radio>
                 </Space>
               </Radio.Group>
-              <Divider />
-              <TitleEl>Settings</TitleEl>
+              <hr className='undp-style margin-top-05 margin-bottom-05' />
+              <h6 className='undp-typography margin-bottom-05'>Settings</h6>
               <>
-                {'Showing Region with Access <= '}
-                <span className='bold'>
-                  {highlightThreshold}
-                  %
-                </span>
-                <Slider defaultValue={100} min={1} max={100} onAfterChange={(d) => { setHighlightThreshold(d); }} />
+                <p className='label'>
+                  {'Showing Region with Access <= '}
+                  <span className='bold'>
+                    {highlightThreshold}
+                    %
+                  </span>
+                </p>
+                <Slider className='undp-slider' defaultValue={100} min={1} max={100} onAfterChange={(d) => { setHighlightThreshold(d); }} />
               </>
               <Space direction='vertical'>
-                <Checkbox onChange={(e) => { setShowPoorRegions(e.target.checked); }}>
+                <Checkbox className='undp-checkbox' onChange={(e) => { setShowPoorRegions(e.target.checked); }}>
                   Only Show Poor Regions
                   <sup>[1]</sup>
                 </Checkbox>
-                <Checkbox onChange={(e) => { setShowProjects(e.target.checked); }}>
+                <Checkbox className='undp-checkbox' onChange={(e) => { setShowProjects(e.target.checked); }}>
                   Show Active UNDP Projects
                   <sup>[2]</sup>
                 </Checkbox>
-                <Checkbox onChange={(e) => { setHideLabels(e.target.checked); }}>Hide Labels</Checkbox>
+                <Checkbox className='undp-checkbox' onChange={(e) => { setHideLabels(e.target.checked); }}>Hide Labels</Checkbox>
               </Space>
             </LayerSelectorEl>
           ) : null
@@ -684,9 +551,9 @@ export function MapContainer() {
             />
           )
           : (
-            <LoadingEl fixedHeight={!!window.location.href.includes('data.undp.org')}>
-              <Spin size='large' />
-            </LoadingEl>
+            <div className='flex-div flex-hor-align-center flex-vert-align-center' style={{ height: window.location.href.includes('data.undp.org') ? '80rem' : 'calc(100vh - 80px)' }}>
+              <div className='undp-loader' />
+            </div>
           )
       }
       {
@@ -779,6 +646,6 @@ export function MapContainer() {
             </KeyEl>
           ) : null
       }
-    </El>
+    </div>
   );
 }

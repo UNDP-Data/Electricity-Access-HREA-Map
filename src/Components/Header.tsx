@@ -1,53 +1,27 @@
 import { Modal } from 'antd';
 import { useState } from 'react';
-import styled from 'styled-components';
-
-const HeaderEl = styled.div`
-  padding: 2rem;
-  text-align: center;
-  display: flex;
-  justify-content: space-between;
-  background-color: #f7f7f7;
-  border-bottom: 1px solid var(--black-500);
-  font-size: 1.6rem;
-  line-height: 1.6;
-  align-items: baseline;
-  h1 {
-    font-size: 2.4rem;
-    line-height: 2.4rem;
-    font-weight: bold;
-    color: var(--primary-blue);
-    margin: 0;
-  }
-  button {
-    background: transparent;
-    border: 0;
-    font-size: 1.4rem;
-    line-height: 1.6;
-    text-transform: uppercase;
-    cursor: pointer;
-  }
-`;
 
 export function Header() {
   const [isModalVisible, setIsModalVisible] = useState(false);
   return (
     <>
-      <HeaderEl>
-        <h1>
+      <div className='flex-div flex-space-between flex-vert-align-center' style={{ padding: 'var(--spacing-05)', backgroundColor: 'var(--gray-200)' }}>
+        <h4 className='undp-typography margin-bottom-00 bold'>
           Electricity Access Map
-        </h1>
-        <button type='button' onClick={() => { setIsModalVisible(true); }}>
+        </h4>
+        <button className='undp-button button-primary' type='button' onClick={() => { setIsModalVisible(true); }}>
           Methodology
         </button>
-      </HeaderEl>
+      </div>
       <Modal
+        open={isModalVisible}
+        className='undp-modal'
         title='Methodology'
-        visible={isModalVisible}
+        onOk={() => { setIsModalVisible(false); }}
         onCancel={() => { setIsModalVisible(false); }}
-        footer={[]}
+        width='75%'
       >
-        <p>Lorem Ipsum Dolor Site Amet</p>
+        <p className='undp-typography'>Lorem Ipsum Dolor Site Amet</p>
       </Modal>
     </>
   );
