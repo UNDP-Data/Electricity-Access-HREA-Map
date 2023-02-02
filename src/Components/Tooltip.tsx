@@ -126,7 +126,7 @@ export function Tooltip(props: Props) {
         <RowEl>
           <FlexRow>
             <RowTitleEl>
-              Percent Access to Relaible Energy Services
+              Percent Access to Reliable Energy Services
             </RowTitleEl>
             <RowValue>
               {
@@ -138,7 +138,7 @@ export function Tooltip(props: Props) {
         <RowEl>
           <FlexRow>
             <RowTitleEl>
-              # People W/O Access to Relaible Energy Services
+              # People W/O Access to Reliable Energy Services
             </RowTitleEl>
             <RowValue>
               {

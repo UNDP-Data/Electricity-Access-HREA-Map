@@ -8,7 +8,6 @@ import {
 } from 'antd';
 import uniqBy from 'lodash.uniqby';
 import sumBy from 'lodash.sumby';
-import 'antd/dist/antd.css';
 import DistrictMap from '../Data/DistrictShape.json';
 import CountryMap from '../Data/CountryShape.json';
 import ProjectData from '../Data/projectData.json';
@@ -410,7 +409,7 @@ export function MapContainer() {
                     </RowEl>
                     <RowEl>
                       <BodyEl>
-                        Percent access to relaible energy services
+                        Percent access to reliable energy services
                         {' '}
                         <SubNoteEl>(2020)</SubNoteEl>
                       </BodyEl>
@@ -422,7 +421,7 @@ export function MapContainer() {
                     </RowEl>
                     <RowEl>
                       <BodyEl>
-                        No. Of People Without Access to Relaible Energy Services
+                        No. Of People Without Access to Reliable Energy Services
                         {' '}
                         <SubNoteEl>(2020)</SubNoteEl>
                       </BodyEl>
@@ -480,7 +479,7 @@ export function MapContainer() {
                     </DropdownEl>
                     <RowEl>
                       <BodyEl>
-                        Percent With Access to Relaible Electricity Services
+                        Percent With Access to Reliable Electricity Services
                         {' '}
                         <SubNoteEl>(2020)</SubNoteEl>
                       </BodyEl>
@@ -492,7 +491,7 @@ export function MapContainer() {
                     </RowEl>
                     <RowEl>
                       <BodyEl>
-                        No. Of People Without Access to Relaible Electricity Services
+                        No. Of People Without Access to Reliable Electricity Services
                         {' '}
                         <SubNoteEl>(2020)</SubNoteEl>
                       </BodyEl>
@@ -577,7 +576,7 @@ export function MapContainer() {
                   <BodyContainer>
                     <RowEl>
                       <BodyEl>
-                        Percent Access to Relaible Electricity Services
+                        Percent Access to Reliable Electricity Services
                         {' '}
                         <SubNoteEl>(2020)</SubNoteEl>
                       </BodyEl>
@@ -595,7 +594,7 @@ export function MapContainer() {
                     </RowEl>
                     <RowEl>
                       <BodyEl>
-                        No. Of People Without Access to Relaible Energy Services
+                        No. Of People Without Access to Reliable Energy Services
                         {' '}
                         <SubNoteEl>(2020)</SubNoteEl>
                       </BodyEl>
@@ -636,8 +635,8 @@ export function MapContainer() {
               <TitleEl>Select A Layer</TitleEl>
               <Radio.Group onChange={(e) => { setLayer(e.target.value); }} value={layer}>
                 <Space direction='vertical'>
-                  <Radio value={1}>Access to Relaible Energy Services</Radio>
-                  <Radio value={2}>No. of People Without Relaible Energy Services</Radio>
+                  <Radio value={1}>Access to Reliable Energy Services</Radio>
+                  <Radio value={2}>No. of People Without Reliable Energy Services</Radio>
                 </Space>
               </Radio.Group>
               <Divider />
@@ -693,7 +692,7 @@ export function MapContainer() {
         countryShapeData && projectDataShape && districtShapeData && countryAccessData && worldData
           ? (
             <KeyEl>
-              <div>{ layer === 1 ? '%age Access to Relaible Electricity Services' : 'Population Without Access to Relaible Electricity Services'}</div>
+              <div>{ layer === 1 ? '%age Access to Reliable Electricity Services' : 'Population Without Access to Reliable Electricity Services'}</div>
               {
               layer === 1
                 ? (
