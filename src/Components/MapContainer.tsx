@@ -295,7 +295,7 @@ export function MapContainer() {
                     </p>
                     <div className='margin-bottom-07'>
                       <h6 className='undp-typography margin-bottom-03'>
-                        Percent access to relaible energy services (2020)
+                        Percent access to reliable energy services (2020)
                       </h6>
                       <h4 className='undp-typography bold'>
                         {
@@ -305,7 +305,7 @@ export function MapContainer() {
                     </div>
                     <div className='margin-bottom-07'>
                       <h6 className='undp-typography margin-bottom-03'>
-                        No. Of People Without Access to Relaible Energy Services (2020)
+                        No. Of People Without Access to Reliable Energy Services (2020)
                       </h6>
                       <h4 className='undp-typography bold margin-bottom-01'>
                         {
@@ -355,7 +355,7 @@ export function MapContainer() {
                     <hr className='undp-style margin-top-07 margin-bottom-07' />
                     <div className='margin-bottom-07'>
                       <h6 className='undp-typography margin-bottom-03'>
-                        Percent With Access to Relaible Electricity Services (2020)
+                        Percent With Access to Reliable Electricity Services (2020)
                       </h6>
                       <h4 className='undp-typography bold'>
                         {
@@ -365,7 +365,7 @@ export function MapContainer() {
                     </div>
                     <div className='margin-bottom-07'>
                       <h6 className='undp-typography margin-bottom-03'>
-                        No. Of People Without Access to Relaible Electricity Services (2020)
+                        No. Of People Without Access to Reliable Electricity Services (2020)
                       </h6>
                       <h4 className='undp-typography bold margin-bottom-01'>
                         {
@@ -448,7 +448,7 @@ export function MapContainer() {
                     <hr className='undp-style margin-top-07 margin-bottom-07' />
                     <div className='margin-bottom-07'>
                       <h6 className='undp-typography margin-bottom-03'>
-                        Percent Access to Relaible Electricity Services (2020)
+                        Percent Access to Reliable Electricity Services (2020)
                       </h6>
                       <h4 className='undp-typography bold'>
                         {
@@ -464,7 +464,7 @@ export function MapContainer() {
                     </div>
                     <div className='margin-bottom-07'>
                       <h6 className='undp-typography margin-bottom-03'>
-                        No. Of People Without Access to Relaible Energy Services (2020)
+                        No. Of People Without Access to Reliable Energy Services (2020)
                       </h6>
                       <h4 className='undp-typography bold'>
                         {
@@ -501,8 +501,8 @@ export function MapContainer() {
               <p className='label'>Select A Layer</p>
               <Radio.Group onChange={(e) => { setLayer(e.target.value); }} value={layer}>
                 <Space direction='vertical'>
-                  <Radio className='undp-radio' value={1}>Access to Relaible Energy Services</Radio>
-                  <Radio className='undp-radio' value={2}>No. of People Without Relaible Energy Services</Radio>
+                  <Radio className='undp-radio' value={1}>Access to Reliable Energy Services</Radio>
+                  <Radio className='undp-radio' value={2}>No. of People Without Reliable Energy Services</Radio>
                 </Space>
               </Radio.Group>
               <hr className='undp-style margin-top-05 margin-bottom-05' />
@@ -560,7 +560,7 @@ export function MapContainer() {
         countryShapeData && projectDataShape && districtShapeData && countryAccessData && worldData
           ? (
             <KeyEl>
-              <div>{ layer === 1 ? '%age Access to Relaible Electricity Services' : 'Population Without Access to Relaible Electricity Services'}</div>
+              <div>{ layer === 1 ? '%age Access to Reliable Electricity Services' : 'Population Without Access to Reliable Electricity Services'}</div>
               {
               layer === 1
                 ? (

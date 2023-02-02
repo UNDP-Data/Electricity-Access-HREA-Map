@@ -67,7 +67,7 @@ export function Tooltip(props: Props) {
       <div style={{ padding: 'var(--spacing-03) var(--spacing-05) var(--spacing-05) var(--spacing-05)' }}>
         <div className='flex-div margin-bottom-00 flex-space-between' style={{ alignItems: 'flex-start' }}>
           <p className='small-font margin-bottom-00'>
-            Percent Access to Relaible Energy Services
+            Percent Access to Reliable Energy Services
           </p>
           <p className='small-font bold margin-bottom-00' style={{ flexShrink: '0' }}>
             {
@@ -77,7 +77,7 @@ export function Tooltip(props: Props) {
         </div>
         <div className='flex-div flex-space-between' style={{ alignItems: 'flex-start' }}>
           <p className='small-font margin-bottom-00'>
-            # People W/O Access to Relaible Energy Services
+            # People W/O Access to Reliable Energy Services
           </p>
           <p className='small-font bold margin-bottom-00' style={{ flexShrink: '0' }}>
             {
